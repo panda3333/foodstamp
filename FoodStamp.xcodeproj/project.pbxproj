@@ -76,6 +76,14 @@
 		52CD882818E6335400C4FF46 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CD882618E6335400C4FF46 /* InfoPlist.strings */; };
 		52CD882A18E6335400C4FF46 /* FoodStampTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CD882918E6335400C4FF46 /* FoodStampTests.m */; };
 		9718FC6C1901FAD9008C7C93 /* FSCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9718FC6B1901FAD9008C7C93 /* FSCache.m */; };
+		971FFC4D192D805F0028FD0C /* background_logged2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 971FFC4A192D805F0028FD0C /* background_logged2x.png */; };
+		971FFC4E192D805F0028FD0C /* facebook_login_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 971FFC4B192D805F0028FD0C /* facebook_login_pressed.png */; };
+		971FFC4F192D805F0028FD0C /* facebook_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 971FFC4C192D805F0028FD0C /* facebook_login.png */; };
+		971FFC53192D81220028FD0C /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC52192D81220028FD0C /* FBLoginViewController.m */; };
+		971FFC59192D82F40028FD0C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC58192D82F40028FD0C /* MBProgressHUD.m */; };
+		971FFC5C192D83000028FD0C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC5B192D83000028FD0C /* Reachability.m */; };
+		971FFC5F192D83860028FD0C /* Comms.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC5E192D83860028FD0C /* Comms.m */; };
+		971FFC61192D843F0028FD0C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 971FFC60192D843F0028FD0C /* FacebookSDK.framework */; };
 		BB6B8ADA1926EF25001FB612 /* 1Descubre_icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AD41926EF25001FB612 /* 1Descubre_icon-01.png */; };
 		BB6B8ADC1926EF25001FB612 /* 1Descubre_icon-03.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AD61926EF25001FB612 /* 1Descubre_icon-03.png */; };
 		BB6B8ADD1926EF25001FB612 /* 1Descubre_icon-06.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AD71926EF25001FB612 /* 1Descubre_icon-06.png */; };
@@ -200,6 +208,18 @@
 		52CD882918E6335400C4FF46 /* FoodStampTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodStampTests.m; sourceTree = "<group>"; };
 		9718FC6A1901FAD9008C7C93 /* FSCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCache.h; sourceTree = "<group>"; };
 		9718FC6B1901FAD9008C7C93 /* FSCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCache.m; sourceTree = "<group>"; };
+		971FFC4A192D805F0028FD0C /* background_logged2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_logged2x.png; sourceTree = "<group>"; };
+		971FFC4B192D805F0028FD0C /* facebook_login_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_login_pressed.png; sourceTree = "<group>"; };
+		971FFC4C192D805F0028FD0C /* facebook_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_login.png; sourceTree = "<group>"; };
+		971FFC51192D81220028FD0C /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginViewController.h; sourceTree = "<group>"; };
+		971FFC52192D81220028FD0C /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginViewController.m; sourceTree = "<group>"; };
+		971FFC57192D82F40028FD0C /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		971FFC58192D82F40028FD0C /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		971FFC5A192D83000028FD0C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		971FFC5B192D83000028FD0C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		971FFC5D192D83860028FD0C /* Comms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comms.h; sourceTree = "<group>"; };
+		971FFC5E192D83860028FD0C /* Comms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comms.m; sourceTree = "<group>"; };
+		971FFC60192D843F0028FD0C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		BB6B8AD41926EF25001FB612 /* 1Descubre_icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1Descubre_icon-01.png"; path = "screen2_Slider/1Descubre_icon-01.png"; sourceTree = "<group>"; };
 		BB6B8AD61926EF25001FB612 /* 1Descubre_icon-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1Descubre_icon-03.png"; path = "screen2_Slider/1Descubre_icon-03.png"; sourceTree = "<group>"; };
 		BB6B8AD71926EF25001FB612 /* 1Descubre_icon-06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1Descubre_icon-06.png"; path = "screen2_Slider/1Descubre_icon-06.png"; sourceTree = "<group>"; };
@@ -239,6 +259,7 @@
 				52CD880118E6335400C4FF46 /* CoreGraphics.framework in Frameworks */,
 				52B2E0E718EB4C2F00903CBC /* CFNetwork.framework in Frameworks */,
 				52B2E0E518EB4C2600903CBC /* AudioToolbox.framework in Frameworks */,
+				971FFC61192D843F0028FD0C /* FacebookSDK.framework in Frameworks */,
 				52CD880318E6335400C4FF46 /* UIKit.framework in Frameworks */,
 				52B2E0E318EB4BF400903CBC /* Parse.framework in Frameworks */,
 				52CD87FF18E6335400C4FF46 /* Foundation.framework in Frameworks */,
@@ -482,6 +503,7 @@
 		52A5105218E6437100C36709 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				971FFC49192D80500028FD0C /* Resources */,
 				5268693C18EFB3D900CD3876 /* FoodStamp_logo-01.png */,
 				528F75AE18EDEE13001EAEC6 /* AppIcons */,
 				526B390F18ECEFF700B6D4FA /* IconosRestaurant */,
@@ -541,6 +563,7 @@
 		52CD87FD18E6335400C4FF46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				971FFC60192D843F0028FD0C /* FacebookSDK.framework */,
 				528F75B318EDFEDC001EAEC6 /* MapKit.framework */,
 				52B2E0F418EB4C7600903CBC /* SystemConfiguration.framework */,
 				52B2E0F218EB4C6C00903CBC /* StoreKit.framework */,
@@ -563,6 +586,8 @@
 		52CD880418E6335400C4FF46 /* FoodStamp */ = {
 			isa = PBXGroup;
 			children = (
+				971FFC54192D82A80028FD0C /* Vendor */,
+				971FFC50192D81070028FD0C /* LogInViewController */,
 				52CD881018E6335400C4FF46 /* Main.storyboard */,
 				528F75AF18EDF911001EAEC6 /* LocationViewController */,
 				526B390718ECE36000B6D4FA /* RestaurantViewController */,
@@ -613,6 +638,54 @@
 			children = (
 			);
 			name = IconosDescubre;
+			sourceTree = "<group>";
+		};
+		971FFC49192D80500028FD0C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				971FFC4A192D805F0028FD0C /* background_logged2x.png */,
+				971FFC4B192D805F0028FD0C /* facebook_login_pressed.png */,
+				971FFC4C192D805F0028FD0C /* facebook_login.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		971FFC50192D81070028FD0C /* LogInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				971FFC5D192D83860028FD0C /* Comms.h */,
+				971FFC5E192D83860028FD0C /* Comms.m */,
+				971FFC51192D81220028FD0C /* FBLoginViewController.h */,
+				971FFC52192D81220028FD0C /* FBLoginViewController.m */,
+			);
+			name = LogInViewController;
+			sourceTree = "<group>";
+		};
+		971FFC54192D82A80028FD0C /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				971FFC56192D82D10028FD0C /* MBProgressHUD */,
+				971FFC55192D82BA0028FD0C /* Reachability */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		971FFC55192D82BA0028FD0C /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				971FFC5A192D83000028FD0C /* Reachability.h */,
+				971FFC5B192D83000028FD0C /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		971FFC56192D82D10028FD0C /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				971FFC57192D82F40028FD0C /* MBProgressHUD.h */,
+				971FFC58192D82F40028FD0C /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -708,7 +781,9 @@
 				5268692D18EFB28100CD3876 /* DSC_55052.png in Resources */,
 				5268691E18EFB10A00CD3876 /* icono_hora.png in Resources */,
 				5268693018EFB28100CD3876 /* DSC_55702.png in Resources */,
+				971FFC4E192D805F0028FD0C /* facebook_login_pressed.png in Resources */,
 				5268693418EFB28100CD3876 /* DSC_56692.png in Resources */,
+				971FFC4D192D805F0028FD0C /* background_logged2x.png in Resources */,
 				52CD880918E6335400C4FF46 /* InfoPlist.strings in Resources */,
 				5268694E18EFB44200CD3876 /* boton_megusta.png in Resources */,
 				BB6B8B021926FA34001FB612 /* boton_menu-on.png in Resources */,
@@ -727,6 +802,7 @@
 				5268693718EFB2FB00CD3876 /* img_Tchoza.png in Resources */,
 				BB6B8AFA1926FA34001FB612 /* boton_facebook-on.png in Resources */,
 				5268693218EFB28100CD3876 /* DSC_56392.png in Resources */,
+				971FFC4F192D805F0028FD0C /* facebook_login.png in Resources */,
 				5268693918EFB32B00CD3876 /* logo_choza.jpg in Resources */,
 				BB6B8AF71926FA34001FB612 /* boton_back.png in Resources */,
 				BB6B8AFD1926FA34001FB612 /* boton_guardar.png in Resources */,
@@ -777,7 +853,11 @@
 				52CD880B18E6335400C4FF46 /* main.m in Sources */,
 				528F75BC18EE16CD001EAEC6 /* LocRestDescrCell.m in Sources */,
 				528F75B218EDF931001EAEC6 /* LocationViewController.m in Sources */,
+				971FFC59192D82F40028FD0C /* MBProgressHUD.m in Sources */,
+				971FFC5C192D83000028FD0C /* Reachability.m in Sources */,
 				9718FC6C1901FAD9008C7C93 /* FSCache.m in Sources */,
+				971FFC53192D81220028FD0C /* FBLoginViewController.m in Sources */,
+				971FFC5F192D83860028FD0C /* Comms.m in Sources */,
 				52B2E10218EB61E100903CBC /* HomePlatilloCell.m in Sources */,
 				528F75C718EE1EFB001EAEC6 /* LocInfoCell.m in Sources */,
 				528172A918E64F3D00835BED /* PlatilloViewController.m in Sources */,

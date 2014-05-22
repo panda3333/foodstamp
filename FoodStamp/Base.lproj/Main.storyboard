@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KJt-ME-Idw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -264,7 +264,7 @@
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="odM-es-HMA"/>
             </objects>
-            <point key="canvasLocation" x="22" y="2"/>
+            <point key="canvasLocation" x="111" y="2"/>
         </scene>
         <!--Platillo View Controller - Platillo-->
         <scene sceneID="XYL-uM-mN3">
@@ -563,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSd-Tx-0Mx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="461" y="2"/>
+            <point key="canvasLocation" x="517" y="2"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="AOc-la-Gzh">
@@ -827,7 +827,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEs-4m-zoD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="626" y="858"/>
+            <point key="canvasLocation" x="1384" y="2"/>
         </scene>
         <!--Restaurant View Controller-->
         <scene sceneID="EEw-Vp-9LL">
@@ -1103,7 +1103,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akO-cu-poP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="942" y="12"/>
+            <point key="canvasLocation" x="942" y="2"/>
+        </scene>
+        <!--Login View Controller - Login-->
+        <scene sceneID="4v6-7J-90b">
+            <objects>
+                <viewController id="O1U-OT-dqa" customClass="FBLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Idf-EI-j20"/>
+                        <viewControllerLayoutGuide type="bottom" id="WIq-pr-yFe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yZv-f8-ONp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_logged2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="JSv-JL-DI4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1o-nf-yb1">
+                                <rect key="frame" x="59" y="436" width="202" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="facebook_login.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="facebook_login_pressed.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginPressed:" destination="O1U-OT-dqa" eventType="touchUpInside" id="1ip-ji-rX0"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eJa-Em-GKV">
+                                <rect key="frame" x="142" y="233" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="U1g-o0-WbF"/>
+                    <connections>
+                        <outlet property="activityLogin" destination="eJa-Em-GKV" id="PZM-TB-7xD"/>
+                        <outlet property="btnLogin" destination="U1o-nf-yb1" id="4kB-vi-fay"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" id="T1K-C5-LRN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJ6-GJ-t5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-420" y="2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Ow-Rm-sWF">
+            <objects>
+                <navigationController id="KJt-ME-Idw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3fI-iB-8eg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O1U-OT-dqa" kind="relationship" relationship="rootViewController" id="hcF-u0-31o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OUK-Vy-9V9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-870" y="2"/>
         </scene>
     </scenes>
     <resources>
@@ -1114,6 +1181,7 @@
         <image name="1Descubre_icon-07.png" width="1025" height="1025"/>
         <image name="1Descubre_icon-08.png" width="1025" height="1025"/>
         <image name="FoodStamp_logo-01.png" width="1025" height="253"/>
+        <image name="background_logged2x.png" width="640" height="1136"/>
         <image name="boton_back.png" width="30" height="52"/>
         <image name="boton_califica.png" width="91" height="91"/>
         <image name="boton_facebook-on.png" width="91" height="91"/>
@@ -1124,6 +1192,8 @@
         <image name="boton_megusta-on.png" width="91" height="91"/>
         <image name="boton_megusta.png" width="91" height="91"/>
         <image name="boton_menu.png" width="91" height="91"/>
+        <image name="facebook_login.png" width="400" height="76"/>
+        <image name="facebook_login_pressed.png" width="400" height="76"/>
         <image name="icono-acerca.png" width="73" height="71"/>
         <image name="icono_@.png" width="22" height="23"/>
         <image name="icono_hora.png" width="31" height="31"/>
