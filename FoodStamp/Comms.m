@@ -13,7 +13,8 @@
 + (void) login:(id<CommsDelegate>)delegate
 {
    NSArray *permissionsArray = @[ @"user_about_me", @"user_relationships", @"user_birthday", @"user_location"];
-   [PFFacebookUtils initializeFacebook];
+
+    [PFFacebookUtils initializeFacebook];
     
    // Login PFUser using Facebook
    [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {

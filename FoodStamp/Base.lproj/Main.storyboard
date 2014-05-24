@@ -7,7 +7,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="HomeView" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginSuccessful" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -1147,7 +1147,7 @@
                     <connections>
                         <outlet property="activityLogin" destination="eJa-Em-GKV" id="PZM-TB-7xD"/>
                         <outlet property="btnLogin" destination="U1o-nf-yb1" id="4kB-vi-fay"/>
-                        <segue destination="vXZ-lx-hvc" kind="modal" id="T1K-C5-LRN"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="LoginSuccessful" id="T1K-C5-LRN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJ6-GJ-t5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
