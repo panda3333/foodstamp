@@ -10,6 +10,8 @@
 //      pass: foodstampwinners
 
 #import "ViewController.h"
+#include <stdlib.h>
+#include <time.h>
 
 @interface ViewController ()
 
@@ -49,24 +51,27 @@
 - (void)queryParseMethod{
     
 //    PFQuery *query = [[PFQuery queryWithClassName:@"Restaurant"];
-    PFQuery *query = [PFQuery queryWithClassName:@"Restaurant"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Dishes"];
     
-    PFObject *sourceObject = [query getObjectWithId:@"l4KoI7x11p"];
-    PFRelation *relation = [sourceObject relationforKey:@"Dishes"];
+    //PFObject *sourceObject = [query getObjectWithId:@"l4KoI7x11p"];
+    //PFRelation *relation = [sourceObject relationforKey:@"Dishes"];
     
    // [query whereKey:@"Name" equalTo:@"Bacana"];
     
-    [ [relation query] findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+    //Con relacion
+    //[[relation query] findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
         
         if (!error){
-            self.platillosImagesArray = [[NSMutableArray alloc] initWithArray:results];
+            platillosImagesArray = [[NSMutableArray alloc] initWithArray:results];
                                         //[self.platillosImagesArray writeToFile:cacheDirectory atomically:YES];
-            
+            platillosImagesArray  = [self randomizeArray:platillosImagesArray];
                                         [platillosCollectionView reloadData];
-                                        NSLog(@"the array is: %@ ",self.platillosImagesArray);
+            //NSLog(@"the array is: %@ ",platillosImagesArray);
           }
         
     }];
+    
     
 }
 
@@ -87,14 +92,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *cellIdentifier = @"imageCell";
+    
     HomePlatilloCell *cell = (HomePlatilloCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     PFObject *imageObject = [platillosImagesArray objectAtIndex:indexPath.row];
     
     PFFile *imageFile = [imageObject objectForKey:@"Photo"];
     NSString *restaurantName = [imageObject objectForKey:@"restaurantName"];
-        NSString *platilloName = [imageObject objectForKey:@"platilloName" ];
-            NSString *platilloPrice = [imageObject objectForKey:@"precio" ];
+        NSString *platilloName = [imageObject objectForKey:@"Name" ];
+            NSNumber *platilloPrice = [imageObject objectForKey:@"Price" ];
 
    cell.loadingSpiner.hidden = NO;
    [cell.loadingSpiner startAnimating];
@@ -104,7 +110,6 @@
             cell.parseImage.image = [UIImage imageWithData:data];
             cell.restaurantNameLabel.text = restaurantName;
             cell.platilloNameLabel.text = platilloName;
-            cell.platilloPriceLabel.text =  platilloPrice;
            [cell.loadingSpiner stopAnimating];
            cell.loadingSpiner.hidden = YES;
         }
@@ -112,6 +117,23 @@
     
     return cell;
 }
+
+
+- (NSMutableArray *)randomizeArray: (NSMutableArray *) originalArray{
+    /* initialize random seed: */
+    srand (time(NULL));
+    
+    for (NSUInteger i=1; i < originalArray.count; ++i) {
+        /* generate secret number */
+        NSUInteger pos = (rand() % i);
+        NSLog(@"%d\n",pos);
+        [originalArray exchangeObjectAtIndex:i withObjectAtIndex:pos];
+        
+    }
+    return originalArray;
+}
+
+
 
 // I implemented didSelectItemAtIndexPath:, but you could use willSelectItemAtIndexPath: depending on what you intend to do. See the docs of these two methods for the differences.
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -161,14 +183,13 @@
     }];
     //[_homeIcon setImage:[UIImage imageNamed:@"clickedPokeBall.png"]];
 }
-
-
 - (IBAction)randomButton:(id)sender {
     
     NSLog(@"On a Faim!!! ");
     ViewController *platilloinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];
     [self presentViewController:platilloinstance animated:YES completion:nil];
     
+
 
 }
 
