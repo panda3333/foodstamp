@@ -33,5 +33,7 @@
 - (IBAction)dinnerButton:(id)sender;
 - (IBAction)aboutButton:(id)sender;
 
+- (NSMutableArray *)randomizeArray: (NSMutableArray *) originalArray;
+
 
 @end
