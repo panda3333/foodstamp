@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DirecCell : UITableViewCell
+@class DirecCell;
+@protocol MyCustomCellDelegate
+@end
+@interface DirecCell : UITableViewCell{
+    
+    
+}
+//button
+
+@property (strong, nonatomic) IBOutlet UIButton *toRestaurant;
 
 //labels
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;

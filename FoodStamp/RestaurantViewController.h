@@ -30,6 +30,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mapIconImage;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
+@property (strong, nonatomic) PFObject* dish;
+
 //Buttons
 
     //Navigation Buttons

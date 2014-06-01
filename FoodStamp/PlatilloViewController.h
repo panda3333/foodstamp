@@ -21,7 +21,10 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *userIconImage;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
-@property (strong, nonatomic) PFObject* dish;
+@property (nonatomic, assign) int index;
+@property (strong, nonatomic) NSMutableArray *parseArray;
+
+
 
 - (IBAction)backActionButton:(id)sender;
 

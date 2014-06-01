@@ -25,7 +25,7 @@
 
 @implementation RestaurantViewController
 
-@synthesize restaurantTableView,restaurantTableController,scrollView,pageControl,pageImages,pageViews,miniMenuCollectionView;
+@synthesize restaurantTableView,restaurantTableController,scrollView,pageControl,pageImages,pageViews,miniMenuCollectionView, dish;
 
 
 - (void)loadPage:(NSInteger)page {
@@ -147,14 +147,23 @@
 #pragma mark - Parse retrieve Methods
 
 -(void)queryParseMethod{
-    PFQuery *query = [PFQuery queryWithClassName:@"collectionViewData"];
     
+    PFObject *restaurant = self.dish[@"Restaurant"];
+    
+    [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        NSLog(@"%@", restaurant[@"Name"]);
+    }];
+    
+    
+    /*
+    PFQuery *query = [PFQuery queryWithClassName:@"collectionViewData"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             imageFilesArray = [[NSArray alloc]initWithArray:objects];
             [miniMenuCollectionView reloadData];
         }
     }];
+    */
 }
 
 #pragma mark - UICollectionView data source

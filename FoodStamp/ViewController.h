@@ -10,6 +10,7 @@
 #import "HomePlatilloCell.h"
 #import "Parse/Parse.h"
 
+
 @interface ViewController : UIViewController{
     NSArray *imageFileArray;
     NSArray *restaurantNameArray;
@@ -19,7 +20,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *userIconHomeImage;
 
 @property (strong, nonatomic) IBOutlet UIView *optionsView;
-@property (strong, nonatomic) NSMutableArray *platillosImagesArray;
+@property (nonatomic, assign) int index;
+@property (strong, nonatomic) NSMutableArray *parseArray;
 
 //Button para menu opciones
 - (IBAction)optionsButton:(id)sender;

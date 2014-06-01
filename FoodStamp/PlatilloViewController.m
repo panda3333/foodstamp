@@ -9,6 +9,7 @@
 #import "PlatilloViewController.h"
 #import "FotoPlatilloCell.h"
 #import "DescripcionRestTableViewCell.h"
+#import "RestaurantViewController.h"
 #import "SocialCell.h"
 #import "DirecCell.h"
 #import "ViewController.h"
@@ -22,7 +23,7 @@
 
 @implementation PlatilloViewController
 
-@synthesize platilloTableView,platilloTableController,userIconImage,restaurantNameLabel,dish;
+@synthesize platilloTableView,platilloTableController,userIconImage,restaurantNameLabel, index , parseArray;
 
 
 - (void)viewDidLoad
@@ -43,8 +44,6 @@
 //    testObject[@"foo"] = @"bar";
 //    [testObject saveInBackground];
 //    
-    NSLog(@"%@",self.dish);
-    
     
     //NSDictionary *platilloActual = [[NSDictionary alloc] initWithObjectsAndKeys:self.dish, nil];
     //NSLog(@"%@",platilloActual);
@@ -71,7 +70,6 @@
    ////////////
    Esto NO permite agustar dinámicamente el tamaño de la celda de acuerdo al texto recibido desde web es por eso que se recomienda no cambiar el layout dinamicamente pues puede provocar errores en el diseño.
    */
-    
     NSString *cellIdentifier = nil;
     
     switch (indexPath.section)
@@ -125,8 +123,8 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
             NSLog(@"indexPath: %ld",(long)indexPath.section);
+    PFObject *dish = [self.parseArray objectAtIndex:self.index];
     
     if (indexPath.section == 0 ){
         
@@ -138,7 +136,6 @@
         }
 
         PFFile *imageFile = [dish objectForKey:@"Photo"];
-
         NSNumber *platilloPrice = [dish objectForKey:@"Price" ];
         
         [cell.contentView addSubview:cell.platilloImage];
@@ -208,6 +205,10 @@
             NSLog(@"pasó 3rt NIL");
             DirecCell *cellFour = (DirecCell*) [tableView dequeueReusableCellWithIdentifier:cellIdentifier3];
         
+        UIButton *Button= cellFour.toRestaurant;
+        Button.tag = -16;
+        [Button addTarget:self action:@selector(ButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+        
             if (cellFour == nil) {
 
                 NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier3 owner:nil options:nil];
@@ -239,15 +240,26 @@
 }
 
 
+
 - (void)reloadData{
     
 }
 
+-(void) ButtonClicked
+{
+    RestaurantViewController *RestaurantInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
+    RestaurantInstance.dish = [self.parseArray objectAtIndex: self.index];
+    [self presentViewController:RestaurantInstance animated:YES completion:nil];
+}
+
 - (IBAction)backActionButton:(id)sender {
     NSLog(@"ET phone Home ");
-    ViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
+    
+    PlatilloViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
+    homeinstance.parseArray = self.parseArray;
+    homeinstance.index = self.index;
+    
     [self presentViewController:homeinstance animated:YES completion:nil];
     
-
 }
 @end

@@ -20,7 +20,7 @@
 
 @implementation ViewController
 
-@synthesize platillosCollectionView,userIconHomeImage, optionsView, platillosImagesArray;
+@synthesize platillosCollectionView,userIconHomeImage, optionsView, parseArray;
 
 - (void)viewDidLoad
 {
@@ -40,7 +40,14 @@
     //Auto correr Query en parse para buscar imágenes al iniciar pantalla.
     
     [PFQuery clearAllCachedResults];
+    if (self.parseArray.count == 0) {
     [ self queryParseMethod];
+}
+
+    if (self.index != 0) {
+        CGPoint savedScrollPosition = CGPointMake(0, 145 * (self.index/2));
+        [self.platillosCollectionView setContentOffset:savedScrollPosition animated:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,7 +58,6 @@
 
 - (void)queryParseMethod{
     
-//    PFQuery *query = [[PFQuery queryWithClassName:@"Restaurant"];
     PFQuery *query = [PFQuery queryWithClassName:@"Dishes"];
     
     //PFObject *sourceObject = [query getObjectWithId:@"l4KoI7x11p"];
@@ -61,12 +67,13 @@
     
     //Con relacion
     //[[relation query] findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
-        
         if (!error){
-            platillosImagesArray = [[NSMutableArray alloc] initWithArray:results];
+        
+            parseArray = [[NSMutableArray alloc] initWithArray:results];
                                         //[self.platillosImagesArray writeToFile:cacheDirectory atomically:YES];
-            platillosImagesArray  = [self randomizeArray:platillosImagesArray];
+            parseArray  = [self randomizeArray:parseArray];
                                         [platillosCollectionView reloadData];
             //NSLog(@"the array is: %@ ",platillosImagesArray);
           }
@@ -85,8 +92,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-
-    return [platillosImagesArray count];
+    return [parseArray count];
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -96,7 +102,7 @@
     
     HomePlatilloCell *cell = (HomePlatilloCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    PFObject *imageObject = [platillosImagesArray objectAtIndex:indexPath.row];
+    PFObject *imageObject = [parseArray objectAtIndex:indexPath.row];
     
     PFFile *imageFile = [imageObject objectForKey:@"Photo"];
     NSString *restaurantName = [imageObject objectForKey:@"restaurantName"];
@@ -145,7 +151,10 @@
     NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
     
     PlatilloViewController *dishViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];
-    dishViewController.dish = [self.platillosImagesArray objectAtIndex:indexPath.row];
+    
+    dishViewController.parseArray = self.parseArray;
+    dishViewController.index =  indexPath.row;
+    
     
     //NSString *className = NSStringFromClass([[self.platillosImagesArray objectAtIndex:indexPath.row] class]);
     //NSLog(@"%@",className);

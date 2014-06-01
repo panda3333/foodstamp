@@ -527,6 +527,13 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <dataDetectorType key="dataDetectorTypes" address="YES"/>
                                                         </textView>
+                                                        <button opaque="NO" tag="-16" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eY-VY-ed3">
+                                                            <rect key="frame" x="252" y="17" width="46" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Button">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -540,6 +547,7 @@
                                                     <outlet property="restaurantNameLabel" destination="oPa-Jp-qXg" id="sKj-V0-wQz"/>
                                                     <outlet property="telIconImage" destination="Q34-s6-XwO" id="9b8-uc-3QY"/>
                                                     <outlet property="telLabel" destination="De1-Gd-PZl" id="42N-fd-O5u"/>
+                                                    <outlet property="toRestaurant" destination="0eY-VY-ed3" id="Wqh-GX-2Xd"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -563,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSd-Tx-0Mx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="493" y="2"/>
+            <point key="canvasLocation" x="517" y="2"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="AOc-la-Gzh">
