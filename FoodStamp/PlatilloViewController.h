@@ -13,15 +13,15 @@
 #import "PlatilloTableViewController.h"
 
 @interface PlatilloViewController : UIViewController 
-//{
+{
     //IBOutlet UITableView *platilloTableView;
-    
-//}
+}
 @property (strong, nonatomic) IBOutlet UITableView *platilloTableView;
 @property (strong, nonatomic) PlatilloTableViewController *platilloTableController;
 
 @property (strong, nonatomic) IBOutlet UIImageView *userIconImage;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
+@property (strong, nonatomic) PFObject* dish;
 
 - (IBAction)backActionButton:(id)sender;
 

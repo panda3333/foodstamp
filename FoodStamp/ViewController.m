@@ -10,6 +10,7 @@
 //      pass: foodstampwinners
 
 #import "ViewController.h"
+#import "PlatilloViewController.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -110,6 +111,8 @@
             cell.parseImage.image = [UIImage imageWithData:data];
             cell.restaurantNameLabel.text = restaurantName;
             cell.platilloNameLabel.text = platilloName;
+//NSNumber does have a stringValue, it does work but is not my personal preference because it gives you little control as to the format of the string.
+            cell.platilloPriceLabel.text = platilloPrice.stringValue;
            [cell.loadingSpiner stopAnimating];
            cell.loadingSpiner.hidden = YES;
         }
@@ -126,7 +129,6 @@
     for (NSUInteger i=1; i < originalArray.count; ++i) {
         /* generate secret number */
         NSUInteger pos = (rand() % i);
-        NSLog(@"%d\n",pos);
         [originalArray exchangeObjectAtIndex:i withObjectAtIndex:pos];
         
     }
@@ -140,14 +142,20 @@
 {
     // If you need to use the touched cell, you can retrieve it like so
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    
     NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
+    
+    PlatilloViewController *dishViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];
+    dishViewController.dish = [self.platillosImagesArray objectAtIndex:indexPath.row];
+    
+    //NSString *className = NSStringFromClass([[self.platillosImagesArray objectAtIndex:indexPath.row] class]);
+    //NSLog(@"%@",className);
+    
+    [self presentViewController:dishViewController animated:YES completion:nil];
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 5; // This is the minimum inter item spacing, can be more
 }
-
 
 #pragma  - Animate optionsView Methods
 - (IBAction)optionsButton:(id)sender {

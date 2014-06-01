@@ -22,7 +22,7 @@
 
 @implementation PlatilloViewController
 
-@synthesize platilloTableView,platilloTableController,userIconImage,restaurantNameLabel;
+@synthesize platilloTableView,platilloTableController,userIconImage,restaurantNameLabel,dish;
 
 
 - (void)viewDidLoad
@@ -43,7 +43,11 @@
 //    testObject[@"foo"] = @"bar";
 //    [testObject saveInBackground];
 //    
-    NSLog(@"View Did LOAD");
+    NSLog(@"%@",self.dish);
+    
+    
+    //NSDictionary *platilloActual = [[NSDictionary alloc] initWithObjectsAndKeys:self.dish, nil];
+    //NSLog(@"%@",platilloActual);
 }
 
 
@@ -132,34 +136,48 @@
         if(cell == nil){
             cell = [[FotoPlatilloCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
         }
+
+        PFFile *imageFile = [dish objectForKey:@"Photo"];
+
+        NSNumber *platilloPrice = [dish objectForKey:@"Price" ];
+        
         [cell.contentView addSubview:cell.platilloImage];
+        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+            if(!error){
+                cell.platilloImage.image = [UIImage imageWithData: data];
+            }
+        }];
+        
         [cell.contentView addSubview:cell.subDataView];
         [cell.subDataView addSubview:cell.priceLabel];
+        cell.priceLabel.text= platilloPrice.stringValue;
+        
         [cell.subDataView addSubview:cell.mapIconImage];
-        NSLog(@"distance returned");
+        //NSLog(@"distance returned");
         [cell.subDataView addSubview:cell.distanceLabel];
-        NSLog(@"cell returned");
+        //NSLog(@"cell returned");
         return cell;
         
     }else if (indexPath.section == 1){
         
-        NSLog(@"creating second custom cell");
+        //NSLog(@"creating second custom cell");
         static NSString* cellIdentifier1 = @"descripcionRestCell";
-        NSLog(@"define cell 2 origin");
+        //NSLog(@"define cell 2 origin");
         DescripcionRestTableViewCell *cellTwo = (DescripcionRestTableViewCell*)[platilloTableView dequeueReusableCellWithIdentifier:cellIdentifier1];
-        NSLog(@"creating 2nd cell NIB");
+        //NSLog(@"creating 2nd cell NIB");
         
         if (cellTwo == nil) {
             
-            NSLog(@"entró a segundo nil");
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier1 owner:nil options:nil];
+            //NSLog(@"entró a segundo nil");
+           // NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier1 owner:nil options:nil];
             //cellTwo  = (DescripcionRestTableViewCell*)[nib objectAtIndex:0];
             cellTwo = [[DescripcionRestTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier1];
             
         }
         
         [cellTwo.contentView addSubview:cellTwo.descripcionTextView];
-        cellTwo.descripcionTextView.text = @"Combinación de ";
+        NSString *descripcionPlatillo = [dish objectForKey:@"Description"];
+        cellTwo.descripcionTextView.text = descripcionPlatillo;
         
         return cellTwo;
         
