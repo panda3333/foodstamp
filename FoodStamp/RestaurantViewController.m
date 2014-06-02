@@ -29,26 +29,38 @@
 
 
 - (void)loadPage:(NSInteger)page {
+    
     if (page < 0 || page >= self.pageImages.count) {
         // If it's outside the range of what you have to display, then do nothing
         return;
     }
     
     // 1
+
     UIView *pageView = [self.pageViews objectAtIndex:page];
     if ((NSNull*)pageView == [NSNull null]) {
         // 2
+
         CGRect frame = self.scrollView.bounds;
         frame.origin.x = frame.size.width * page;
         frame.origin.y = 0.0f;
         
         // 3
-        UIImageView *newPageView = [[UIImageView alloc] initWithImage:[self.pageImages objectAtIndex:page]];
+        PFObject *imageObject = [self.pageImages objectAtIndex:page];
+        PFFile *imageFile = [imageObject objectForKey:@"Photo"];
+        
+        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if(!error){
+                
+                UIImageView *newPageView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:data]];
         newPageView.contentMode = UIViewContentModeScaleAspectFit;
         newPageView.frame = frame;
         [self.scrollView addSubview:newPageView];
+                
         // 4
         [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
+    }
+        }];
     }
 }
 
@@ -72,9 +84,11 @@
     NSInteger page = (NSInteger)floor((self.scrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
     
     // Update the page control
+    NSLog(@"updating page control");
     self.pageControl.currentPage = page;
     
     // Work out which pages you want to load
+    NSLog(@"Checando bounds");
     NSInteger firstPage = page - 1;
     NSInteger lastPage = page + pageImages.count;
     
@@ -85,6 +99,8 @@
     
 	// Load pages in our range
     for (NSInteger i=firstPage; i<=lastPage; i++) {
+
+        
         [self loadPage:i];
     }
     
@@ -102,42 +118,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    // 1
-    self.pageImages = [NSArray arrayWithObjects:
-                       [UIImage imageNamed:@"DSC_54282.png"],
-                       [UIImage imageNamed:@"DSC_55052.png"],
-                       [UIImage imageNamed:@"DSC_55252.png"],
-                       [UIImage imageNamed:@"DSC_55332.png"],
-                       [UIImage imageNamed:@"DSC_55702.png"],
-                       nil];
-    
-    NSInteger pageCount = self.pageImages.count;
-    
-    // 2
-    self.pageControl.currentPage = 0;
-    self.pageControl.numberOfPages = pageCount;
-    
-    // 3
-    self.pageViews = [[NSMutableArray alloc] init];
-    for (NSInteger i = 0; i < pageCount; i++) {
-        [self.pageViews addObject:[NSNull null]];
-    }
-    
     [self queryParseMethod];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     
-    // 4
-    CGSize pagesScrollViewSize = self.scrollView.frame.size;
-    self.scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * self.pageImages.count, pagesScrollViewSize.height);
-    
-    // 5
-    [self loadVisiblePages];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:NO];
 }
+    
 
 - (void)didReceiveMemoryWarning
 {
@@ -147,23 +135,41 @@
 #pragma mark - Parse retrieve Methods
 
 -(void)queryParseMethod{
+    //2
     
     PFObject *restaurant = self.dish[@"Restaurant"];
     
     [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        NSLog(@"%@", restaurant[@"Name"]);
+        [self populateImages:restaurant];
     }];
+}
+
+- (void)populateImages: (PFObject *) restaurant{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo_Restaurant"];
+    [query whereKey:@"Restaurant" equalTo:restaurant];
     
     
-    /*
-    PFQuery *query = [PFQuery queryWithClassName:@"collectionViewData"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
-            imageFilesArray = [[NSArray alloc]initWithArray:objects];
-            [miniMenuCollectionView reloadData];
+            self.pageImages = [NSArray arrayWithArray:objects];
+
+            self.pageControl.currentPage = 0;
+            self.pageControl.numberOfPages = self.pageImages.count;
+            
+            // 4
+            self.pageViews = [[NSMutableArray alloc] init];
+            
+            for (NSInteger i = 0; i < self.pageImages.count; i++) {
+                [self.pageViews addObject:[NSNull null]];
+            }
+            
+            [self loadVisiblePages];
+            
+            CGSize pagesScrollViewSize = self.scrollView.frame.size;
+            self.scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * self.pageImages.count, pagesScrollViewSize.height);
         }
     }];
-    */
 }
 
 #pragma mark - UICollectionView data source
@@ -334,59 +340,6 @@
         [cellTwo.contentView addSubview:cellTwo.shareLabel];
         
         return cellTwo;
-        
-//    }else if (indexPath.section == 2){
-//        NSLog(@"creating third custom cell");
-//        static NSString* cellIdentifier2 = @"socialIconsCell";
-//        NSLog(@"deque'ing cellidentifier2");
-//        SocialCell *cellThree = (SocialCell*) [tableView dequeueReusableCellWithIdentifier: cellIdentifier2];
-//        
-//        if (cellThree == nil) {
-//            NSLog(@"entrando a tercer nil");
-//            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier2 owner:nil options:nil];
-//            cellThree = (SocialCell*)[nib objectAtIndex:0];
-//            cellThree = [[SocialCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier2 ];
-//        }
-//        NSLog(@"cell 3 Rturned");
-//        [cellThree.contentView addSubview:cellThree.wishLabel];
-//        [cellThree.contentView addSubview:cellThree.shareLabel];
-//        [cellThree.contentView addSubview:cellThree.likeLabel];
-//        
-//        
-//        return cellThree;
-//        
-//        
-//    }else if (indexPath.section == 3){
-//        NSLog(@"creating fourth custom cell");
-//        static NSString* cellIdentifier3 = @"descripcionCell";
-//        NSLog(@"pasó 3rt NIL");
-//        DirecCell *cellFour = (DirecCell*) [tableView dequeueReusableCellWithIdentifier:cellIdentifier3];
-//        
-//        if (cellFour == nil) {
-//            
-//            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier3 owner:nil options:nil];
-//            
-//            cellFour = (DirecCell*)[nib objectAtIndex:0];
-//            cellFour = [[DirecCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier3 ];
-//            
-//        }
-//        
-//        [cellFour.contentView addSubview:cellFour.restaurantNameLabel];
-//        [cellFour.contentView addSubview:cellFour.horarioLabel];
-//        [cellFour.contentView addSubview:cellFour.pagoLabel];
-//        [cellFour.contentView addSubview:cellFour.telLabel];
-//        
-//        [cellFour.contentView addSubview:cellFour.direcIconImage];
-//        [cellFour.contentView addSubview:cellFour.horaIconImage];
-//        [cellFour.contentView addSubview:cellFour.pagoIconImage];
-//        [cellFour.contentView addSubview:cellFour.telIconImage];
-//        
-//        [cellFour.contentView addSubview:cellFour.logoImage];
-//        
-//        [cellFour.contentView addSubview:cellFour.directionTextView];
-//        cellFour.directionTextView.text = @"Miguel Cervantes de Saavedra #81, Lafayette. Guadalajara, Jalisco ";
-//        
-//        return cellFour;
         }
         return nil;
     

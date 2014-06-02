@@ -103,8 +103,8 @@
     HomePlatilloCell *cell = (HomePlatilloCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     PFObject *imageObject = [parseArray objectAtIndex:indexPath.row];
-    
     PFFile *imageFile = [imageObject objectForKey:@"Photo"];
+    
     NSString *restaurantName = [imageObject objectForKey:@"restaurantName"];
         NSString *platilloName = [imageObject objectForKey:@"Name" ];
             NSNumber *platilloPrice = [imageObject objectForKey:@"Price" ];
@@ -208,8 +208,6 @@
     ViewController *platilloinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];
     [self presentViewController:platilloinstance animated:YES completion:nil];
     
-
-
 }
 
 - (IBAction)favoritesButton:(id)sender {
