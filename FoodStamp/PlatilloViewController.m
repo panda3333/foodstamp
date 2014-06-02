@@ -147,7 +147,11 @@
         
         [cell.contentView addSubview:cell.subDataView];
         [cell.subDataView addSubview:cell.priceLabel];
-        cell.priceLabel.text= platilloPrice.stringValue;
+        
+        NSString *precioFinal = platilloPrice.stringValue;
+        NSString *precioLogo = @"$";
+        NSString *joinString=[NSString stringWithFormat:@"%@ %@",precioLogo,precioFinal];
+        cell.priceLabel.text= joinString;
         
         [cell.subDataView addSubview:cell.mapIconImage];
         //NSLog(@"distance returned");

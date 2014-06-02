@@ -27,7 +27,6 @@
 		5268693918EFB32B00CD3876 /* logo_choza.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5268693818EFB32B00CD3876 /* logo_choza.jpg */; };
 		5268693B18EFB37200CD3876 /* perfil_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5268693A18EFB37200CD3876 /* perfil_01.jpg */; };
 		5268693D18EFB3D900CD3876 /* FoodStamp_logo-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 5268693C18EFB3D900CD3876 /* FoodStamp_logo-01.png */; };
-		5268694818EFB44200CD3876 /* boton_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5268693F18EFB44200CD3876 /* boton_back.png */; };
 		5268694918EFB44200CD3876 /* boton_facebook-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5268694018EFB44200CD3876 /* boton_facebook-on.png */; };
 		5268694A18EFB44200CD3876 /* boton_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 5268694118EFB44200CD3876 /* boton_facebook.png */; };
 		5268694B18EFB44200CD3876 /* boton_guardar-on.png in Resources */ = {isa = PBXBuildFile; fileRef = 5268694218EFB44200CD3876 /* boton_guardar-on.png */; };
@@ -105,6 +104,7 @@
 		BB6B8B011926FA34001FB612 /* boton_megusta.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF41926FA34001FB612 /* boton_megusta.png */; };
 		BB6B8B021926FA34001FB612 /* boton_menu-on.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF51926FA34001FB612 /* boton_menu-on.png */; };
 		BB6B8B031926FA34001FB612 /* boton_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF61926FA34001FB612 /* boton_menu.png */; };
+		BBEB555D193C0484009D02B1 /* boton_back.png in Resources */ = {isa = PBXBuildFile; fileRef = BBEB555C193C0484009D02B1 /* boton_back.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,7 +139,6 @@
 		5268693818EFB32B00CD3876 /* logo_choza.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo_choza.jpg; sourceTree = "<group>"; };
 		5268693A18EFB37200CD3876 /* perfil_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = perfil_01.jpg; sourceTree = "<group>"; };
 		5268693C18EFB3D900CD3876 /* FoodStamp_logo-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FoodStamp_logo-01.png"; sourceTree = "<group>"; };
-		5268693F18EFB44200CD3876 /* boton_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_back.png; sourceTree = "<group>"; };
 		5268694018EFB44200CD3876 /* boton_facebook-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton_facebook-on.png"; sourceTree = "<group>"; };
 		5268694118EFB44200CD3876 /* boton_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_facebook.png; sourceTree = "<group>"; };
 		5268694218EFB44200CD3876 /* boton_guardar-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton_guardar-on.png"; sourceTree = "<group>"; };
@@ -241,6 +240,7 @@
 		BB6B8AF41926FA34001FB612 /* boton_megusta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boton_megusta.png; path = Botones/boton_megusta.png; sourceTree = "<group>"; };
 		BB6B8AF51926FA34001FB612 /* boton_menu-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boton_menu-on.png"; path = "Botones/boton_menu-on.png"; sourceTree = "<group>"; };
 		BB6B8AF61926FA34001FB612 /* boton_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boton_menu.png; path = Botones/boton_menu.png; sourceTree = "<group>"; };
+		BBEB555C193C0484009D02B1 /* boton_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_back.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,7 +338,7 @@
 		5268693E18EFB44200CD3876 /* iconos */ = {
 			isa = PBXGroup;
 			children = (
-				5268693F18EFB44200CD3876 /* boton_back.png */,
+				BBEB555C193C0484009D02B1 /* boton_back.png */,
 				5268694018EFB44200CD3876 /* boton_facebook-on.png */,
 				5268694118EFB44200CD3876 /* boton_facebook.png */,
 				5268694218EFB44200CD3876 /* boton_guardar-on.png */,
@@ -814,10 +814,10 @@
 				BB6B8AE41926F23B001FB612 /* 1Descubre_icon-09.png in Resources */,
 				5268694D18EFB44200CD3876 /* boton_megusta-on.png in Resources */,
 				BB6B8ADD1926EF25001FB612 /* 1Descubre_icon-06.png in Resources */,
+				BBEB555D193C0484009D02B1 /* boton_back.png in Resources */,
 				BB6B8AFB1926FA34001FB612 /* boton_facebook.png in Resources */,
 				5268692118EFB10A00CD3876 /* icono_votacion.png in Resources */,
 				5268694F18EFB44200CD3876 /* manu_tabbar80.png in Resources */,
-				5268694818EFB44200CD3876 /* boton_back.png in Resources */,
 				BB6B8AF91926FA34001FB612 /* boton_califica.png in Resources */,
 				5268692E18EFB28100CD3876 /* DSC_55252.png in Resources */,
 				5268691F18EFB10A00CD3876 /* icono_tarjeta.png in Resources */,

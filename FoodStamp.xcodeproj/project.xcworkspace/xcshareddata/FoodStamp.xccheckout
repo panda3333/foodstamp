@@ -5,11 +5,15 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>9D2D8233-8ED4-48E9-BCFF-628E9C9162A3</string>
+	<string>5B89EA0E-7588-44E0-982C-A6C23031C3CF</string>
 	<key>IDESourceControlProjectName</key>
 	<string>FoodStamp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>39FE95CE-DC37-4CC7-802C-CAE7DCED5661</key>
+		<string>https://bitbucket.org/ligardo/foodstampios.git</string>
+		<key>CFD6779E-36AF-40ED-9327-7754088FB05C</key>
+		<string>https://bitbucket.org/ligardo/foodstampios.git</string>
 		<key>F523C9C1-9B18-4237-8B70-8F63A4C4BC25</key>
 		<string>https://github.com/Eencsio/foodstamp.git</string>
 	</dict>
@@ -17,15 +21,19 @@
 	<string>FoodStamp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F523C9C1-9B18-4237-8B70-8F63A4C4BC25</key>
+		<key>39FE95CE-DC37-4CC7-802C-CAE7DCED5661</key>
+		<string>../../FoodStamp</string>
+		<key>CFD6779E-36AF-40ED-9327-7754088FB05C</key>
 		<string>../..</string>
+		<key>F523C9C1-9B18-4237-8B70-8F63A4C4BC25</key>
+		<string>../../foodstamp</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Eencsio/foodstamp.git</string>
+	<string>https://bitbucket.org/ligardo/foodstampios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F523C9C1-9B18-4237-8B70-8F63A4C4BC25</string>
+	<string>CFD6779E-36AF-40ED-9327-7754088FB05C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +43,22 @@
 			<string>F523C9C1-9B18-4237-8B70-8F63A4C4BC25</string>
 			<key>IDESourceControlWCCName</key>
 			<string>foodstamp</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CFD6779E-36AF-40ED-9327-7754088FB05C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Foodstamp</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>39FE95CE-DC37-4CC7-802C-CAE7DCED5661</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FoodStamp</string>
 		</dict>
 	</array>
 </dict>

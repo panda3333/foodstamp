@@ -117,8 +117,13 @@
             cell.parseImage.image = [UIImage imageWithData:data];
             cell.restaurantNameLabel.text = restaurantName;
             cell.platilloNameLabel.text = platilloName;
+
 //NSNumber does have a stringValue, it does work but is not my personal preference because it gives you little control as to the format of the string.
-            cell.platilloPriceLabel.text = platilloPrice.stringValue;
+            NSString *precioFinal = platilloPrice.stringValue;
+            NSString *precioLogo = @"$";
+            NSString *joinString=[NSString stringWithFormat:@"%@ %@",precioLogo,precioFinal];
+            cell.platilloPriceLabel.text= joinString;
+        
            [cell.loadingSpiner stopAnimating];
            cell.loadingSpiner.hidden = YES;
         }
