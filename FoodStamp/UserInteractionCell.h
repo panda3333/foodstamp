@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestaurantViewController.h"
 
 @interface UserInteractionCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *decideLabel;
@@ -15,10 +16,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *shareLabel;
 
 //userInteraction Buttons
-- (IBAction)decideButton:(id)sender;
-- (IBAction)exploraButton:(id)sender;
-- (IBAction)rateButton:(id)sender;
-@property (strong, nonatomic) IBOutlet UIButton *shareButton;
-
 
 @end

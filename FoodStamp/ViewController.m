@@ -93,6 +93,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [parseArray count];
+    NSLog(@"oarse array coun in Restaurante--->%@",parseArray);
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -120,9 +121,8 @@
 
 //NSNumber does have a stringValue, it does work but is not my personal preference because it gives you little control as to the format of the string.
             NSString *precioFinal = platilloPrice.stringValue;
-            NSString *precioLogo = @"$";
-            NSString *joinString=[NSString stringWithFormat:@"%@ %@",precioLogo,precioFinal];
-            cell.platilloPriceLabel.text= joinString;
+
+            cell.platilloPriceLabel.text= precioFinal;
         
            [cell.loadingSpiner stopAnimating];
            cell.loadingSpiner.hidden = YES;
@@ -153,7 +153,7 @@
 {
     // If you need to use the touched cell, you can retrieve it like so
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
+//  NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
     
     PlatilloViewController *dishViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];
     

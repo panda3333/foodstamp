@@ -14,6 +14,7 @@
 #import "DirecCell.h"
 #import "ViewController.h"
 #import "Parse/Parse.h"
+#import <Social/Social.h>
 
 
 
@@ -23,7 +24,7 @@
 
 @implementation PlatilloViewController
 
-@synthesize platilloTableView,platilloTableController,userIconImage,restaurantNameLabel, index , parseArray;
+@synthesize platilloTableView,platilloTableController,userIconImage, index , parseArray,restaurantNameLabel;
 
 
 - (void)viewDidLoad
@@ -39,6 +40,8 @@
     userIconImage.layer.cornerRadius= userIconImage.frame.size.height/2;
     userIconImage.layer.borderWidth=0; //hancho del borde.
     userIconImage.clipsToBounds =YES;
+    
+    //NSLog(@"LOS datos-------------->%@",self.parseArray);
     
 //    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
 //    testObject[@"foo"] = @"bar";
@@ -56,7 +59,7 @@
     return 4;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"Creating cells");
+   // NSLog(@"Creating cells");
     return 1;
 }
 
@@ -123,8 +126,9 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-            NSLog(@"indexPath: %ld",(long)indexPath.section);
+          //  NSLog(@"indexPath: %ld",(long)indexPath.section);
     PFObject *dish = [self.parseArray objectAtIndex:self.index];
+    restaurantNameLabel.text = [dish objectForKey:@"Name"];
     
     if (indexPath.section == 0 ){
         
@@ -139,6 +143,7 @@
         NSNumber *platilloPrice = [dish objectForKey:@"Price" ];
         
         [cell.contentView addSubview:cell.platilloImage];
+       
         [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
             if(!error){
                 cell.platilloImage.image = [UIImage imageWithData: data];
@@ -183,18 +188,18 @@
         return cellTwo;
         
     }else if (indexPath.section == 2){
-        NSLog(@"creating third custom cell");
+        //NSLog(@"creating third custom cell");
         static NSString* cellIdentifier2 = @"socialIconsCell";
-        NSLog(@"deque'ing cellidentifier2");
+        //NSLog(@"deque'ing cellidentifier2");
         SocialCell *cellThree = (SocialCell*) [tableView dequeueReusableCellWithIdentifier: cellIdentifier2];
         
         if (cellThree == nil) {
-            NSLog(@"entrando a tercer nil");
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier2 owner:nil options:nil];
+           
+            //NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier2 owner:nil options:nil];
             //cellThree = (SocialCell*)[nib objectAtIndex:0];
             cellThree = [[SocialCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier2 ];
         }
-        NSLog(@"cell 3 Rturned");
+        //NSLog(@"cell 3 Rturned");
         [cellThree.contentView addSubview:cellThree.wishLabel];
         [cellThree.contentView addSubview:cellThree.shareLabel];
         [cellThree.contentView addSubview:cellThree.likeLabel];
@@ -204,9 +209,9 @@
         
 
     }else if (indexPath.section == 3){
-                    NSLog(@"creating fourth custom cell");
+        
             static NSString* cellIdentifier3 = @"descripcionCell";
-            NSLog(@"pasó 3rt NIL");
+        
             DirecCell *cellFour = (DirecCell*) [tableView dequeueReusableCellWithIdentifier:cellIdentifier3];
         
         UIButton *Button= cellFour.toRestaurant;
@@ -215,14 +220,30 @@
         
             if (cellFour == nil) {
 
-                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier3 owner:nil options:nil];
+//                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier3 owner:nil options:nil];
                 
                 //cellFour = (DirecCell*)[nib objectAtIndex:0];
                 cellFour = [[DirecCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier3 ];
 
         }
-            
-        [cellFour.contentView addSubview:cellFour.restaurantNameLabel];
+        //Get thumbnail file
+        PFFile *thumbnailFile = [dish objectForKey:@"thumbnail"];
+        PFObject *restaurant = dish[@"Restaurant"];
+        
+        [thumbnailFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+            if(!error){
+                cellFour.logoImage.image = [UIImage imageWithData: data];
+
+            }
+        }];
+        [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
+            if(!error){
+                cellFour.horarioLabel.text = [restaurant objectForKey:@"Schedule"];
+                cellFour.pagoLabel.text =[restaurant objectForKey:@"Payment"];
+                cellFour.directionTextView.text =[restaurant objectForKey:@"Adress"] ;
+            }
+        }];
+        
         [cellFour.contentView addSubview:cellFour.horarioLabel];
         [cellFour.contentView addSubview:cellFour.pagoLabel];
         [cellFour.contentView addSubview:cellFour.telLabel];
@@ -233,9 +254,13 @@
         [cellFour.contentView addSubview:cellFour.telIconImage];
         
         [cellFour.contentView addSubview:cellFour.logoImage];
+
+
         
         [cellFour.contentView addSubview:cellFour.directionTextView];
-          cellFour.directionTextView.text = @"Miguel Cervantes de Saavedra #81, Lafayette. Guadalajara, Jalisco ";
+       
+        
+        cellFour.horarioLabel.text = [dish objectForKey:@"Schedule"];
         
         return cellFour;
     }
@@ -257,13 +282,52 @@
 }
 
 - (IBAction)backActionButton:(id)sender {
-    NSLog(@"ET phone Home ");
+   // NSLog(@"ET phone Home ");
     
     PlatilloViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
     homeinstance.parseArray = self.parseArray;
     homeinstance.index = self.index;
+
     
     [self presentViewController:homeinstance animated:YES completion:nil];
     
+}
+
+- (IBAction)shareButton:(id)sender {
+    NSLog(@"sharing");
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        PFObject *dish = [self.parseArray objectAtIndex:self.index];
+        PFFile *thumbnailFile = [dish objectForKey:@"Photo"];
+        //PFObject *restaurant = dish[@"Restaurant"];
+        
+        NSString *platilloName = [dish objectForKey:@"Name"];
+        NSString *initialText = @"Comiendo ";
+        NSString *endingText = @"con FoodStamp For Beta testers";
+        NSString *socialMessage = [NSString stringWithFormat:@"%@ %@ %@",initialText,platilloName,endingText];
+        [controller setInitialText:socialMessage];
+        [controller addURL:[NSURL URLWithString:@"http://www.foodstamp.mx/landing/"]];
+       
+        //Si seteamos este podemos agregar la imagen del platillo al facebook del wey que lo va a compartir, esta chido creo.
+        //Obtener image y agregarla
+        
+        [thumbnailFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+            if(!error){
+                UIImage *logoFinal;
+                logoFinal = [UIImage imageWithData:data];
+                [controller addImage:logoFinal];
+                
+            }
+        }];
+
+        
+       
+       
+        
+        
+        
+        
+        [self presentViewController:controller animated:YES completion:Nil];
+    }
 }
 @end

@@ -1,14 +1,14 @@
 //
-//  LocInfoCell.m
+//  infoTableViewCell.m
 //  FoodStamp
 //
-//  Created by Red Prado on 4/3/14.
+//  Created by Tracer on 6/6/14.
 //  Copyright (c) 2014 Red Prado. All rights reserved.
 //
 
-#import "LocInfoCell.h"
+#import "infoTableViewCell.h"
 
-@implementation LocInfoCell
+@implementation infoTableViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MiniMenuCell.h"
+#import "infoTableViewCell.h"
 #import <Parse/Parse.h>
 
-@interface RestaurantViewController : UIViewController <UIScrollViewDelegate>
+@interface RestaurantViewController : UIViewController <UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 {
     NSArray *imageFilesArray;
     NSMutableArray *imagesArray;
@@ -31,8 +31,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
 @property (strong, nonatomic) PFObject* dish;
+@property (weak, nonatomic) IBOutlet UILabel *restaurantNameLabel;
+
+
 
 //Buttons
+
 
     //Navigation Buttons
 

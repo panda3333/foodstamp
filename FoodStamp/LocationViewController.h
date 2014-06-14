@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "LocationTableViewController.h"
 
 @interface LocationViewController : UIViewController <MKMapViewDelegate>{
     
     CLLocationCoordinate2D zoomLocation;
+      CLLocationManager *locationManager;
 }
 
 //headerView
@@ -26,6 +26,7 @@
 //Table View
 @property (strong, nonatomic) IBOutlet UITableView *locationTableView;
 
-@property (strong,nonatomic) LocationTableViewController *locationTableController;
+@property (strong, nonatomic) PFObject* dish;
+
 
 @end

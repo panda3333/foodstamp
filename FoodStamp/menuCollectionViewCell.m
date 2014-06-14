@@ -1,15 +1,16 @@
 //
-//  MiniMenuCell.m
+//  menuCollectionViewCell.m
 //  FoodStamp
 //
-//  Created by Red Prado on 4/3/14.
+//  Created by Tracer on 6/12/14.
 //  Copyright (c) 2014 Red Prado. All rights reserved.
 //
 
-#import "MiniMenuCell.h"
+#import "menuCollectionViewCell.h"
 
-@implementation MiniMenuCell
-@synthesize miniParseImage;
+@implementation menuCollectionViewCell
+
+@synthesize platilloImage;
 
 - (id)initWithFrame:(CGRect)frame
 {

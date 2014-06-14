@@ -9,14 +9,20 @@
 #import "RestaurantViewController.h"
 #import "UserInteractionCell.h"
 #import "RestInfoCell.h"
-#import "MiniMenuCell.h"
+#import "infoTableViewCell.h"
+#import "LocationViewController.h"
+#import "menuViewController.h"
+
+#import <Social/Social.h>
+
 #import "ViewController.h"
 
 @interface RestaurantViewController ()
 
 @property (nonatomic, strong) NSArray *pageImages;
 @property (nonatomic, strong) NSMutableArray *pageViews;
-
+@property (nonatomic, strong) NSString *description;
+@property(nonatomic, strong) UIImage *logo;
 - (void)loadVisiblePages;
 - (void)loadPage:(NSInteger)page;
 - (void)purgePage:(NSInteger)page;
@@ -25,7 +31,7 @@
 
 @implementation RestaurantViewController
 
-@synthesize restaurantTableView,restaurantTableController,scrollView,pageControl,pageImages,pageViews,miniMenuCollectionView, dish;
+@synthesize restaurantTableView,restaurantTableController,scrollView,pageControl,pageImages,pageViews,miniMenuCollectionView, dish,restaurantNameLabel,description,logo;
 
 
 - (void)loadPage:(NSInteger)page {
@@ -84,11 +90,11 @@
     NSInteger page = (NSInteger)floor((self.scrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
     
     // Update the page control
-    NSLog(@"updating page control");
+
     self.pageControl.currentPage = page;
     
     // Work out which pages you want to load
-    NSLog(@"Checando bounds");
+
     NSInteger firstPage = page - 1;
     NSInteger lastPage = page + pageImages.count;
     
@@ -113,17 +119,22 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // Load the pages that are now on screen
     [self loadVisiblePages];
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self queryParseMethod];
+    [miniMenuCollectionView reloadData];
+    
+    
 }
 
     
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:NO];
+    
 }
     
 
@@ -140,8 +151,20 @@
     PFObject *restaurant = self.dish[@"Restaurant"];
     
     [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        [self populateImages:restaurant];
+        
+        if(!error){
+        
+            [self populateImages:restaurant];
+//     NSLog(@"-------------------->%@",restaurant);
+            restaurantNameLabel.text = [restaurant objectForKey:@"Name"];
+            description = [restaurant objectForKey:@"Description"];
+            
+            
+        
+        }
     }];
+
+    
 }
 
 - (void)populateImages: (PFObject *) restaurant{
@@ -172,68 +195,14 @@
     }];
 }
 
-#pragma mark - UICollectionView data source
-
--(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    
-    return 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    
-    return [imageFilesArray count];
-}
-
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    static NSString *cellIdentifier = @"miniMenuCell";
-    MiniMenuCell *cell = (MiniMenuCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-    PFObject *imageObject = [imageFilesArray objectAtIndex:indexPath.row];
-    
-    
-    PFFile *imageFile = [imageObject objectForKey:@"platilloImage"];
-    NSString *restaurantName = [imageObject objectForKey:@"restaurantName"];
-    NSString *platilloName = [imageObject objectForKey:@"platilloName" ];
-    NSString *platilloPrice = [imageObject objectForKey:@"precio" ];
-    
-    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        
-        if(!error){
-            cell.miniParseImage.image = [UIImage imageWithData:data];
-            cell.restNameLabel.text = restaurantName;
-            cell.platilloNameLabel.text = platilloName;
-            cell.priceLabel.text =  platilloPrice;
-        }
-    }];
-    
-    
-    
-    return cell;
-}
-
-// I implemented didSelectItemAtIndexPath:, but you could use willSelectItemAtIndexPath: depending on what you intend to do. See the docs of these two methods for the differences.
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    // If you need to use the touched cell, you can retrieve it like so
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    
-    NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 5; // This is the minimum inter item spacing, can be more
-}
-
 #pragma mark -  TableView Methods
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"Creating cells");
+    
     return 1;
 }
 
@@ -258,9 +227,9 @@
         case 1:
             cellIdentifier = @"userInteractionCell";
             break;
-        //case 2:
-          //  cellIdentifier = @"menuCell";
-            //break;
+        case 2:
+            cellIdentifier = @"infoCell";
+            break;
     
             
     }
@@ -298,7 +267,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"indexPath: %ld",(long)indexPath.section);
+    //NSLog(@"indexPath: %ld",(long)indexPath.section);
     
     if (indexPath.section == 0 ){
         
@@ -312,26 +281,31 @@
         }
 
         [cell.contentView addSubview:cell.restInfoLabel];
-        NSLog(@"setting kekas Text");
-        cell.restInfoLabel.text = @"Restarant Bien bonito, con forma de chozita de tacos. Tambien venden quesadillas gourmet, tacos gourmet, agua fresca , refresco no está en una esquina, pero si sobre una calle";
+        cell.restInfoLabel.text = description;
+        
+        
 
+        
         return cell;
         
     }else if (indexPath.section == 1){
         
+        
         static NSString* cellIdentifier1 = @"userInteractionCell";
 
         UserInteractionCell *cellTwo = (UserInteractionCell *)[restaurantTableView dequeueReusableCellWithIdentifier:cellIdentifier1];
-
+        
         
         if (cellTwo == nil) {
             
-            NSLog(@"entró a segundo nil");
+            
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier1 owner:nil options:nil];
             cellTwo  = (UserInteractionCell*)[nib objectAtIndex:0];
             cellTwo = [[UserInteractionCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier1];
+         
             
         }
+
         
         [cellTwo.contentView addSubview:cellTwo.decideLabel];
             cellTwo.decideLabel.text = @"Decide";
@@ -339,22 +313,146 @@
         [cellTwo.contentView addSubview:cellTwo.calificaLabel];
         [cellTwo.contentView addSubview:cellTwo.shareLabel];
         
+        UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                UIButton *mapaButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                    UIButton *rateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                        UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+        //set the position of the button
+        menuButton.frame = CGRectMake(cellTwo.frame.origin.x + 26, cellTwo.frame.origin.y + 8, 38, 38);
+                mapaButton.frame = CGRectMake(cellTwo.frame.origin.x + 95, cellTwo.frame.origin.y + 8, 38, 38);
+                    rateButton.frame = CGRectMake(cellTwo.frame.origin.x + 171, cellTwo.frame.origin.y + 8, 38, 38);
+                        shareButton.frame = CGRectMake(cellTwo.frame.origin.x + 247, cellTwo.frame.origin.y + 8, 38, 38);
+        //Define Custom Image
+        UIImage *menuImage =[UIImage imageNamed: @"boton_menu.png"];
+                UIImage *menuOnImage =[UIImage imageNamed: @"boton_menu-on.png"];
+        UIImage *mapImage =[UIImage imageNamed: @"boton_mapa.png"];
+            UIImage *mapOnImage =[UIImage imageNamed: @"boton_mapa-on.png"];
+        UIImage *rateImage =[UIImage imageNamed: @"boton_califica.png"];
+            UIImage *rateOnImage =[UIImage imageNamed: @"boton_califica-on.png"];
+        UIImage *shareImage =[UIImage imageNamed: @"boton_facebook.png"];
+                UIImage *shareOnImage =[UIImage imageNamed: @"boton_facebook-on.png"];
+        //set image for state
+        [menuButton setImage:menuImage forState:UIControlStateNormal];
+                [menuButton setImage:menuOnImage forState:UIControlStateSelected];
+        [mapaButton setImage:mapImage forState:UIControlStateNormal];
+            [mapaButton setImage:mapOnImage forState:UIControlStateSelected];
+        [rateButton setImage:rateImage forState:UIControlStateNormal];
+            [rateButton setImage:rateOnImage forState:UIControlStateSelected];
+        [shareButton setImage:shareImage forState:UIControlStateNormal];
+            [shareButton setImage:shareOnImage forState:UIControlStateSelected];
+        
+        [menuButton addTarget:self action:@selector(goToMenu:) forControlEvents:UIControlEventTouchUpInside];
+        [mapaButton addTarget:self action:@selector(goToMap:) forControlEvents:UIControlEventTouchUpInside];
+        [rateButton addTarget:self action:@selector(rateAction:) forControlEvents:UIControlEventTouchUpInside];
+        [shareButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        menuButton.backgroundColor= [UIColor clearColor];
+            mapaButton.backgroundColor= [UIColor clearColor];
+                rateButton.backgroundColor= [UIColor clearColor];
+                    shareButton.backgroundColor= [UIColor clearColor];
+        
+        [cellTwo.contentView addSubview:menuButton];
+            [cellTwo.contentView addSubview:mapaButton];
+                [cellTwo.contentView addSubview:rateButton];
+                    [cellTwo.contentView addSubview:shareButton];
+        
         return cellTwo;
+    }if(indexPath.section ==2){
+        
+        static NSString* cellIdentifier2 =@"infoCell";
+        infoTableViewCell *cellThree = (infoTableViewCell *)[restaurantTableView dequeueReusableCellWithIdentifier:cellIdentifier2 ];
+        
+        if (cellThree ==nil) {
+            cellThree = [[infoTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier2];
         }
-        return nil;
+        //get logo
+         PFObject *restaurant = dish[@"Restaurant"];
+        PFFile *logoImage = [restaurant  objectForKey:@"Logo"];
+        
+        [logoImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+            if(!error){
+                cellThree.infoLogoImage.image = [UIImage imageWithData:data];
+            }
+        }];
+        [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
+            if(!error){
+                cellThree.horarioLabel.text = [restaurant objectForKey:@"Schedule"];
+                cellThree.paymentLabel.text =[restaurant objectForKey:@"Payment"];
+                cellThree.directionTextView.text =[restaurant objectForKey:@"Adress"] ;
+                cellThree.phoneLabel.text =[restaurant objectForKey:@"Web"] ;
+          
+            }
+        }];
+        
+        
+         //[cellThree.contentView addSubview:cellThree.infoLogoImage];
+        
+        
+        return cellThree;
+    }
+    return nil;
     
 }
 
+-(void)goToMenu :(id)sender
+{
 
-//- (void)reloadData{
-//    
-//}
+    NSLog(@"To Menu");
+    menuViewController *menuInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuView"];
+    menuInstance.dish = self.dish;
+    
+    [self presentViewController:menuInstance animated:YES completion:nil];
+
+    
+}
+-(void)goToMap :(id)sender
+{
+    NSLog(@"To Map");
+    LocationViewController *mapInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationView"];
+    mapInstance.dish = self.dish;
+    
+    [self presentViewController:mapInstance animated:YES completion:nil];
+}
+-(void)rateAction :(id)sender
+{
+    NSLog(@"Rating!!");
+}
+-(void)shareAction :(id)sender
+{
+    NSLog(@"sharing");
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        PFObject *restaurant = dish[@"Restaurant"];
+                PFFile *logoImage = [restaurant  objectForKey:@"Logo"];
+        
+        NSString *restaurantName = [restaurant objectForKey:@"Name"];
+        NSString *initialText = @"Comiendo en";
+        NSString *endingText = @"con FoodStamp For Beta testers";
+        NSString *socialMessage = [NSString stringWithFormat:@"%@ %@ %@",initialText,restaurantName,endingText];
+        [controller setInitialText:socialMessage];
+        [controller addURL:[NSURL URLWithString:@"http://www.foodstamp.mx/landing/"]];
+        //Si seteamos este podemos agregar la imagen del platillo al facebook del wey que lo va a compartir, esta chido creo.
+        //Obtener image y agregarla
+        [logoImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+            if(!error){
+                UIImage *logoFinal;
+                logoFinal = [UIImage imageWithData:data];
+                        [controller addImage:logoFinal];
+            }
+        }];
 
 
+
+        
+        [self presentViewController:controller animated:YES completion:Nil];
+    }
+
+}
 
 - (IBAction)backButton:(id)sender {
     
-    NSLog(@"ET phone Home ");
+
     ViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
     [self presentViewController:homeinstance animated:YES completion:nil];
     

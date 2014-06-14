@@ -20,7 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *toRestaurant;
 
 //labels
-@property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
+
 @property (strong, nonatomic) IBOutlet UILabel *horarioLabel;
 @property (strong, nonatomic) IBOutlet UILabel *pagoLabel;
 @property (strong, nonatomic) IBOutlet UILabel *telLabel;

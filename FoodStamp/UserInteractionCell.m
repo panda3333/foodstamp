@@ -7,7 +7,8 @@
 //
 
 #import "UserInteractionCell.h"
-
+#import "RestaurantViewController.h"
+#import "LocationViewController.h"
 @implementation UserInteractionCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -31,12 +32,7 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)decideButton:(id)sender {
-}
 
-- (IBAction)exploraButton:(id)sender {
-}
 
-- (IBAction)rateButton:(id)sender {
-}
+
 @end
