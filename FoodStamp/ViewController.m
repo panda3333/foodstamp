@@ -11,6 +11,7 @@
 
 #import "ViewController.h"
 #import "PlatilloViewController.h"
+#import "infoViewController.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -209,9 +210,10 @@
 
 - (IBAction)randomButton:(id)sender {
     
-    NSLog(@"On a Faim!!! ");
-    ViewController *platilloinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];
-    [self presentViewController:platilloinstance animated:YES completion:nil];
+    [self randomizeArray:(self.parseArray)];
+    [platillosCollectionView reloadData];
+
+
     
 }
 
@@ -231,5 +233,9 @@
 }
 
 - (IBAction)aboutButton:(id)sender {
+    infoViewController *aboutInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"aboutView"];
+    
+    [self presentViewController:aboutInstance animated:YES completion:nil];
+    
 }
 @end

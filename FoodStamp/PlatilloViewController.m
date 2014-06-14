@@ -22,7 +22,9 @@
 
 @end
 
-@implementation PlatilloViewController
+@implementation PlatilloViewController{
+    NSString *restaurantPhone;
+}
 
 @synthesize platilloTableView,platilloTableController,userIconImage, index , parseArray,restaurantNameLabel;
 
@@ -50,6 +52,8 @@
     
     //NSDictionary *platilloActual = [[NSDictionary alloc] initWithObjectsAndKeys:self.dish, nil];
     //NSLog(@"%@",platilloActual);
+    
+    
 }
 
 
@@ -227,20 +231,28 @@
 
         }
         //Get thumbnail file
-        PFFile *thumbnailFile = [dish objectForKey:@"thumbnail"];
         PFObject *restaurant = dish[@"Restaurant"];
-        
-        [thumbnailFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
-            if(!error){
-                cellFour.logoImage.image = [UIImage imageWithData: data];
 
-            }
-        }];
+        
+
+        
         [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
             if(!error){
+                        NSLog(@"----------------:%@",restaurant);
+
                 cellFour.horarioLabel.text = [restaurant objectForKey:@"Schedule"];
                 cellFour.pagoLabel.text =[restaurant objectForKey:@"Payment"];
                 cellFour.directionTextView.text =[restaurant objectForKey:@"Adress"] ;
+                restaurantPhone =[restaurant objectForKey:@"Phone"];
+                cellFour.telLabel.text=[restaurant objectForKey:@"Phone"];
+                
+                PFFile *logoImage = [restaurant  objectForKey:@"Logo"];
+                
+                [logoImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+                    if(!error){
+                        cellFour.logoImage.image = [UIImage imageWithData:data];
+                    }
+                }];
             }
         }];
         
@@ -252,10 +264,17 @@
         [cellFour.contentView addSubview:cellFour.horaIconImage];
         [cellFour.contentView addSubview:cellFour.pagoIconImage];
         [cellFour.contentView addSubview:cellFour.telIconImage];
+            UITapGestureRecognizer *phoneImageTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callRestaurant)];
+        phoneImageTouch.numberOfTapsRequired = 1;
+        cellFour.telIconImage.userInteractionEnabled = YES;
+        [cellFour.telIconImage addGestureRecognizer:phoneImageTouch];
         
         [cellFour.contentView addSubview:cellFour.logoImage];
-
-
+        
+        UITapGestureRecognizer *toRestaurantTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logoPressed)];
+        toRestaurantTouch.numberOfTapsRequired = 1;
+        cellFour.logoImage.userInteractionEnabled = YES;
+        [cellFour.logoImage addGestureRecognizer:toRestaurantTouch];
         
         [cellFour.contentView addSubview:cellFour.directionTextView];
        
@@ -268,8 +287,19 @@
     
 }
 
+-(void)logoPressed{
+    RestaurantViewController *RestaurantInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
+    
+    RestaurantInstance.dish = [self.parseArray objectAtIndex: self.index];
+    [self presentViewController:RestaurantInstance animated:YES completion:nil];
+    
+}
 
-
+-(void) callRestaurant{
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:restaurantPhone];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    NSLog(@"calling");
+}
 - (void)reloadData{
     
 }
@@ -277,7 +307,10 @@
 -(void) ButtonClicked
 {
     RestaurantViewController *RestaurantInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
-    RestaurantInstance.dish = [self.parseArray objectAtIndex: self.index];
+//RestaurantInstance.parseArray = self.parseArray;
+//RestaurantInstance.index =  self.index;
+    
+   RestaurantInstance.dish = [self.parseArray objectAtIndex: self.index];
     [self presentViewController:RestaurantInstance animated:YES completion:nil];
 }
 

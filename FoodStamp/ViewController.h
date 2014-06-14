@@ -22,6 +22,8 @@
 @property (strong, nonatomic) IBOutlet UIView *optionsView;
 @property (nonatomic, assign) int index;
 @property (strong, nonatomic) NSMutableArray *parseArray;
+@property (strong, nonatomic) PFObject* dish;
+
 
 //Button para menu opciones
 - (IBAction)optionsButton:(id)sender;

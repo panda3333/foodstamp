@@ -31,6 +31,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
 @property (strong, nonatomic) PFObject* dish;
+
+@property (nonatomic, assign) int index;
+@property (strong, nonatomic) NSMutableArray *parseArray;
+
 @property (weak, nonatomic) IBOutlet UILabel *restaurantNameLabel;
 
 

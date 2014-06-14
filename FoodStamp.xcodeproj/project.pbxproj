@@ -57,7 +57,6 @@
 		52CD880918E6335400C4FF46 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52CD880718E6335400C4FF46 /* InfoPlist.strings */; };
 		52CD880B18E6335400C4FF46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CD880A18E6335400C4FF46 /* main.m */; };
 		52CD880F18E6335400C4FF46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CD880E18E6335400C4FF46 /* AppDelegate.m */; };
-		52CD881218E6335400C4FF46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CD881018E6335400C4FF46 /* Main.storyboard */; };
 		52CD881518E6335400C4FF46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CD881418E6335400C4FF46 /* ViewController.m */; };
 		52CD881718E6335400C4FF46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CD881618E6335400C4FF46 /* Images.xcassets */; };
 		52CD881E18E6335400C4FF46 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CD881D18E6335400C4FF46 /* XCTest.framework */; };
@@ -74,6 +73,8 @@
 		971FFC5C192D83000028FD0C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC5B192D83000028FD0C /* Reachability.m */; };
 		971FFC5F192D83860028FD0C /* Comms.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC5E192D83860028FD0C /* Comms.m */; };
 		971FFC61192D843F0028FD0C /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 971FFC60192D843F0028FD0C /* FacebookSDK.framework */; };
+		BB58E76D194CC1D0009CECAA /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB58E76C194CC1D0009CECAA /* infoViewController.m */; };
+		BB58E76F194CD68D009CECAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB58E76E194CD68D009CECAA /* Main.storyboard */; };
 		BB6B8ADA1926EF25001FB612 /* 1Descubre_icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AD41926EF25001FB612 /* 1Descubre_icon-01.png */; };
 		BB6B8ADC1926EF25001FB612 /* 1Descubre_icon-03.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AD61926EF25001FB612 /* 1Descubre_icon-03.png */; };
 		BB6B8ADD1926EF25001FB612 /* 1Descubre_icon-06.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AD71926EF25001FB612 /* 1Descubre_icon-06.png */; };
@@ -175,7 +176,6 @@
 		52CD880C18E6335400C4FF46 /* FoodStamp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FoodStamp-Prefix.pch"; sourceTree = "<group>"; };
 		52CD880D18E6335400C4FF46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52CD880E18E6335400C4FF46 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		52CD881118E6335400C4FF46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52CD881318E6335400C4FF46 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		52CD881418E6335400C4FF46 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		52CD881618E6335400C4FF46 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -198,6 +198,9 @@
 		971FFC5D192D83860028FD0C /* Comms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comms.h; sourceTree = "<group>"; };
 		971FFC5E192D83860028FD0C /* Comms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comms.m; sourceTree = "<group>"; };
 		971FFC60192D843F0028FD0C /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		BB58E76B194CC1D0009CECAA /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
+		BB58E76C194CC1D0009CECAA /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
+		BB58E76E194CD68D009CECAA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BB6B8AD41926EF25001FB612 /* 1Descubre_icon-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1Descubre_icon-01.png"; path = "screen2_Slider/1Descubre_icon-01.png"; sourceTree = "<group>"; };
 		BB6B8AD61926EF25001FB612 /* 1Descubre_icon-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1Descubre_icon-03.png"; path = "screen2_Slider/1Descubre_icon-03.png"; sourceTree = "<group>"; };
 		BB6B8AD71926EF25001FB612 /* 1Descubre_icon-06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1Descubre_icon-06.png"; path = "screen2_Slider/1Descubre_icon-06.png"; sourceTree = "<group>"; };
@@ -480,6 +483,7 @@
 		52CD87F218E6335300C4FF46 = {
 			isa = PBXGroup;
 			children = (
+				BB58E76E194CD68D009CECAA /* Main.storyboard */,
 				52CD880418E6335400C4FF46 /* FoodStamp */,
 				52CD882318E6335400C4FF46 /* FoodStampTests */,
 				52CD87FD18E6335400C4FF46 /* Frameworks */,
@@ -524,7 +528,7 @@
 			children = (
 				971FFC54192D82A80028FD0C /* Vendor */,
 				971FFC50192D81070028FD0C /* LogInViewController */,
-				52CD881018E6335400C4FF46 /* Main.storyboard */,
+				BB58E76A194CC13D009CECAA /* InfoViewController */,
 				BBF40B7B194A07150073C2A4 /* menuViewController */,
 				528F75AF18EDF911001EAEC6 /* LocationViewController */,
 				526B390718ECE36000B6D4FA /* RestaurantViewController */,
@@ -623,6 +627,15 @@
 				971FFC58192D82F40028FD0C /* MBProgressHUD.m */,
 			);
 			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		BB58E76A194CC13D009CECAA /* InfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BB58E76B194CC1D0009CECAA /* infoViewController.h */,
+				BB58E76C194CC1D0009CECAA /* infoViewController.m */,
+			);
+			name = InfoViewController;
 			sourceTree = "<group>";
 		};
 		BBD7C6FE1942AE200048488C /* infoCell */ = {
@@ -754,7 +767,6 @@
 				BB6B8ADE1926EF25001FB612 /* 1Descubre_icon-07.png in Resources */,
 				BB6B8ADF1926EF25001FB612 /* 1Descubre_icon-08.png in Resources */,
 				BB6B8AE91926F2CC001FB612 /* 1Descubre_icon_02.png in Resources */,
-				52CD881218E6335400C4FF46 /* Main.storyboard in Resources */,
 				5268693B18EFB37200CD3876 /* perfil_01.jpg in Resources */,
 				5268693518EFB28100CD3876 /* DSC_56722.png in Resources */,
 				5268694C18EFB44200CD3876 /* boton_guardar.png in Resources */,
@@ -768,6 +780,7 @@
 				5268692F18EFB28100CD3876 /* DSC_55332.png in Resources */,
 				BB6B8B031926FA34001FB612 /* boton_menu.png in Resources */,
 				5268692018EFB10A00CD3876 /* icono_tel.png in Resources */,
+				BB58E76F194CD68D009CECAA /* Main.storyboard in Resources */,
 				BB6B8AE41926F23B001FB612 /* 1Descubre_icon-09.png in Resources */,
 				BB6B8ADD1926EF25001FB612 /* 1Descubre_icon-06.png in Resources */,
 				BBEB555D193C0484009D02B1 /* boton_back.png in Resources */,
@@ -814,6 +827,7 @@
 				52B2E10218EB61E100903CBC /* HomePlatilloCell.m in Sources */,
 				528172A918E64F3D00835BED /* PlatilloViewController.m in Sources */,
 				526B390A18ECE3A100B6D4FA /* RestaurantViewController.m in Sources */,
+				BB58E76D194CC1D0009CECAA /* infoViewController.m in Sources */,
 				BBF40B7F194A0D1B0073C2A4 /* menuCollectionViewCell.m in Sources */,
 				52110D9918ED161F002B4B82 /* UserInteractionCell.m in Sources */,
 				BBF40B7A194A07060073C2A4 /* menuViewController.m in Sources */,
@@ -845,14 +859,6 @@
 				52CD880818E6335400C4FF46 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		52CD881018E6335400C4FF46 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				52CD881118E6335400C4FF46 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		52CD882618E6335400C4FF46 /* InfoPlist.strings */ = {

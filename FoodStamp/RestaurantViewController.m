@@ -453,7 +453,10 @@
 - (IBAction)backButton:(id)sender {
     
 
-    ViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
+ViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
+     homeinstance.dish = [self.parseArray objectAtIndex: self.index];
+    homeinstance.parseArray = self.parseArray;
+    homeinstance.index = self.index;
     [self presentViewController:homeinstance animated:YES completion:nil];
     
     
