@@ -11,7 +11,9 @@
 
 @interface infoViewController : UIViewController
 
+@property (strong,nonatomic) NSMutableArray *parseArray;
 
+- (IBAction)backHome:(id)sender;
 - (IBAction)logOut:(id)sender;
 
 

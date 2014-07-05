@@ -26,10 +26,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-   [super viewWillAppear:animated];
    
-   if ([PFUser currentUser]) {
-      [self performSegueWithIdentifier:@"LoginSuccessful" sender:self];
+    [super viewWillAppear:animated];
+   
+   if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+       [self performSegueWithIdentifier:@"LoginSuccessful" sender:self];
       return;
    }
 }
@@ -67,8 +68,9 @@
 	// Did we login successfully ?
 	if (loggedIn) {
 		// Seque to the Image Wall
-      [MBProgressHUD hideHUDForView:self.view animated:YES];
-		[self performSegueWithIdentifier:@"LoginSuccessful" sender:self];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self performSegueWithIdentifier:@"LoginSuccessful" sender:self];
+
 	} else {
 		// Show error alert
 		[[[UIAlertView alloc] initWithTitle:@"Login Failed"
