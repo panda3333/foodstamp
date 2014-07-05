@@ -18,6 +18,7 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *platillosCollectionView;
 @property (strong, nonatomic) IBOutlet UIImageView *userIconHomeImage;
+@property (nonatomic, strong) NSMutableData *imageData;
 
 @property (strong, nonatomic) IBOutlet UIView *optionsView;
 @property (nonatomic, assign) int index;

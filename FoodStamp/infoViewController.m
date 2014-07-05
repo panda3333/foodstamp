@@ -9,12 +9,15 @@
 #import "infoViewController.h"
 #import "FBLoginViewController.h"
 #import <Parse/Parse.h>
+#import "ViewController.h"
 
 @interface infoViewController ()
 
 @end
 
 @implementation infoViewController
+
+@synthesize parseArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +41,12 @@
 }
 
 
+
+- (IBAction)backHome:(id)sender {
+    ViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
+    homeViewController.parseArray = self.parseArray;
+    [self presentViewController:homeViewController animated:YES completion:nil];
+}
 
 - (IBAction)logOut:(id)sender {
     
