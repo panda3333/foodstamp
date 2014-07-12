@@ -13,10 +13,8 @@
 
 
 @interface menuViewController (){
-   
     NSString *restaurantName;
     PFObject *restaurant;
-  
 }
 
 
@@ -44,6 +42,7 @@
    // NSLog(@"Los platillos----------> %@",restaurant);
 }
 -(void)dishesQuery{
+    
     restaurant = self.dish[@"Restaurant"];
     NSString *restaurantHeaderName = [restaurant objectForKey:@"Name"];
     restaurantNameLabel.text = restaurantHeaderName;
@@ -75,7 +74,7 @@
 
  return [parseArray count];
     
-    NSLog(@"oarse array coun in Restaurante--->%lu",parseArray.count);
+    NSLog(@"oarse array coun in Restaurante--->%lu",(unsigned long)parseArray.count);
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:

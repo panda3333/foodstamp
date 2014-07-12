@@ -88,9 +88,11 @@
     }];
     
     //Imagen de Usuario Redonda
+    
+    /*
     userIconHomeImage.layer.cornerRadius= userIconHomeImage.frame.size.height/2;
     userIconHomeImage.layer.borderWidth=0; //hancho del borde.
-    userIconHomeImage.clipsToBounds = YES;
+    userIconHomeImage.clipsToBounds = YES;*/
     
     //Auto correr Query en parse para buscar imágenes al iniciar pantalla.
     [PFQuery clearAllCachedResults];
@@ -141,8 +143,8 @@
     self.userIconHomeImage.image = [UIImage imageWithData:self.imageData];
     
     // Add a nice corner radius to the image
-    //self.userIconHomeImage.layer.cornerRadius = 8.0f;
-    //self.userIconHomeImage.layer.masksToBounds = YES;
+    self.userIconHomeImage.layer.cornerRadius = 17.0f;
+    self.userIconHomeImage.layer.masksToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning
