@@ -348,7 +348,7 @@
                                                     <outlet property="descripcionTextView" destination="1oA-J9-T4g" id="xGN-bP-jIe"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="95" selectionStyle="default" indentationWidth="10" reuseIdentifier="socialIconsCell" rowHeight="81" id="fa5-3U-P0S" customClass="SocialCell">
+                                            <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="95" selectionStyle="none" indentationWidth="10" reuseIdentifier="socialIconsCell" rowHeight="81" id="fa5-3U-P0S" customClass="SocialCell">
                                                 <rect key="frame" x="0.0" y="297" width="320" height="81"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fa5-3U-P0S" id="n9B-LG-Sfb">
@@ -594,7 +594,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gk9-62-zot">
-                                                    <rect key="frame" x="0.0" y="0.0" width="138" height="138"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="152" height="145"/>
                                                 </imageView>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uWq-PC-QvK">
                                                     <rect key="frame" x="51" y="50" width="37" height="37"/>
@@ -658,7 +658,7 @@
                                 <rect key="frame" x="264" y="23" width="36" height="36"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.98297582856887156" green="1" blue="0.99147617784156838" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="platillosCollectionView" destination="SJ8-P6-rki" id="2Pq-lG-nf9"/>
@@ -667,7 +667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBr-aN-9Uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123" y="-684"/>
+            <point key="canvasLocation" x="494" y="-697"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="dgE-pk-g9W">
