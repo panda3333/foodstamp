@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KJt-ME-Idw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -124,10 +124,10 @@
                                 <gestureRecognizers/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DKP-ga-sz2">
-                                <rect key="frame" x="-96" y="76" width="95" height="492"/>
+                                <rect key="frame" x="-96" y="64" width="95" height="504"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgA-1W-1jd">
-                                        <rect key="frame" x="25" y="1" width="43" height="43"/>
+                                        <rect key="frame" x="25" y="13" width="43" height="43"/>
                                         <state key="normal" image="1Descubre_icon-01.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -136,7 +136,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaB-vt-qNa">
-                                        <rect key="frame" x="26" y="71" width="43" height="43"/>
+                                        <rect key="frame" x="26" y="83" width="43" height="43"/>
                                         <state key="normal" image="1Descubre_icon-02.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -145,7 +145,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AL-wd-VfX">
-                                        <rect key="frame" x="25" y="135" width="43" height="43"/>
+                                        <rect key="frame" x="25" y="147" width="43" height="43"/>
                                         <state key="normal" image="1Descubre_icon-08.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -154,7 +154,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkj-7t-ab6">
-                                        <rect key="frame" x="20" y="206" width="66" height="34"/>
+                                        <rect key="frame" x="20" y="218" width="66" height="34"/>
                                         <state key="normal" image="1Descubre_icon-07.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -163,7 +163,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogK-Qj-BSs">
-                                        <rect key="frame" x="18" y="270" width="60" height="43"/>
+                                        <rect key="frame" x="18" y="282" width="60" height="43"/>
                                         <state key="normal" image="1Descubre_icon-06.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -172,7 +172,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBt-Yb-jaR">
-                                        <rect key="frame" x="29" y="345" width="43" height="43"/>
+                                        <rect key="frame" x="29" y="357" width="43" height="43"/>
                                         <state key="normal" image="1Descubre_icon-03.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -181,7 +181,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAh-Fm-WjP">
-                                        <rect key="frame" x="30" y="421" width="37" height="37"/>
+                                        <rect key="frame" x="30" y="433" width="37" height="37"/>
                                         <state key="normal" image="1Descubre_icon-09.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -190,37 +190,37 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aleatorio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8K-PR-A3d">
-                                        <rect key="frame" x="19" y="43" width="59" height="21"/>
+                                        <rect key="frame" x="19" y="55" width="59" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favoritos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arr-9j-uwQ">
-                                        <rect key="frame" x="19" y="110" width="56" height="21"/>
+                                        <rect key="frame" x="19" y="122" width="56" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Populares" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTi-hX-XD7">
-                                        <rect key="frame" x="13" y="175" width="69" height="21"/>
+                                        <rect key="frame" x="13" y="187" width="69" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Desayunos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4t-fg-aT9">
-                                        <rect key="frame" x="12" y="240" width="72" height="21"/>
+                                        <rect key="frame" x="12" y="252" width="72" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comidas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugh-nx-F4y">
-                                        <rect key="frame" x="13" y="312" width="69" height="21"/>
+                                        <rect key="frame" x="13" y="324" width="69" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cenas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djZ-u6-2g1">
-                                        <rect key="frame" x="14" y="392" width="69" height="21"/>
+                                        <rect key="frame" x="14" y="404" width="69" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Acerca" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18F-ZN-oCy">
-                                        <rect key="frame" x="12" y="461" width="69" height="21"/>
+                                        <rect key="frame" x="12" y="473" width="69" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -245,7 +245,7 @@
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="odM-es-HMA"/>
             </objects>
-            <point key="canvasLocation" x="45" y="2"/>
+            <point key="canvasLocation" x="169" y="2"/>
         </scene>
         <!--Platillo View Controller - Platillo-->
         <scene sceneID="XYL-uM-mN3">
@@ -263,16 +263,16 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="46"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FF5-ib-p3l">
-                                        <rect key="frame" x="264" y="11" width="36" height="35"/>
+                                        <rect key="frame" x="263" y="3" width="36" height="35"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre de platillo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="227" translatesAutoresizingMaskIntoConstraints="NO" id="deu-bt-XFm">
-                                        <rect key="frame" x="40" y="9" width="227" height="35"/>
+                                        <rect key="frame" x="35" y="1" width="227" height="35"/>
                                         <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="21"/>
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVo-su-qN8">
-                                        <rect key="frame" x="20" y="13" width="25" height="27"/>
+                                        <rect key="frame" x="17" y="6" width="19" height="26"/>
                                         <state key="normal" title="Button" image="boton_back.png"/>
                                         <connections>
                                             <action selector="backActionButton:" destination="Kf0-jp-jUf" eventType="touchUpInside" id="QKo-dt-D7h"/>
@@ -282,24 +282,24 @@
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.57647058823529407" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CXA-xx-Wbr">
-                                <rect key="frame" x="0.0" y="70" width="320" height="499"/>
+                                <rect key="frame" x="0.0" y="61" width="320" height="536"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MV6-qD-I2T">
-                                        <rect key="frame" x="0.0" y="4" width="320" height="495"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="222" selectionStyle="none" indentationWidth="10" reuseIdentifier="fotoPlatilloCell" rowHeight="203" id="jrU-M4-HWz" customClass="FotoPlatilloCell">
-                                                <rect key="frame" x="0.0" y="22" width="320" height="203"/>
+                                            <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="222" selectionStyle="none" indentationWidth="10" reuseIdentifier="fotoPlatilloCell" rowHeight="206" id="jrU-M4-HWz" customClass="FotoPlatilloCell">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="206"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jrU-M4-HWz" id="er1-3t-6Q5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="202"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img_Tchoza.png" translatesAutoresizingMaskIntoConstraints="NO" id="A0S-Pu-Btu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="202"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="205"/>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mrn-6q-JCS">
-                                                            <rect key="frame" x="0.0" y="171" width="320" height="31"/>
+                                                            <rect key="frame" x="0.0" y="174" width="320" height="31"/>
                                                             <subviews>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1.2km" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOD-aD-Ih2">
                                                                     <rect key="frame" x="40" y="5" width="58" height="21"/>
@@ -330,7 +330,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="64" selectionStyle="default" indentationWidth="10" reuseIdentifier="descripcionRestCell" rowHeight="72" id="UP2-yp-ykK" customClass="DescripcionRestTableViewCell">
-                                                <rect key="frame" x="0.0" y="225" width="320" height="72"/>
+                                                <rect key="frame" x="0.0" y="228" width="320" height="72"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UP2-yp-ykK" id="rrA-cG-Mh1">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
@@ -344,12 +344,15 @@
                                                         </textView>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                                </accessibility>
                                                 <connections>
                                                     <outlet property="descripcionTextView" destination="1oA-J9-T4g" id="xGN-bP-jIe"/>
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="95" selectionStyle="none" indentationWidth="10" reuseIdentifier="socialIconsCell" rowHeight="81" id="fa5-3U-P0S" customClass="SocialCell">
-                                                <rect key="frame" x="0.0" y="297" width="320" height="81"/>
+                                                <rect key="frame" x="0.0" y="300" width="320" height="81"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fa5-3U-P0S" id="n9B-LG-Sfb">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
@@ -403,6 +406,9 @@
                                                         </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                                </accessibility>
                                                 <connections>
                                                     <outlet property="likeLabel" destination="ZTp-gf-5nl" id="87T-Xf-Sr0"/>
                                                     <outlet property="shareLabel" destination="oJm-Ab-oAZ" id="OeY-hz-lCe"/>
@@ -410,7 +416,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="201" selectionStyle="none" indentationWidth="10" reuseIdentifier="descripcionCell" rowHeight="201" id="jkG-rt-we4" customClass="DirecCell">
-                                                <rect key="frame" x="0.0" y="378" width="320" height="201"/>
+                                                <rect key="frame" x="0.0" y="381" width="320" height="201"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jkG-rt-we4" id="981-lR-Ig2">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -466,6 +472,9 @@
                                                         </button>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                                </accessibility>
                                                 <connections>
                                                     <outlet property="direcIconImage" destination="Xyz-YQ-kzw" id="vOy-tp-17Q"/>
                                                     <outlet property="directionTextView" destination="pk6-nS-brz" id="DTK-vO-h8q"/>
@@ -659,7 +668,7 @@
                                 <rect key="frame" x="264" y="23" width="36" height="36"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="platillosCollectionView" destination="SJ8-P6-rki" id="2Pq-lG-nf9"/>
@@ -723,7 +732,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="46"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J1z-Xt-VXT">
-                                        <rect key="frame" x="264" y="6" width="36" height="36"/>
+                                        <rect key="frame" x="266" y="3" width="36" height="36"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre de Restaurant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzb-kF-zNv">
                                         <rect key="frame" x="46" y="7" width="221" height="34"/>
@@ -777,7 +786,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dKn-JP-VNq">
                                 <rect key="frame" x="0.0" y="277" width="320" height="357"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" red="0.98039221759999995" green="0.97647064920000004" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="descripcionRestCell" rowHeight="72" id="LHA-BH-tnm" customClass="RestInfoCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="72"/>
@@ -793,7 +802,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.98039221759999995" green="0.97647064920000004" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="restInfoLabel" destination="Emg-3d-BIs" id="uSM-JB-180"/>
                                         </connections>
@@ -827,7 +836,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.98039221759999995" green="0.97647064920000004" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="calificaLabel" destination="XDp-rR-yfP" id="seI-VE-O0v"/>
                                             <outlet property="decideLabel" destination="Nag-vv-NQK" id="9cn-3L-2De"/>
@@ -856,7 +865,7 @@
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q27-ze-9gh">
                                                     <rect key="frame" x="176" y="11" width="131" height="40"/>
-                                                    <color key="backgroundColor" red="0.97647064920000004" green="0.97254908080000002" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -883,9 +892,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.97647064920000004" green="0.97254908080000002" blue="0.90196084980000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.97647064924240112" green="0.97254908084869385" blue="0.90196084976196289" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="directionTextView" destination="Q27-ze-9gh" id="gA6-7Y-hqn"/>
                                             <outlet property="horarioLabel" destination="Han-tp-I6n" id="g21-R4-Yei"/>

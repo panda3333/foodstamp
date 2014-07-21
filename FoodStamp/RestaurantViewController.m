@@ -29,7 +29,9 @@
 
 @end
 
-@implementation RestaurantViewController
+@implementation RestaurantViewController{
+    NSString *restaurantPhone;
+}
 
 @synthesize restaurantTableView,restaurantTableController,scrollView,pageControl,pageImages,pageViews,miniMenuCollectionView, dish,restaurantNameLabel,description,logo;
 
@@ -381,10 +383,15 @@
                 cellThree.paymentLabel.text =[restaurant objectForKey:@"Payment"];
                 cellThree.directionTextView.text =[restaurant objectForKey:@"Adress"] ;
                 cellThree.phoneLabel.text =[restaurant objectForKey:@"Web"] ;
+                restaurantPhone = [restaurant objectForKey:@"Phone"];
+                
           
             }
         }];
         
+        UITapGestureRecognizer *phoneLabelTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callRestaurant)];
+        [cellThree.contentView addSubview:cellThree.phoneLabel];
+            [cellThree.phoneLabel addGestureRecognizer:phoneLabelTouch];
         
          //[cellThree.contentView addSubview:cellThree.infoLogoImage];
         
@@ -461,4 +468,10 @@ ViewController *homeinstance = [self.storyboard instantiateViewControllerWithIde
     
     
 }
+-(void) callRestaurant{
+    NSString *phoneNumber = [@"telprompt://" stringByAppendingString:restaurantPhone];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    NSLog(@"calling");
+}
+
 @end

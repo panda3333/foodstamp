@@ -289,7 +289,7 @@
 - (void) animateMainViewToLeft{
     //Animate mainView
     [UIView animateWithDuration:0.5 animations:^(void){
-        optionsView.frame = CGRectMake(-100, 77, optionsView.frame.size.width, optionsView.frame.size.height);
+        optionsView.frame = CGRectMake(-100, 64, optionsView.frame.size.width, optionsView.frame.size.height);
     }];
     //[_homeIcon setImage:[UIImage imageNamed:@"Pokeball.png"]];
     
@@ -298,7 +298,7 @@
 - (void) animateMainViewToRight{
     //Animate mainView
     [UIView animateWithDuration:0.2 animations:^(void){
-        optionsView.frame = CGRectMake(0, 77, optionsView.frame.size.width, optionsView.frame.size.height);
+        optionsView.frame = CGRectMake(0, 64, optionsView.frame.size.width, optionsView.frame.size.height);
     }];
     //[_homeIcon setImage:[UIImage imageNamed:@"clickedPokeBall.png"]];
 }

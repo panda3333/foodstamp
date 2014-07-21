@@ -258,7 +258,11 @@
         
         [cellFour.contentView addSubview:cellFour.horarioLabel];
         [cellFour.contentView addSubview:cellFour.pagoLabel];
+
+        UITapGestureRecognizer *telLabelTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callRestaurant)];
+        telLabelTouch.numberOfTapsRequired = 1;
         [cellFour.contentView addSubview:cellFour.telLabel];
+        [cellFour.telLabel addGestureRecognizer:telLabelTouch];
         
         [cellFour.contentView addSubview:cellFour.direcIconImage];
         [cellFour.contentView addSubview:cellFour.horaIconImage];
@@ -321,7 +325,6 @@
     homeinstance.parseArray = self.parseArray;
     homeinstance.index = self.index;
 
-    
     [self presentViewController:homeinstance animated:YES completion:nil];
     
 }
@@ -352,13 +355,6 @@
                 
             }
         }];
-
-        
-       
-       
-        
-        
-        
         
         [self presentViewController:controller animated:YES completion:Nil];
     }
