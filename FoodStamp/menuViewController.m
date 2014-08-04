@@ -98,8 +98,15 @@
         if(!error){
             NSString *precioFinal = platilloPrice.stringValue;
             NSString *precioLogo = @"$";
+        
+
             NSString *joinString=[NSString stringWithFormat:@"%@ %@",precioLogo,precioFinal];
-            cell.priceLabel.text =joinString;
+            
+
+            NSMutableAttributedString * string = [[NSMutableAttributedString alloc] initWithString:joinString];
+            
+            [string addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0,1)];
+            cell.priceLabel.attributedText = string;
            
             cell.platilloNameLabel.text = platilloName;
             cell.platilloImage.image=[UIImage imageWithData:data];

@@ -133,7 +133,7 @@
           //  NSLog(@"indexPath: %ld",(long)indexPath.section);
     PFObject *dish = [self.parseArray objectAtIndex:self.index];
     restaurantNameLabel.text = [dish objectForKey:@"Name"];
-    
+    NSString *restaurantName;
     if (indexPath.section == 0 ){
         
         static NSString *cellIdentifier = @"fotoPlatilloCell";
@@ -145,6 +145,7 @@
 
         PFFile *imageFile = [dish objectForKey:@"Photo"];
         NSNumber *platilloPrice = [dish objectForKey:@"Price" ];
+        //NSLog(@"%@",dish);
         
         [cell.contentView addSubview:cell.platilloImage];
        
@@ -154,17 +155,32 @@
             }
         }];
         
+        PFObject *restaurant = dish[@"Restaurant"];
+        
+        [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
+            if(!error){
+                NSLog(@"----------------:%@",restaurant);
+                
+                cell.distanceLabel.text = [restaurant objectForKey:@"Name"];
+            }
+        }];
+        
         [cell.contentView addSubview:cell.subDataView];
         [cell.subDataView addSubview:cell.priceLabel];
         
         NSString *precioFinal = platilloPrice.stringValue;
         NSString *precioLogo = @"$";
         NSString *joinString=[NSString stringWithFormat:@"%@ %@",precioLogo,precioFinal];
-        cell.priceLabel.text= joinString;
+            NSMutableAttributedString * string = [[NSMutableAttributedString alloc] initWithString:joinString];
+        [string addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0,2)];
+        
+        
+        cell.priceLabel.attributedText= string;
         
         [cell.subDataView addSubview:cell.mapIconImage];
         //NSLog(@"distance returned");
         [cell.subDataView addSubview:cell.distanceLabel];
+        cell.distanceLabel.text = restaurantName;
         //NSLog(@"cell returned");
         return cell;
         
@@ -233,9 +249,6 @@
         //Get thumbnail file
         PFObject *restaurant = dish[@"Restaurant"];
 
-        
-
-        
         [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
             if(!error){
                         NSLog(@"----------------:%@",restaurant);
@@ -335,14 +348,16 @@
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         PFObject *dish = [self.parseArray objectAtIndex:self.index];
         PFFile *thumbnailFile = [dish objectForKey:@"Photo"];
-        //PFObject *restaurant = dish[@"Restaurant"];
+        PFObject *restaurant = dish[@"Restaurant"];
+        
         
         NSString *platilloName = [dish objectForKey:@"Name"];
-        NSString *initialText = @"Comiendo ";
-        NSString *endingText = @"con FoodStamp For Beta testers";
-        NSString *socialMessage = [NSString stringWithFormat:@"%@ %@ %@",initialText,platilloName,endingText];
+        NSString *initialText = @"de ";
+        NSString *restaurantName = [restaurant objectForKey:@"Name"];
+        NSString *endingText = @"#RecomendacionFoodstamp";
+        NSString *socialMessage = [NSString stringWithFormat:@"%@ %@ %@ %@",platilloName,initialText,restaurantName, endingText];
         [controller setInitialText:socialMessage];
-        [controller addURL:[NSURL URLWithString:@"http://www.foodstamp.mx/landing/"]];
+       // [controller addURL:[NSURL URLWithString:@"http://www.foodstamp.mx/landing/"]];
        
         //Si seteamos este podemos agregar la imagen del platillo al facebook del wey que lo va a compartir, esta chido creo.
         //Obtener image y agregarla

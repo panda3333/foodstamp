@@ -432,13 +432,16 @@
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         PFObject *restaurant = dish[@"Restaurant"];
                 PFFile *logoImage = [restaurant  objectForKey:@"Logo"];
+
         
+        
+        NSString *platilloName = [dish objectForKey:@"Name"];
+        NSString *initialText = @"de ";
         NSString *restaurantName = [restaurant objectForKey:@"Name"];
-        NSString *initialText = @"Comiendo en";
-        NSString *endingText = @"con FoodStamp For Beta testers";
-        NSString *socialMessage = [NSString stringWithFormat:@"%@ %@ %@",initialText,restaurantName,endingText];
+        NSString *endingText = @"#RecomendacionFoodstamp";
+        NSString *socialMessage = [NSString stringWithFormat:@"%@ %@ %@ %@",platilloName,initialText,restaurantName, endingText];
         [controller setInitialText:socialMessage];
-        [controller addURL:[NSURL URLWithString:@"http://www.foodstamp.mx/landing/"]];
+        // [controller addURL:[NSURL URLWithString:@"http://www.foodstamp.mx/landing/"]];
         //Si seteamos este podemos agregar la imagen del platillo al facebook del wey que lo va a compartir, esta chido creo.
         //Obtener image y agregarla
         [logoImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){

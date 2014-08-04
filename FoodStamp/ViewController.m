@@ -309,19 +309,49 @@
     [platillosCollectionView reloadData];
 }
 
-- (IBAction)favoritesButton:(id)sender {
+
+- (IBAction)dessertsButton:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Próximamente"
+                                                    message:@"Estamos trabajando para brindarte un mejor servicio."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
-- (IBAction)popularButton:(id)sender {
-}
 
 - (IBAction)breakfastButton:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Próximamente"
+                                                    message:@"Estamos trabajando para brindarte un mejor servicio."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 - (IBAction)lunchButton:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Próximamente"
+                                                    message:@"Estamos trabajando para brindarte un mejor servicio. "
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 - (IBAction)dinnerButton:(id)sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Próximamente"
+                                                    message:@"Estamos trabajando para brindarte un mejor servicio. "
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 - (IBAction)aboutButton:(id)sender {
