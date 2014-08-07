@@ -91,6 +91,30 @@
 		BB6B8B001926FA34001FB612 /* boton_megusta-on.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF31926FA34001FB612 /* boton_megusta-on.png */; };
 		BB6B8B021926FA34001FB612 /* boton_menu-on.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF51926FA34001FB612 /* boton_menu-on.png */; };
 		BB6B8B031926FA34001FB612 /* boton_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF61926FA34001FB612 /* boton_menu.png */; };
+		BBB072211993E288002DEB15 /* icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072041993E288002DEB15 /* icon-100.png */; };
+		BBB072221993E288002DEB15 /* icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072051993E288002DEB15 /* icon-144.png */; };
+		BBB072231993E288002DEB15 /* icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072061993E288002DEB15 /* icon-60.png */; };
+		BBB072241993E288002DEB15 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072071993E288002DEB15 /* iTunesArtwork@2x.png */; };
+		BBB072251993E288002DEB15 /* foodstamp_title_01.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072091993E288002DEB15 /* foodstamp_title_01.png */; };
+		BBB072261993E288002DEB15 /* FoodStamp_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0720B1993E288002DEB15 /* FoodStamp_logo.png */; };
+		BBB072271993E288002DEB15 /* icon_slidebar-02.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0720C1993E288002DEB15 /* icon_slidebar-02.png */; };
+		BBB072281993E288002DEB15 /* slider_icon-1.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0720E1993E288002DEB15 /* slider_icon-1.png */; };
+		BBB072291993E288002DEB15 /* slider_icon-2.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0720F1993E288002DEB15 /* slider_icon-2.png */; };
+		BBB0722A1993E288002DEB15 /* slider_icon-3.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072101993E288002DEB15 /* slider_icon-3.png */; };
+		BBB0722B1993E288002DEB15 /* slider_icon-4.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072111993E288002DEB15 /* slider_icon-4.png */; };
+		BBB0722C1993E288002DEB15 /* slider_icon-5.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072121993E288002DEB15 /* slider_icon-5.png */; };
+		BBB0722D1993E288002DEB15 /* slider_icon-6.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072131993E288002DEB15 /* slider_icon-6.png */; };
+		BBB0722E1993E288002DEB15 /* slider_icon_-01.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072141993E288002DEB15 /* slider_icon_-01.png */; };
+		BBB0722F1993E288002DEB15 /* slider_icon_-02.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072151993E288002DEB15 /* slider_icon_-02.png */; };
+		BBB072301993E288002DEB15 /* slider_icon_-03.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072161993E288002DEB15 /* slider_icon_-03.png */; };
+		BBB072311993E288002DEB15 /* slider_icon_-04.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072171993E288002DEB15 /* slider_icon_-04.png */; };
+		BBB072321993E288002DEB15 /* slider_icon_-05.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072181993E288002DEB15 /* slider_icon_-05.png */; };
+		BBB072331993E288002DEB15 /* slider_icon_-06.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072191993E288002DEB15 /* slider_icon_-06.png */; };
+		BBB072341993E288002DEB15 /* boton_back-02.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0721B1993E288002DEB15 /* boton_back-02.png */; };
+		BBB072351993E288002DEB15 /* boton_probado.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0721C1993E288002DEB15 /* boton_probado.png */; };
+		BBB072361993E288002DEB15 /* boton_guardar-02.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0721E1993E288002DEB15 /* boton_guardar-02.png */; };
+		BBB072371993E288002DEB15 /* boton_mapa.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0721F1993E288002DEB15 /* boton_mapa.png */; };
+		BBB072381993E288002DEB15 /* boton_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072201993E288002DEB15 /* boton_menu.png */; };
 		BBD7C7011942AE410048488C /* infoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD7C7001942AE410048488C /* infoTableViewCell.m */; };
 		BBEB555D193C0484009D02B1 /* boton_back.png in Resources */ = {isa = PBXBuildFile; fileRef = BBEB555C193C0484009D02B1 /* boton_back.png */; };
 		BBF40B7A194A07060073C2A4 /* menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF40B79194A07060073C2A4 /* menuViewController.m */; };
@@ -222,6 +246,30 @@
 		BB6B8AF41926FA34001FB612 /* boton_megusta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boton_megusta.png; path = Botones/boton_megusta.png; sourceTree = "<group>"; };
 		BB6B8AF51926FA34001FB612 /* boton_menu-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boton_menu-on.png"; path = "Botones/boton_menu-on.png"; sourceTree = "<group>"; };
 		BB6B8AF61926FA34001FB612 /* boton_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boton_menu.png; path = Botones/boton_menu.png; sourceTree = "<group>"; };
+		BBB072041993E288002DEB15 /* icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-100.png"; sourceTree = "<group>"; };
+		BBB072051993E288002DEB15 /* icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-144.png"; sourceTree = "<group>"; };
+		BBB072061993E288002DEB15 /* icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-60.png"; sourceTree = "<group>"; };
+		BBB072071993E288002DEB15 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		BBB072091993E288002DEB15 /* foodstamp_title_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodstamp_title_01.png; sourceTree = "<group>"; };
+		BBB0720B1993E288002DEB15 /* FoodStamp_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodStamp_logo.png; sourceTree = "<group>"; };
+		BBB0720C1993E288002DEB15 /* icon_slidebar-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_slidebar-02.png"; sourceTree = "<group>"; };
+		BBB0720E1993E288002DEB15 /* slider_icon-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon-1.png"; sourceTree = "<group>"; };
+		BBB0720F1993E288002DEB15 /* slider_icon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon-2.png"; sourceTree = "<group>"; };
+		BBB072101993E288002DEB15 /* slider_icon-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon-3.png"; sourceTree = "<group>"; };
+		BBB072111993E288002DEB15 /* slider_icon-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon-4.png"; sourceTree = "<group>"; };
+		BBB072121993E288002DEB15 /* slider_icon-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon-5.png"; sourceTree = "<group>"; };
+		BBB072131993E288002DEB15 /* slider_icon-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon-6.png"; sourceTree = "<group>"; };
+		BBB072141993E288002DEB15 /* slider_icon_-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon_-01.png"; sourceTree = "<group>"; };
+		BBB072151993E288002DEB15 /* slider_icon_-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon_-02.png"; sourceTree = "<group>"; };
+		BBB072161993E288002DEB15 /* slider_icon_-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon_-03.png"; sourceTree = "<group>"; };
+		BBB072171993E288002DEB15 /* slider_icon_-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon_-04.png"; sourceTree = "<group>"; };
+		BBB072181993E288002DEB15 /* slider_icon_-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon_-05.png"; sourceTree = "<group>"; };
+		BBB072191993E288002DEB15 /* slider_icon_-06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_icon_-06.png"; sourceTree = "<group>"; };
+		BBB0721B1993E288002DEB15 /* boton_back-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton_back-02.png"; sourceTree = "<group>"; };
+		BBB0721C1993E288002DEB15 /* boton_probado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_probado.png; sourceTree = "<group>"; };
+		BBB0721E1993E288002DEB15 /* boton_guardar-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton_guardar-02.png"; sourceTree = "<group>"; };
+		BBB0721F1993E288002DEB15 /* boton_mapa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_mapa.png; sourceTree = "<group>"; };
+		BBB072201993E288002DEB15 /* boton_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_menu.png; sourceTree = "<group>"; };
 		BBD7C6FF1942AE410048488C /* infoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoTableViewCell.h; sourceTree = "<group>"; };
 		BBD7C7001942AE410048488C /* infoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoTableViewCell.m; sourceTree = "<group>"; };
 		BBEB555C193C0484009D02B1 /* boton_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_back.png; sourceTree = "<group>"; };
@@ -442,6 +490,7 @@
 		52A5105218E6437100C36709 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BBB072021993E288002DEB15 /* POR AGREGAR */,
 				971FFC49192D80500028FD0C /* Resources */,
 				5268693C18EFB3D900CD3876 /* FoodStamp_logo-01.png */,
 				528F75AE18EDEE13001EAEC6 /* AppIcons */,
@@ -638,6 +687,85 @@
 			name = InfoViewController;
 			sourceTree = "<group>";
 		};
+		BBB072021993E288002DEB15 /* POR AGREGAR */ = {
+			isa = PBXGroup;
+			children = (
+				BBB072031993E288002DEB15 /* launch icon */,
+				BBB072081993E288002DEB15 /* screen0_inico */,
+				BBB0720A1993E288002DEB15 /* screen1_home */,
+				BBB0720D1993E288002DEB15 /* screen2_slider */,
+				BBB0721A1993E288002DEB15 /* screen3_platillo */,
+				BBB0721D1993E288002DEB15 /* screen4_restaurantes */,
+			);
+			path = "POR AGREGAR";
+			sourceTree = "<group>";
+		};
+		BBB072031993E288002DEB15 /* launch icon */ = {
+			isa = PBXGroup;
+			children = (
+				BBB072041993E288002DEB15 /* icon-100.png */,
+				BBB072051993E288002DEB15 /* icon-144.png */,
+				BBB072061993E288002DEB15 /* icon-60.png */,
+				BBB072071993E288002DEB15 /* iTunesArtwork@2x.png */,
+			);
+			path = "launch icon";
+			sourceTree = "<group>";
+		};
+		BBB072081993E288002DEB15 /* screen0_inico */ = {
+			isa = PBXGroup;
+			children = (
+				BBB072091993E288002DEB15 /* foodstamp_title_01.png */,
+			);
+			path = screen0_inico;
+			sourceTree = "<group>";
+		};
+		BBB0720A1993E288002DEB15 /* screen1_home */ = {
+			isa = PBXGroup;
+			children = (
+				BBB0720B1993E288002DEB15 /* FoodStamp_logo.png */,
+				BBB0720C1993E288002DEB15 /* icon_slidebar-02.png */,
+			);
+			path = screen1_home;
+			sourceTree = "<group>";
+		};
+		BBB0720D1993E288002DEB15 /* screen2_slider */ = {
+			isa = PBXGroup;
+			children = (
+				BBB0720E1993E288002DEB15 /* slider_icon-1.png */,
+				BBB0720F1993E288002DEB15 /* slider_icon-2.png */,
+				BBB072101993E288002DEB15 /* slider_icon-3.png */,
+				BBB072111993E288002DEB15 /* slider_icon-4.png */,
+				BBB072121993E288002DEB15 /* slider_icon-5.png */,
+				BBB072131993E288002DEB15 /* slider_icon-6.png */,
+				BBB072141993E288002DEB15 /* slider_icon_-01.png */,
+				BBB072151993E288002DEB15 /* slider_icon_-02.png */,
+				BBB072161993E288002DEB15 /* slider_icon_-03.png */,
+				BBB072171993E288002DEB15 /* slider_icon_-04.png */,
+				BBB072181993E288002DEB15 /* slider_icon_-05.png */,
+				BBB072191993E288002DEB15 /* slider_icon_-06.png */,
+			);
+			path = screen2_slider;
+			sourceTree = "<group>";
+		};
+		BBB0721A1993E288002DEB15 /* screen3_platillo */ = {
+			isa = PBXGroup;
+			children = (
+				BBB0721B1993E288002DEB15 /* boton_back-02.png */,
+				BBB0721C1993E288002DEB15 /* boton_probado.png */,
+			);
+			path = screen3_platillo;
+			sourceTree = "<group>";
+		};
+		BBB0721D1993E288002DEB15 /* screen4_restaurantes */ = {
+			isa = PBXGroup;
+			children = (
+				BBB0721E1993E288002DEB15 /* boton_guardar-02.png */,
+				BBB0721F1993E288002DEB15 /* boton_mapa.png */,
+				BBB072201993E288002DEB15 /* boton_menu.png */,
+			);
+			path = screen4_restaurantes;
+			sourceTree = "<group>";
+		};
 		BBD7C6FE1942AE200048488C /* infoCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -747,29 +875,46 @@
 			files = (
 				5268691D18EFB10A00CD3876 /* icono_@.png in Resources */,
 				5268695018EFB44200CD3876 /* mapa-01.png in Resources */,
+				BBB072321993E288002DEB15 /* slider_icon_-05.png in Resources */,
 				5268693118EFB28100CD3876 /* DSC_56302.png in Resources */,
 				BB6B8AFC1926FA34001FB612 /* boton_guardar-on.png in Resources */,
 				BB6B8AE71926F287001FB612 /* 1Descubre_icon_10.png in Resources */,
 				52CD881718E6335400C4FF46 /* Images.xcassets in Resources */,
+				BBB072341993E288002DEB15 /* boton_back-02.png in Resources */,
+				BBB072311993E288002DEB15 /* slider_icon_-04.png in Resources */,
 				BB6B8B001926FA34001FB612 /* boton_megusta-on.png in Resources */,
+				BBB072271993E288002DEB15 /* icon_slidebar-02.png in Resources */,
 				BB6B8ADA1926EF25001FB612 /* 1Descubre_icon-01.png in Resources */,
 				5268693318EFB28100CD3876 /* DSC_56512.png in Resources */,
+				BBB0722B1993E288002DEB15 /* slider_icon-4.png in Resources */,
 				BB6B8ADC1926EF25001FB612 /* 1Descubre_icon-03.png in Resources */,
+				BBB072261993E288002DEB15 /* FoodStamp_logo.png in Resources */,
 				5268692D18EFB28100CD3876 /* DSC_55052.png in Resources */,
+				BBB072241993E288002DEB15 /* iTunesArtwork@2x.png in Resources */,
 				5268691E18EFB10A00CD3876 /* icono_hora.png in Resources */,
 				5268693018EFB28100CD3876 /* DSC_55702.png in Resources */,
 				971FFC4E192D805F0028FD0C /* facebook_login_pressed.png in Resources */,
+				BBB072221993E288002DEB15 /* icon-144.png in Resources */,
+				BBB072231993E288002DEB15 /* icon-60.png in Resources */,
 				5268693418EFB28100CD3876 /* DSC_56692.png in Resources */,
 				971FFC4D192D805F0028FD0C /* background_logged2x.png in Resources */,
 				52CD880918E6335400C4FF46 /* InfoPlist.strings in Resources */,
+				BBB072351993E288002DEB15 /* boton_probado.png in Resources */,
 				5268694E18EFB44200CD3876 /* boton_megusta.png in Resources */,
+				BBB072301993E288002DEB15 /* slider_icon_-03.png in Resources */,
+				BBB0722A1993E288002DEB15 /* slider_icon-3.png in Resources */,
 				BB6B8B021926FA34001FB612 /* boton_menu-on.png in Resources */,
+				BBB072381993E288002DEB15 /* boton_menu.png in Resources */,
 				BB6B8ADE1926EF25001FB612 /* 1Descubre_icon-07.png in Resources */,
 				BB6B8ADF1926EF25001FB612 /* 1Descubre_icon-08.png in Resources */,
+				BBB0722D1993E288002DEB15 /* slider_icon-6.png in Resources */,
 				BB6B8AE91926F2CC001FB612 /* 1Descubre_icon_02.png in Resources */,
 				5268693B18EFB37200CD3876 /* perfil_01.jpg in Resources */,
+				BBB072211993E288002DEB15 /* icon-100.png in Resources */,
+				BBB0722F1993E288002DEB15 /* slider_icon_-02.png in Resources */,
 				5268693518EFB28100CD3876 /* DSC_56722.png in Resources */,
 				5268694C18EFB44200CD3876 /* boton_guardar.png in Resources */,
+				BBB072251993E288002DEB15 /* foodstamp_title_01.png in Resources */,
 				5268693718EFB2FB00CD3876 /* img_Tchoza.png in Resources */,
 				BB6B8AFA1926FA34001FB612 /* boton_facebook-on.png in Resources */,
 				5268693218EFB28100CD3876 /* DSC_56392.png in Resources */,
@@ -780,15 +925,22 @@
 				5268692F18EFB28100CD3876 /* DSC_55332.png in Resources */,
 				BB6B8B031926FA34001FB612 /* boton_menu.png in Resources */,
 				5268692018EFB10A00CD3876 /* icono_tel.png in Resources */,
+				BBB072371993E288002DEB15 /* boton_mapa.png in Resources */,
 				BB58E76F194CD68D009CECAA /* Main.storyboard in Resources */,
+				BBB072281993E288002DEB15 /* slider_icon-1.png in Resources */,
 				BB6B8AE41926F23B001FB612 /* 1Descubre_icon-09.png in Resources */,
 				BB6B8ADD1926EF25001FB612 /* 1Descubre_icon-06.png in Resources */,
+				BBB072291993E288002DEB15 /* slider_icon-2.png in Resources */,
+				BBB072331993E288002DEB15 /* slider_icon_-06.png in Resources */,
+				BBB0722C1993E288002DEB15 /* slider_icon-5.png in Resources */,
 				BBEB555D193C0484009D02B1 /* boton_back.png in Resources */,
 				BB6B8AFB1926FA34001FB612 /* boton_facebook.png in Resources */,
 				5268692118EFB10A00CD3876 /* icono_votacion.png in Resources */,
+				BBB0722E1993E288002DEB15 /* slider_icon_-01.png in Resources */,
 				5268694F18EFB44200CD3876 /* manu_tabbar80.png in Resources */,
 				BB6B8AF91926FA34001FB612 /* boton_califica.png in Resources */,
 				5268692E18EFB28100CD3876 /* DSC_55252.png in Resources */,
+				BBB072361993E288002DEB15 /* boton_guardar-02.png in Resources */,
 				5268691F18EFB10A00CD3876 /* icono_tarjeta.png in Resources */,
 				5268692C18EFB28100CD3876 /* DSC_54282.png in Resources */,
 			);

@@ -123,7 +123,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgA-1W-1jd">
                                         <rect key="frame" x="25" y="23" width="43" height="43"/>
-                                        <state key="normal" image="1Descubre_icon-01.png">
+                                        <state key="normal" image="slider_icon-1.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -132,16 +132,16 @@
                                     </button>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AL-wd-VfX">
                                         <rect key="frame" x="25" y="94" width="43" height="43"/>
-                                        <state key="normal" image="1Descubre_icon_02.png">
+                                        <state key="normal" image="slider_icon-5.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="dessertsButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gy2-Uk-uaH"/>
                                         </connections>
                                     </button>
-                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkj-7t-ab6">
-                                        <rect key="frame" x="20" y="177" width="66" height="34"/>
-                                        <state key="normal" image="1Descubre_icon-07.png">
+                                    <button contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkj-7t-ab6">
+                                        <rect key="frame" x="19" y="165" width="54" height="46"/>
+                                        <state key="normal" image="slider_icon_-02.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -149,8 +149,8 @@
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogK-Qj-BSs">
-                                        <rect key="frame" x="18" y="244" width="60" height="43"/>
-                                        <state key="normal" image="1Descubre_icon-06.png">
+                                        <rect key="frame" x="19" y="244" width="54" height="43"/>
+                                        <state key="normal" image="slider_icon-4.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -158,8 +158,8 @@
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBt-Yb-jaR">
-                                        <rect key="frame" x="29" y="323" width="43" height="43"/>
-                                        <state key="normal" image="1Descubre_icon-03.png">
+                                        <rect key="frame" x="25" y="323" width="43" height="43"/>
+                                        <state key="normal" image="slider_icon_-03.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -167,8 +167,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAh-Fm-WjP">
-                                        <rect key="frame" x="30" y="408" width="37" height="37"/>
-                                        <state key="normal" image="1Descubre_icon-09.png">
+                                        <rect key="frame" x="25" y="399" width="43" height="42"/>
+                                        <state key="normal" image="slider_icon_-06.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -176,22 +176,22 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Aleatorio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8K-PR-A3d">
-                                        <rect key="frame" x="19" y="66" width="59" height="21"/>
+                                        <rect key="frame" x="17" y="66" width="59" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Postres" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTi-hX-XD7">
-                                        <rect key="frame" x="13" y="139" width="69" height="21"/>
+                                        <rect key="frame" x="12" y="139" width="69" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Desayunos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4t-fg-aT9">
-                                        <rect key="frame" x="12" y="211" width="72" height="21"/>
+                                        <rect key="frame" x="11" y="211" width="72" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comidas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ugh-nx-F4y">
-                                        <rect key="frame" x="13" y="287" width="69" height="21"/>
+                                        <rect key="frame" x="12" y="287" width="69" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -253,8 +253,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVo-su-qN8">
-                                        <rect key="frame" x="17" y="6" width="19" height="26"/>
-                                        <state key="normal" title="Button" image="boton_back.png"/>
+                                        <rect key="frame" x="1" y="2" width="44" height="36"/>
+                                        <state key="normal" title="Button" image="boton_back-02.png"/>
                                         <connections>
                                             <action selector="backActionButton:" destination="Kf0-jp-jUf" eventType="touchUpInside" id="QKo-dt-D7h"/>
                                         </connections>
@@ -510,8 +510,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJz-n4-3iO">
-                                        <rect key="frame" x="20" y="8" width="22" height="30"/>
-                                        <state key="normal" image="boton_back.png">
+                                        <rect key="frame" x="6" y="3" width="51" height="38"/>
+                                        <state key="normal" image="boton_back-02.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -628,8 +628,8 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cuu-re-Fck">
-                                <rect key="frame" x="20" y="23" width="21" height="33"/>
-                                <state key="normal" image="boton_back.png">
+                                <rect key="frame" x="12" y="23" width="42" height="33"/>
+                                <state key="normal" image="boton_back-02.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -719,8 +719,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yj-vT-kPe">
-                                        <rect key="frame" x="20" y="10" width="23" height="27"/>
-                                        <state key="normal" image="boton_back.png">
+                                        <rect key="frame" x="5" y="-1" width="47" height="43"/>
+                                        <state key="normal" image="boton_back-02.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -955,14 +955,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1Descubre_icon-01.png" width="1025" height="1024"/>
-        <image name="1Descubre_icon-03.png" width="1025" height="1024"/>
         <image name="1Descubre_icon-06.png" width="1025" height="1025"/>
-        <image name="1Descubre_icon-07.png" width="1025" height="1025"/>
-        <image name="1Descubre_icon-09.png" width="73" height="71"/>
-        <image name="1Descubre_icon_02.png" width="77" height="91"/>
         <image name="FoodStamp_logo-01.png" width="1025" height="253"/>
         <image name="background_logged2x.png" width="640" height="1136"/>
+        <image name="boton_back-02.png" width="302" height="273"/>
         <image name="boton_back.png" width="30" height="52"/>
         <image name="boton_facebook-on.png" width="91" height="91"/>
         <image name="boton_facebook.png" width="91" height="91"/>
@@ -979,6 +975,12 @@
         <image name="img_Tchoza.png" width="988" height="659"/>
         <image name="manu_tabbar80.png" width="80" height="80"/>
         <image name="mapa-01.png" width="34" height="55"/>
+        <image name="slider_icon-1.png" width="167" height="167"/>
+        <image name="slider_icon-4.png" width="167" height="167"/>
+        <image name="slider_icon-5.png" width="167" height="167"/>
+        <image name="slider_icon_-02.png" width="617" height="617"/>
+        <image name="slider_icon_-03.png" width="604" height="604"/>
+        <image name="slider_icon_-06.png" width="456" height="456"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
