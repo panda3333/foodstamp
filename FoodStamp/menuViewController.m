@@ -89,7 +89,7 @@
     
 
     NSString *platilloName = [imageObject objectForKey:@"Name"];
-            NSNumber *platilloPrice = [imageObject objectForKey:@"Price"];
+    NSNumber *platilloPrice = [imageObject objectForKey:@"Price"];
     
     [cell.loadingSpiner stopAnimating];
     cell.loadingSpiner.hidden  =YES;
@@ -98,7 +98,6 @@
         if(!error){
             NSString *precioFinal = platilloPrice.stringValue;
             NSString *precioLogo = @"$";
-        
 
             NSString *joinString=[NSString stringWithFormat:@"%@ %@",precioLogo,precioFinal];
             

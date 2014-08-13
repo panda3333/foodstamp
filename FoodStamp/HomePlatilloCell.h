@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *platilloNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *platilloPriceLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *labelYummies;
 
 
 @end

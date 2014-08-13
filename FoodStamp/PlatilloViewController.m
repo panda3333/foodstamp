@@ -15,10 +15,12 @@
 #import "ViewController.h"
 #import "Parse/Parse.h"
 #import <Social/Social.h>
-
+#import "MBProgressHUD.h"
 
 
 @interface PlatilloViewController ()
+
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @end
 
@@ -145,6 +147,8 @@
 
         PFFile *imageFile = [dish objectForKey:@"Photo"];
         NSNumber *platilloPrice = [dish objectForKey:@"Price" ];
+        NSNumber *countYummies = [dish objectForKey:@"Yummies"];
+   
         //NSLog(@"%@",dish);
         
         [cell.contentView addSubview:cell.platilloImage];
@@ -169,13 +173,23 @@
         [cell.subDataView addSubview:cell.priceLabel];
         
         NSString *precioFinal = platilloPrice.stringValue;
+        NSString *yummies = countYummies.stringValue;
+
+        if (yummies == nil) {
+            yummies = @"0";
+        }
+        
+        NSString *nameYummies = @"Yummies";
         NSString *precioLogo = @"$";
         NSString *joinString=[NSString stringWithFormat:@"%@ %@",precioLogo,precioFinal];
-            NSMutableAttributedString * string = [[NSMutableAttributedString alloc] initWithString:joinString];
+        NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
+        
+        NSMutableAttributedString * string = [[NSMutableAttributedString alloc] initWithString:joinString];
         [string addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0,2)];
         
         
         cell.priceLabel.attributedText= string;
+        cell.yummieLabel.text = joinYummies;
         
         [cell.subDataView addSubview:cell.mapIconImage];
         //NSLog(@"distance returned");
@@ -373,5 +387,28 @@
         
         [self presentViewController:controller animated:YES completion:Nil];
     }
+}
+
+- (IBAction)YummyButto:(id)sender {
+    
+    PFObject *dish = [self.parseArray objectAtIndex:self.index];
+    [dish incrementKey:@"Yummies" byAmount:[NSNumber numberWithInt:1]];
+    
+    self.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:self.hud];
+    
+    self.hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Checkmark.png"]];
+    
+    self.hud.mode = MBProgressHUDModeCustomView;
+    self.hud.labelText = @"Yummie!! ";
+    
+    [self.hud showWhileExecuting:@selector(waitForTwoSeconds)
+                        onTarget:self withObject:nil animated:YES];
+    
+    [dish saveInBackground];
+}
+
+- (void)waitForTwoSeconds {
+    sleep(2);
 }
 @end

@@ -204,8 +204,19 @@
     PFFile *imageFile = [imageObject objectForKey:@"Photo"];
     
     NSString *restaurantName = [imageObject objectForKey:@"restaurantName"];
-        NSString *platilloName = [imageObject objectForKey:@"Name" ];
-            NSNumber *platilloPrice = [imageObject objectForKey:@"Price" ];
+    NSString *platilloName = [imageObject objectForKey:@"Name" ];
+    NSNumber *platilloPrice = [imageObject objectForKey:@"Price"];
+    NSNumber *countYummies = [imageObject objectForKey:@"Yummies"];
+    
+    NSString *yummies = countYummies.stringValue;
+    
+    if (yummies == nil) {
+        yummies = @"0";
+    }
+    
+    NSString *nameYummies = @"Yummies";
+    
+    NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
 
    cell.loadingSpiner.hidden = NO;
    [cell.loadingSpiner startAnimating];
@@ -215,6 +226,7 @@
             cell.parseImage.image = [UIImage imageWithData:data];
             cell.restaurantNameLabel.text = restaurantName;
             cell.platilloNameLabel.text = platilloName;
+            cell.labelYummies.text = joinYummies;
 
 //NSNumber does have a stringValue, it does work but is not my personal preference because it gives you little control as to the format of the string.
             NSString *precioFinal = platilloPrice.stringValue;
@@ -305,53 +317,43 @@
 
 
 - (IBAction)randomButton:(id)sender {
-    [self randomizeArray:(self.parseArray)];
-    [platillosCollectionView reloadData];
+    [ self queryParseMethod];
+}
+
+- (void) filterDishesby: (NSString*)filter{
+    
+    PFQuery *query = [PFQuery queryWithClassName: @"Dishes"];
+    
+    [query whereKey:@"Category" equalTo:filter];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            parseArray = [[NSMutableArray alloc] initWithArray:objects];
+            parseArray  = [self randomizeArray:parseArray];
+            [platillosCollectionView reloadData];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 
 - (IBAction)dessertsButton:(id)sender {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Próximamente"
-                                                    message:@"Estamos trabajando para brindarte un mejor servicio."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    [self filterDishesby:@"Postre"];
 }
 
 
 - (IBAction)breakfastButton:(id)sender {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Próximamente"
-                                                    message:@"Estamos trabajando para brindarte un mejor servicio."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    
+    [self filterDishesby:@"Desayuno"];
 }
 
 - (IBAction)lunchButton:(id)sender {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Próximamente"
-                                                    message:@"Estamos trabajando para brindarte un mejor servicio. "
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    
+    [self filterDishesby:@"Comida"];
 }
 
 - (IBAction)dinnerButton:(id)sender {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Próximamente"
-                                                    message:@"Estamos trabajando para brindarte un mejor servicio. "
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    
+    [self filterDishesby:@"Comida, Cena"];
 }
 
 - (IBAction)aboutButton:(id)sender {

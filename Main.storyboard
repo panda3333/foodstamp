@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KJt-ME-Idw">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -66,7 +66,7 @@
                                                             <rect key="frame" x="0.0" y="125" width="152" height="20"/>
                                                             <subviews>
                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vD-fz-Zn7">
-                                                                    <rect key="frame" x="90" y="0.0" width="59" height="20"/>
+                                                                    <rect key="frame" x="92" y="0.0" width="52" height="20"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -75,6 +75,13 @@
                                                                     <rect key="frame" x="113" y="0.0" width="14" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Yummies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZL-L8-NSr">
+                                                                    <rect key="frame" x="8" y="-1" width="76" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -100,6 +107,7 @@
                                                 </view>
                                                 <size key="customSize" width="152" height="145"/>
                                                 <connections>
+                                                    <outlet property="labelYummies" destination="gZL-L8-NSr" id="If5-e6-fNb"/>
                                                     <outlet property="loadingSpiner" destination="Eb7-jq-IYH" id="i53-Mg-eDr"/>
                                                     <outlet property="parseImage" destination="hHc-hE-VwX" id="ibR-pn-Oem"/>
                                                     <outlet property="platilloBotView" destination="XXg-XQ-JiF" id="oXB-HO-Y3w"/>
@@ -300,10 +308,10 @@
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="distanceLabel" destination="gOD-aD-Ih2" id="Fqr-j4-Q0h"/>
                                                     <outlet property="platilloImage" destination="A0S-Pu-Btu" id="2lm-bP-1u2"/>
                                                     <outlet property="priceLabel" destination="oh1-00-Fb9" id="ba2-nP-aTD"/>
                                                     <outlet property="subDataView" destination="Mrn-6q-JCS" id="GQf-gB-kI7"/>
+                                                    <outlet property="yummieLabel" destination="gOD-aD-Ih2" id="1hF-6E-ixD"/>
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="64" selectionStyle="default" indentationWidth="10" reuseIdentifier="descripcionRestCell" rowHeight="72" id="UP2-yp-ykK" customClass="DescripcionRestTableViewCell">
@@ -360,6 +368,7 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
+                                                                <action selector="YummyButto:" destination="Kf0-jp-jUf" eventType="touchUpInside" id="zfD-Iv-fFS"/>
                                                                 <action selector="likeActionButton:" destination="fa5-3U-P0S" eventType="touchUpInside" id="Q8K-iq-ElS"/>
                                                             </connections>
                                                         </button>
