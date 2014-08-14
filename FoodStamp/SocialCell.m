@@ -31,9 +31,7 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)wishActionButton:(id)sender {
-    NSLog(@"wish pressed");
-}
+
 
 - (IBAction)likeActionButton:(id)sender {
         NSLog(@"like pressed");

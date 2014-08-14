@@ -17,8 +17,6 @@
 }
 //button
 
-@property (strong, nonatomic) IBOutlet UIButton *toRestaurant;
-
 //labels
 
 @property (strong, nonatomic) IBOutlet UILabel *horarioLabel;

@@ -73,6 +73,9 @@
 		971FFC5C192D83000028FD0C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC5B192D83000028FD0C /* Reachability.m */; };
 		971FFC5F192D83860028FD0C /* Comms.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC5E192D83860028FD0C /* Comms.m */; };
 		97D57D91195E52A30057784F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D57D90195E52A30057784F /* FacebookSDK.framework */; };
+		BB2E92C3199C60B10046041A /* appicon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2E92C0199C60B10046041A /* appicon-29.png */; };
+		BB2E92C4199C60B10046041A /* appicon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2E92C1199C60B10046041A /* appicon-40.png */; };
+		BB2E92C5199C60B10046041A /* appicon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2E92C2199C60B10046041A /* appicon-60.png */; };
 		BB58E76D194CC1D0009CECAA /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB58E76C194CC1D0009CECAA /* infoViewController.m */; };
 		BB58E76F194CD68D009CECAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB58E76E194CD68D009CECAA /* Main.storyboard */; };
 		BB6B8ADA1926EF25001FB612 /* 1Descubre_icon-01.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AD41926EF25001FB612 /* 1Descubre_icon-01.png */; };
@@ -91,9 +94,6 @@
 		BB6B8B001926FA34001FB612 /* boton_megusta-on.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF31926FA34001FB612 /* boton_megusta-on.png */; };
 		BB6B8B021926FA34001FB612 /* boton_menu-on.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF51926FA34001FB612 /* boton_menu-on.png */; };
 		BB6B8B031926FA34001FB612 /* boton_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF61926FA34001FB612 /* boton_menu.png */; };
-		BBB072211993E288002DEB15 /* icon-100.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072041993E288002DEB15 /* icon-100.png */; };
-		BBB072221993E288002DEB15 /* icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072051993E288002DEB15 /* icon-144.png */; };
-		BBB072231993E288002DEB15 /* icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072061993E288002DEB15 /* icon-60.png */; };
 		BBB072241993E288002DEB15 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072071993E288002DEB15 /* iTunesArtwork@2x.png */; };
 		BBB072251993E288002DEB15 /* foodstamp_title_01.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072091993E288002DEB15 /* foodstamp_title_01.png */; };
 		BBB072261993E288002DEB15 /* FoodStamp_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0720B1993E288002DEB15 /* FoodStamp_logo.png */; };
@@ -116,6 +116,10 @@
 		BBB072371993E288002DEB15 /* boton_mapa.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0721F1993E288002DEB15 /* boton_mapa.png */; };
 		BBB072381993E288002DEB15 /* boton_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072201993E288002DEB15 /* boton_menu.png */; };
 		BBD7C7011942AE410048488C /* infoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD7C7001942AE410048488C /* infoTableViewCell.m */; };
+		BBE0ADEB199C694100E924A5 /* boton_restaurant-01.png in Resources */ = {isa = PBXBuildFile; fileRef = BBE0ADE7199C694100E924A5 /* boton_restaurant-01.png */; };
+		BBE0ADEC199C694100E924A5 /* boton_restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = BBE0ADE8199C694100E924A5 /* boton_restaurant.png */; };
+		BBE0ADED199C694100E924A5 /* boton-favorito-01-01.png in Resources */ = {isa = PBXBuildFile; fileRef = BBE0ADE9199C694100E924A5 /* boton-favorito-01-01.png */; };
+		BBE0ADEE199C694100E924A5 /* boton-favorito-01.png in Resources */ = {isa = PBXBuildFile; fileRef = BBE0ADEA199C694100E924A5 /* boton-favorito-01.png */; };
 		BBEB555D193C0484009D02B1 /* boton_back.png in Resources */ = {isa = PBXBuildFile; fileRef = BBEB555C193C0484009D02B1 /* boton_back.png */; };
 		BBF40B7A194A07060073C2A4 /* menuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF40B79194A07060073C2A4 /* menuViewController.m */; };
 		BBF40B7F194A0D1B0073C2A4 /* menuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF40B7E194A0D1B0073C2A4 /* menuCollectionViewCell.m */; };
@@ -222,6 +226,9 @@
 		971FFC5D192D83860028FD0C /* Comms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comms.h; sourceTree = "<group>"; };
 		971FFC5E192D83860028FD0C /* Comms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comms.m; sourceTree = "<group>"; };
 		97D57D90195E52A30057784F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		BB2E92C0199C60B10046041A /* appicon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon-29.png"; sourceTree = "<group>"; };
+		BB2E92C1199C60B10046041A /* appicon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon-40.png"; sourceTree = "<group>"; };
+		BB2E92C2199C60B10046041A /* appicon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon-60.png"; sourceTree = "<group>"; };
 		BB58E76B194CC1D0009CECAA /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
 		BB58E76C194CC1D0009CECAA /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
 		BB58E76E194CD68D009CECAA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -246,9 +253,6 @@
 		BB6B8AF41926FA34001FB612 /* boton_megusta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boton_megusta.png; path = Botones/boton_megusta.png; sourceTree = "<group>"; };
 		BB6B8AF51926FA34001FB612 /* boton_menu-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boton_menu-on.png"; path = "Botones/boton_menu-on.png"; sourceTree = "<group>"; };
 		BB6B8AF61926FA34001FB612 /* boton_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boton_menu.png; path = Botones/boton_menu.png; sourceTree = "<group>"; };
-		BBB072041993E288002DEB15 /* icon-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-100.png"; sourceTree = "<group>"; };
-		BBB072051993E288002DEB15 /* icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-144.png"; sourceTree = "<group>"; };
-		BBB072061993E288002DEB15 /* icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-60.png"; sourceTree = "<group>"; };
 		BBB072071993E288002DEB15 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		BBB072091993E288002DEB15 /* foodstamp_title_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodstamp_title_01.png; sourceTree = "<group>"; };
 		BBB0720B1993E288002DEB15 /* FoodStamp_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodStamp_logo.png; sourceTree = "<group>"; };
@@ -272,6 +276,10 @@
 		BBB072201993E288002DEB15 /* boton_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_menu.png; sourceTree = "<group>"; };
 		BBD7C6FF1942AE410048488C /* infoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoTableViewCell.h; sourceTree = "<group>"; };
 		BBD7C7001942AE410048488C /* infoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoTableViewCell.m; sourceTree = "<group>"; };
+		BBE0ADE7199C694100E924A5 /* boton_restaurant-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton_restaurant-01.png"; sourceTree = "<group>"; };
+		BBE0ADE8199C694100E924A5 /* boton_restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_restaurant.png; sourceTree = "<group>"; };
+		BBE0ADE9199C694100E924A5 /* boton-favorito-01-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton-favorito-01-01.png"; sourceTree = "<group>"; };
+		BBE0ADEA199C694100E924A5 /* boton-favorito-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton-favorito-01.png"; sourceTree = "<group>"; };
 		BBEB555C193C0484009D02B1 /* boton_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boton_back.png; sourceTree = "<group>"; };
 		BBF40B78194A07060073C2A4 /* menuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = menuViewController.h; sourceTree = "<group>"; };
 		BBF40B79194A07060073C2A4 /* menuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = menuViewController.m; sourceTree = "<group>"; };
@@ -703,9 +711,9 @@
 		BBB072031993E288002DEB15 /* launch icon */ = {
 			isa = PBXGroup;
 			children = (
-				BBB072041993E288002DEB15 /* icon-100.png */,
-				BBB072051993E288002DEB15 /* icon-144.png */,
-				BBB072061993E288002DEB15 /* icon-60.png */,
+				BB2E92C0199C60B10046041A /* appicon-29.png */,
+				BB2E92C1199C60B10046041A /* appicon-40.png */,
+				BB2E92C2199C60B10046041A /* appicon-60.png */,
 				BBB072071993E288002DEB15 /* iTunesArtwork@2x.png */,
 			);
 			path = "launch icon";
@@ -750,6 +758,10 @@
 		BBB0721A1993E288002DEB15 /* screen3_platillo */ = {
 			isa = PBXGroup;
 			children = (
+				BBE0ADE7199C694100E924A5 /* boton_restaurant-01.png */,
+				BBE0ADE8199C694100E924A5 /* boton_restaurant.png */,
+				BBE0ADE9199C694100E924A5 /* boton-favorito-01-01.png */,
+				BBE0ADEA199C694100E924A5 /* boton-favorito-01.png */,
 				BBB0721B1993E288002DEB15 /* boton_back-02.png */,
 				BBB0721C1993E288002DEB15 /* boton_probado.png */,
 			);
@@ -880,37 +892,39 @@
 				BB6B8AFC1926FA34001FB612 /* boton_guardar-on.png in Resources */,
 				BB6B8AE71926F287001FB612 /* 1Descubre_icon_10.png in Resources */,
 				52CD881718E6335400C4FF46 /* Images.xcassets in Resources */,
+				BBE0ADED199C694100E924A5 /* boton-favorito-01-01.png in Resources */,
 				BBB072341993E288002DEB15 /* boton_back-02.png in Resources */,
 				BBB072311993E288002DEB15 /* slider_icon_-04.png in Resources */,
 				BB6B8B001926FA34001FB612 /* boton_megusta-on.png in Resources */,
 				BBB072271993E288002DEB15 /* icon_slidebar-02.png in Resources */,
+				BB2E92C3199C60B10046041A /* appicon-29.png in Resources */,
 				BB6B8ADA1926EF25001FB612 /* 1Descubre_icon-01.png in Resources */,
 				5268693318EFB28100CD3876 /* DSC_56512.png in Resources */,
 				BBB0722B1993E288002DEB15 /* slider_icon-4.png in Resources */,
 				BB6B8ADC1926EF25001FB612 /* 1Descubre_icon-03.png in Resources */,
 				BBB072261993E288002DEB15 /* FoodStamp_logo.png in Resources */,
+				BBE0ADEC199C694100E924A5 /* boton_restaurant.png in Resources */,
 				5268692D18EFB28100CD3876 /* DSC_55052.png in Resources */,
 				BBB072241993E288002DEB15 /* iTunesArtwork@2x.png in Resources */,
 				5268691E18EFB10A00CD3876 /* icono_hora.png in Resources */,
 				5268693018EFB28100CD3876 /* DSC_55702.png in Resources */,
 				971FFC4E192D805F0028FD0C /* facebook_login_pressed.png in Resources */,
-				BBB072221993E288002DEB15 /* icon-144.png in Resources */,
-				BBB072231993E288002DEB15 /* icon-60.png in Resources */,
 				5268693418EFB28100CD3876 /* DSC_56692.png in Resources */,
 				971FFC4D192D805F0028FD0C /* background_logged2x.png in Resources */,
 				52CD880918E6335400C4FF46 /* InfoPlist.strings in Resources */,
 				BBB072351993E288002DEB15 /* boton_probado.png in Resources */,
 				5268694E18EFB44200CD3876 /* boton_megusta.png in Resources */,
+				BB2E92C4199C60B10046041A /* appicon-40.png in Resources */,
 				BBB072301993E288002DEB15 /* slider_icon_-03.png in Resources */,
 				BBB0722A1993E288002DEB15 /* slider_icon-3.png in Resources */,
 				BB6B8B021926FA34001FB612 /* boton_menu-on.png in Resources */,
+				BBE0ADEB199C694100E924A5 /* boton_restaurant-01.png in Resources */,
 				BBB072381993E288002DEB15 /* boton_menu.png in Resources */,
 				BB6B8ADE1926EF25001FB612 /* 1Descubre_icon-07.png in Resources */,
 				BB6B8ADF1926EF25001FB612 /* 1Descubre_icon-08.png in Resources */,
 				BBB0722D1993E288002DEB15 /* slider_icon-6.png in Resources */,
 				BB6B8AE91926F2CC001FB612 /* 1Descubre_icon_02.png in Resources */,
 				5268693B18EFB37200CD3876 /* perfil_01.jpg in Resources */,
-				BBB072211993E288002DEB15 /* icon-100.png in Resources */,
 				BBB0722F1993E288002DEB15 /* slider_icon_-02.png in Resources */,
 				5268693518EFB28100CD3876 /* DSC_56722.png in Resources */,
 				5268694C18EFB44200CD3876 /* boton_guardar.png in Resources */,
@@ -922,12 +936,14 @@
 				5268693918EFB32B00CD3876 /* logo_choza.jpg in Resources */,
 				BB6B8AFF1926FA34001FB612 /* boton_mapa.png in Resources */,
 				5268693D18EFB3D900CD3876 /* FoodStamp_logo-01.png in Resources */,
+				BBE0ADEE199C694100E924A5 /* boton-favorito-01.png in Resources */,
 				5268692F18EFB28100CD3876 /* DSC_55332.png in Resources */,
 				BB6B8B031926FA34001FB612 /* boton_menu.png in Resources */,
 				5268692018EFB10A00CD3876 /* icono_tel.png in Resources */,
 				BBB072371993E288002DEB15 /* boton_mapa.png in Resources */,
 				BB58E76F194CD68D009CECAA /* Main.storyboard in Resources */,
 				BBB072281993E288002DEB15 /* slider_icon-1.png in Resources */,
+				BB2E92C5199C60B10046041A /* appicon-60.png in Resources */,
 				BB6B8AE41926F23B001FB612 /* 1Descubre_icon-09.png in Resources */,
 				BB6B8ADD1926EF25001FB612 /* 1Descubre_icon-06.png in Resources */,
 				BBB072291993E288002DEB15 /* slider_icon-2.png in Resources */,

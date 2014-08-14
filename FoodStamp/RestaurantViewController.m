@@ -310,54 +310,54 @@
 
         
         [cellTwo.contentView addSubview:cellTwo.decideLabel];
-            cellTwo.decideLabel.text = @"Decide";
+            cellTwo.decideLabel.text = @"Menú";
         [cellTwo.contentView addSubview:cellTwo.exploraLabel];
-        [cellTwo.contentView addSubview:cellTwo.calificaLabel];
+    //    [cellTwo.contentView addSubview:cellTwo.calificaLabel];
         [cellTwo.contentView addSubview:cellTwo.shareLabel];
         
         UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                UIButton *mapaButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                    UIButton *rateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                        UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton *mapaButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    //            UIButton *rateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
         //set the position of the button
-        menuButton.frame = CGRectMake(cellTwo.frame.origin.x + 26, cellTwo.frame.origin.y + 8, 38, 38);
-                mapaButton.frame = CGRectMake(cellTwo.frame.origin.x + 95, cellTwo.frame.origin.y + 8, 38, 38);
-                    rateButton.frame = CGRectMake(cellTwo.frame.origin.x + 171, cellTwo.frame.origin.y + 8, 38, 38);
-                        shareButton.frame = CGRectMake(cellTwo.frame.origin.x + 247, cellTwo.frame.origin.y + 8, 38, 38);
+        menuButton.frame = CGRectMake(cellTwo.frame.origin.x + 45, cellTwo.frame.origin.y + 12, 38, 38);
+        mapaButton.frame = CGRectMake(cellTwo.frame.origin.x + 140, cellTwo.frame.origin.y + 12, 38, 38);
+        //    rateButton.frame = CGRectMake(cellTwo.frame.origin.x + 171, cellTwo.frame.origin.y + 8, 38, 38);
+        shareButton.frame = CGRectMake(cellTwo.frame.origin.x + 233, cellTwo.frame.origin.y + 12, 38, 38);
         //Define Custom Image
         UIImage *menuImage =[UIImage imageNamed: @"boton_menu.png"];
                 UIImage *menuOnImage =[UIImage imageNamed: @"boton_menu-on.png"];
         UIImage *mapImage =[UIImage imageNamed: @"boton_mapa.png"];
             UIImage *mapOnImage =[UIImage imageNamed: @"boton_mapa-on.png"];
-        UIImage *rateImage =[UIImage imageNamed: @"boton_califica.png"];
-            UIImage *rateOnImage =[UIImage imageNamed: @"boton_califica-on.png"];
+      //  UIImage *rateImage =[UIImage imageNamed: @"boton_califica.png"];
+      //      UIImage *rateOnImage =[UIImage imageNamed: @"boton_califica-on.png"];
         UIImage *shareImage =[UIImage imageNamed: @"boton_facebook.png"];
-                UIImage *shareOnImage =[UIImage imageNamed: @"boton_facebook-on.png"];
+        UIImage *shareOnImage =[UIImage imageNamed: @"boton_facebook-on.png"];
         //set image for state
         [menuButton setImage:menuImage forState:UIControlStateNormal];
                 [menuButton setImage:menuOnImage forState:UIControlStateSelected];
         [mapaButton setImage:mapImage forState:UIControlStateNormal];
             [mapaButton setImage:mapOnImage forState:UIControlStateSelected];
-        [rateButton setImage:rateImage forState:UIControlStateNormal];
-            [rateButton setImage:rateOnImage forState:UIControlStateSelected];
+        //[rateButton setImage:rateImage forState:UIControlStateNormal];
+        //    [rateButton setImage:rateOnImage forState:UIControlStateSelected];
         [shareButton setImage:shareImage forState:UIControlStateNormal];
-            [shareButton setImage:shareOnImage forState:UIControlStateSelected];
+        [shareButton setImage:shareOnImage forState:UIControlStateSelected];
         
         [menuButton addTarget:self action:@selector(goToMenu:) forControlEvents:UIControlEventTouchUpInside];
         [mapaButton addTarget:self action:@selector(goToMap:) forControlEvents:UIControlEventTouchUpInside];
-        [rateButton addTarget:self action:@selector(rateAction:) forControlEvents:UIControlEventTouchUpInside];
-        [shareButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+//        [rateButton addTarget:self action:@selector(rateAction:) forControlEvents:UIControlEventTouchUpInside];
+       [shareButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
         
         menuButton.backgroundColor= [UIColor clearColor];
             mapaButton.backgroundColor= [UIColor clearColor];
-                rateButton.backgroundColor= [UIColor clearColor];
-                    shareButton.backgroundColor= [UIColor clearColor];
+    //            rateButton.backgroundColor= [UIColor clearColor];
+      //              shareButton.backgroundColor= [UIColor clearColor];
         
         [cellTwo.contentView addSubview:menuButton];
             [cellTwo.contentView addSubview:mapaButton];
-                [cellTwo.contentView addSubview:rateButton];
-                    [cellTwo.contentView addSubview:shareButton];
+        //        [cellTwo.contentView addSubview:rateButton];
+        [cellTwo.contentView addSubview:shareButton];
         
         return cellTwo;
     }if(indexPath.section ==2){
@@ -382,6 +382,7 @@
                 cellThree.horarioLabel.text = [restaurant objectForKey:@"Schedule"];
                 cellThree.paymentLabel.text =[restaurant objectForKey:@"Payment"];
                 cellThree.directionTextView.text =[restaurant objectForKey:@"Adress"] ;
+                cellThree.directionTextView.textColor = [UIColor colorWithRed:(76/255.0) green:(76/255.0) blue:(76/255.0) alpha:1] ;
                 cellThree.phoneLabel.text =[restaurant objectForKey:@"Web"] ;
                 restaurantPhone = [restaurant objectForKey:@"Phone"];
                 

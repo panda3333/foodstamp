@@ -3,19 +3,19 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "Logo29pt.png",
+      "filename" : "appicon-29.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Logo40pt.png",
+      "filename" : "appicon-40.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "Logo60pt.png",
+      "filename" : "appicon-60.png",
       "scale" : "2x"
     }
   ],

@@ -15,8 +15,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *likeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *shareLabel;
 
+
+@property (strong, nonatomic) IBOutlet UIButton *toRestaurant;
+
 //Actions For Buttons
-- (IBAction)wishActionButton:(id)sender;
+
 - (IBAction)likeActionButton:(id)sender;
 - (IBAction)facebookActionButton:(id)sender;
 

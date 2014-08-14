@@ -227,6 +227,11 @@
         //NSLog(@"deque'ing cellidentifier2");
         SocialCell *cellThree = (SocialCell*) [tableView dequeueReusableCellWithIdentifier: cellIdentifier2];
         
+        UIButton *Button= cellThree.toRestaurant;
+        Button.tag = -16;
+        [Button addTarget:self action:@selector(restButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+
+        
         if (cellThree == nil) {
            
             //NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier2 owner:nil options:nil];
@@ -248,9 +253,7 @@
         
             DirecCell *cellFour = (DirecCell*) [tableView dequeueReusableCellWithIdentifier:cellIdentifier3];
         
-        UIButton *Button= cellFour.toRestaurant;
-        Button.tag = -16;
-        [Button addTarget:self action:@selector(ButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+
         
             if (cellFour == nil) {
 
@@ -270,6 +273,7 @@
                 cellFour.horarioLabel.text = [restaurant objectForKey:@"Schedule"];
                 cellFour.pagoLabel.text =[restaurant objectForKey:@"Payment"];
                 cellFour.directionTextView.text =[restaurant objectForKey:@"Adress"] ;
+                cellFour.directionTextView.textColor = [UIColor colorWithRed:(76/255.0) green:(76/255.0) blue:(76/255.0) alpha:1] ;
                 restaurantPhone =[restaurant objectForKey:@"Phone"];
                 cellFour.telLabel.text=[restaurant objectForKey:@"Phone"];
                 
@@ -335,16 +339,15 @@
     
 }
 
--(void) ButtonClicked
-{
+
+-(void) restButtonClicked{
     RestaurantViewController *RestaurantInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
-//RestaurantInstance.parseArray = self.parseArray;
-//RestaurantInstance.index =  self.index;
+    //RestaurantInstance.parseArray = self.parseArray;
+    //RestaurantInstance.index =  self.index;
     
-   RestaurantInstance.dish = [self.parseArray objectAtIndex: self.index];
+    RestaurantInstance.dish = [self.parseArray objectAtIndex: self.index];
     [self presentViewController:RestaurantInstance animated:YES completion:nil];
 }
-
 - (IBAction)backActionButton:(id)sender {
    // NSLog(@"ET phone Home ");
     
