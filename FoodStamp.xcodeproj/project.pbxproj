@@ -94,6 +94,11 @@
 		BB6B8B001926FA34001FB612 /* boton_megusta-on.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF31926FA34001FB612 /* boton_megusta-on.png */; };
 		BB6B8B021926FA34001FB612 /* boton_menu-on.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF51926FA34001FB612 /* boton_menu-on.png */; };
 		BB6B8B031926FA34001FB612 /* boton_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6B8AF61926FA34001FB612 /* boton_menu.png */; };
+		BB72D452199DA34F007F207A /* *InfoScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = BB72D44D199DA34F007F207A /* *InfoScreen.png */; };
+		BB72D453199DA34F007F207A /* 5-InfoBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = BB72D44E199DA34F007F207A /* 5-InfoBackground.png */; };
+		BB72D454199DA34F007F207A /* facebook_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = BB72D44F199DA34F007F207A /* facebook_logout.png */; };
+		BB72D455199DA34F007F207A /* FoodStamp_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BB72D450199DA34F007F207A /* FoodStamp_logo.png */; };
+		BB72D456199DA34F007F207A /* textoinfo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BB72D451199DA34F007F207A /* textoinfo.rtf */; };
 		BBB072241993E288002DEB15 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072071993E288002DEB15 /* iTunesArtwork@2x.png */; };
 		BBB072251993E288002DEB15 /* foodstamp_title_01.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB072091993E288002DEB15 /* foodstamp_title_01.png */; };
 		BBB072261993E288002DEB15 /* FoodStamp_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB0720B1993E288002DEB15 /* FoodStamp_logo.png */; };
@@ -253,6 +258,11 @@
 		BB6B8AF41926FA34001FB612 /* boton_megusta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boton_megusta.png; path = Botones/boton_megusta.png; sourceTree = "<group>"; };
 		BB6B8AF51926FA34001FB612 /* boton_menu-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boton_menu-on.png"; path = "Botones/boton_menu-on.png"; sourceTree = "<group>"; };
 		BB6B8AF61926FA34001FB612 /* boton_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boton_menu.png; path = Botones/boton_menu.png; sourceTree = "<group>"; };
+		BB72D44D199DA34F007F207A /* *InfoScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "*InfoScreen.png"; sourceTree = "<group>"; };
+		BB72D44E199DA34F007F207A /* 5-InfoBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "5-InfoBackground.png"; sourceTree = "<group>"; };
+		BB72D44F199DA34F007F207A /* facebook_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_logout.png; sourceTree = "<group>"; };
+		BB72D450199DA34F007F207A /* FoodStamp_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodStamp_logo.png; sourceTree = "<group>"; };
+		BB72D451199DA34F007F207A /* textoinfo.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = textoinfo.rtf; sourceTree = "<group>"; };
 		BBB072071993E288002DEB15 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		BBB072091993E288002DEB15 /* foodstamp_title_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodstamp_title_01.png; sourceTree = "<group>"; };
 		BBB0720B1993E288002DEB15 /* FoodStamp_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodStamp_logo.png; sourceTree = "<group>"; };
@@ -695,9 +705,22 @@
 			name = InfoViewController;
 			sourceTree = "<group>";
 		};
+		BB72D44C199DA34F007F207A /* screen5_info */ = {
+			isa = PBXGroup;
+			children = (
+				BB72D44D199DA34F007F207A /* *InfoScreen.png */,
+				BB72D44E199DA34F007F207A /* 5-InfoBackground.png */,
+				BB72D44F199DA34F007F207A /* facebook_logout.png */,
+				BB72D450199DA34F007F207A /* FoodStamp_logo.png */,
+				BB72D451199DA34F007F207A /* textoinfo.rtf */,
+			);
+			path = screen5_info;
+			sourceTree = "<group>";
+		};
 		BBB072021993E288002DEB15 /* POR AGREGAR */ = {
 			isa = PBXGroup;
 			children = (
+				BB72D44C199DA34F007F207A /* screen5_info */,
 				BBB072031993E288002DEB15 /* launch icon */,
 				BBB072081993E288002DEB15 /* screen0_inico */,
 				BBB0720A1993E288002DEB15 /* screen1_home */,
@@ -898,6 +921,7 @@
 				BB6B8B001926FA34001FB612 /* boton_megusta-on.png in Resources */,
 				BBB072271993E288002DEB15 /* icon_slidebar-02.png in Resources */,
 				BB2E92C3199C60B10046041A /* appicon-29.png in Resources */,
+				BB72D456199DA34F007F207A /* textoinfo.rtf in Resources */,
 				BB6B8ADA1926EF25001FB612 /* 1Descubre_icon-01.png in Resources */,
 				5268693318EFB28100CD3876 /* DSC_56512.png in Resources */,
 				BBB0722B1993E288002DEB15 /* slider_icon-4.png in Resources */,
@@ -918,8 +942,10 @@
 				BBB072301993E288002DEB15 /* slider_icon_-03.png in Resources */,
 				BBB0722A1993E288002DEB15 /* slider_icon-3.png in Resources */,
 				BB6B8B021926FA34001FB612 /* boton_menu-on.png in Resources */,
+				BB72D453199DA34F007F207A /* 5-InfoBackground.png in Resources */,
 				BBE0ADEB199C694100E924A5 /* boton_restaurant-01.png in Resources */,
 				BBB072381993E288002DEB15 /* boton_menu.png in Resources */,
+				BB72D452199DA34F007F207A /* *InfoScreen.png in Resources */,
 				BB6B8ADE1926EF25001FB612 /* 1Descubre_icon-07.png in Resources */,
 				BB6B8ADF1926EF25001FB612 /* 1Descubre_icon-08.png in Resources */,
 				BBB0722D1993E288002DEB15 /* slider_icon-6.png in Resources */,
@@ -936,6 +962,7 @@
 				5268693918EFB32B00CD3876 /* logo_choza.jpg in Resources */,
 				BB6B8AFF1926FA34001FB612 /* boton_mapa.png in Resources */,
 				5268693D18EFB3D900CD3876 /* FoodStamp_logo-01.png in Resources */,
+				BB72D454199DA34F007F207A /* facebook_logout.png in Resources */,
 				BBE0ADEE199C694100E924A5 /* boton-favorito-01.png in Resources */,
 				5268692F18EFB28100CD3876 /* DSC_55332.png in Resources */,
 				BB6B8B031926FA34001FB612 /* boton_menu.png in Resources */,
@@ -944,6 +971,7 @@
 				BB58E76F194CD68D009CECAA /* Main.storyboard in Resources */,
 				BBB072281993E288002DEB15 /* slider_icon-1.png in Resources */,
 				BB2E92C5199C60B10046041A /* appicon-60.png in Resources */,
+				BB72D455199DA34F007F207A /* FoodStamp_logo.png in Resources */,
 				BB6B8AE41926F23B001FB612 /* 1Descubre_icon-09.png in Resources */,
 				BB6B8ADD1926EF25001FB612 /* 1Descubre_icon-06.png in Resources */,
 				BBB072291993E288002DEB15 /* slider_icon-2.png in Resources */,

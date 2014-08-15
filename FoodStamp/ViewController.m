@@ -33,6 +33,8 @@
     [swipeLeftRight setDirection:(UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft )];
     [self.view addGestureRecognizer:swipeLeftRight];
     
+    UITapGestureRecognizer *userImageTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToInfo)];
+        [userIconHomeImage addGestureRecognizer:userImageTouch];
     
     //Obtener los elementos de Facabook
     FBRequest *request = [FBRequest requestForMe];
@@ -137,7 +139,7 @@
     // As chuncks of the image are received, we build our data file
     [self.imageData appendData:data];
 }
-
+//--------------------------------------------------------------------------------------------//
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // All data has been downloaded, now we can set the image in the header image view
     self.userIconHomeImage.image = [UIImage imageWithData:self.imageData];
@@ -145,6 +147,8 @@
     // Add a nice corner radius to the image
     self.userIconHomeImage.layer.cornerRadius = 17.0f;
     self.userIconHomeImage.layer.masksToBounds = YES;
+    
+ 
 }
 
 - (void)didReceiveMemoryWarning
@@ -361,6 +365,15 @@
     aboutInstance.parseArray = self.parseArray;
     
     [self presentViewController:aboutInstance animated:YES completion:nil];
+}
+
+-(void) goToInfo {
     
+    NSLog(@"to log in !!! and beyoooond!!");
+    infoViewController *aboutInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"aboutView"];
+    //aboutInstance.parseArray = self.parseArray;
+    
+    [self presentViewController:aboutInstance animated:YES completion:nil];
+
 }
 @end
