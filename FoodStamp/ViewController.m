@@ -214,7 +214,7 @@
         yummies = @"0";
     }
     
-    NSString *nameYummies = @"Yummies";
+    NSString *nameYummies = @"Favoritos";
     
     NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
 

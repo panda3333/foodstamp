@@ -179,7 +179,7 @@
             yummies = @"0";
         }
         
-        NSString *nameYummies = @"Yummies";
+        NSString *nameYummies = @"Favoritos";
         NSString *precioLogo = @"$";
         NSString *joinString=[NSString stringWithFormat:@"%@ %@",precioLogo,precioFinal];
         NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
