@@ -395,20 +395,95 @@
 - (IBAction)YummyButto:(id)sender {
     
     PFObject *dish = [self.parseArray objectAtIndex:self.index];
-    [dish incrementKey:@"Yummies" byAmount:[NSNumber numberWithInt:1]];
+    NSString *dishId = dish.objectId;
+    NSString *userId = [PFUser currentUser].objectId;
     
-    self.hud = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:self.hud];
+    //Query if the current dish exists for this user in the YummieRels, Yummie or Unyummie the dish according to the result
     
-    self.hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Checkmark.png"]];
+    // Create a query to the YummiesRels table
+    PFQuery *YumQuery = [PFQuery queryWithClassName:@"YummiesRels"];
     
-    self.hud.mode = MBProgressHUDModeCustomView;
-    self.hud.labelText = @"Yummie!! ";
+    // Follow relationship
+    [YumQuery whereKey:@"UserID" equalTo:userId];
+    [YumQuery whereKey:@"YummiedDish" equalTo:dishId];
     
-    [self.hud showWhileExecuting:@selector(waitForTwoSeconds)
-                        onTarget:self withObject:nil animated:YES];
+    [YumQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) { // if nothing went wrong
+            if ([objects count] == 0) { // This means YUMMIE!! we want to INSERT to YummiesRels and yummie++
+                NSLog(@"Not found so... Yummie the dish!");
+                [dish incrementKey:@"Yummies" byAmount:[NSNumber numberWithInt:1]]; //yummie++
+                
+                self.hud = [[MBProgressHUD alloc] initWithView:self.view];
+                [self.view addSubview:self.hud];
+                
+                self.hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Checkmark.png"]];
+                
+                self.hud.mode = MBProgressHUDModeCustomView;
+                self.hud.labelText = @"Yummie!! ";
+                
+                [self.hud showWhileExecuting:@selector(waitForTwoSeconds)
+                                    onTarget:self withObject:nil animated:YES];
+                
+                //INSERT new relation
+                PFObject *newYumRel = [PFObject objectWithClassName:@"YummiesRels"]; // Create Yummie
+                newYumRel[@"YummiedDish"] = dishId;                                  // Set the content
+                newYumRel[@"UserID"] = userId;                                       // Create relationship
+                
+                // Save new relation and new Yummied dish
+                [newYumRel saveInBackground];
+                [dish saveInBackground];
+                
+                // Update the Yummie counter with new count
+                static NSString *cellIdentifier = @"fotoPlatilloCell";
+                FotoPlatilloCell *cell = [platilloTableView dequeueReusableCellWithIdentifier: cellIdentifier];
+                if(cell == nil){
+                    cell = [[FotoPlatilloCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+                }
+                
+                NSNumber *countYummies = [dish objectForKey:@"Yummies"];
+                NSString *yummies = countYummies.stringValue;
+                
+                if (yummies == nil) {
+                    yummies = @"0";
+                }
+                
+                NSString *nameYummies = @"Yummies";
+                NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
+                cell.yummieLabel.text = joinYummies;
+                
+                
+            } else { // This means UNYUMMIE!! we want to DELETE to YummiesRels and yummie--
+                NSLog(@"Relation found so... Unyummie!");
+                // Yummie-- current dish
+                [dish incrementKey:@"Yummies" byAmount:[NSNumber numberWithInt:-1]];
+                
+                self.hud = [[MBProgressHUD alloc] initWithView:self.view];
+                [self.view addSubview:self.hud];
+                
+                self.hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Checkmark.png"]];
+                
+                self.hud.mode = MBProgressHUDModeCustomView;
+                self.hud.labelText = @"Not so yummie anymore :( !! ";
+                
+                [self.hud showWhileExecuting:@selector(waitForTwoSeconds)
+                                    onTarget:self withObject:nil animated:YES];
+                
+                /*DELETE relation */
+                PFObject *toDelete = [objects objectAtIndex:0]; // Create object to be deleted
+                [toDelete deleteInBackground];                  // Remove content
+                
+                [dish saveInBackground];
+                
+                // Update the Yummie counter with new count
+                
+                
+            }
+        }else{
+            NSLog(@"Error...");
+            
+        }
+    }];
     
-    [dish saveInBackground];
 }
 
 - (void)waitForTwoSeconds {
