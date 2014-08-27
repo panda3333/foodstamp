@@ -22,7 +22,12 @@
 @property (strong, nonatomic) IBOutlet UIImageView *userIconImage;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
 @property (nonatomic, assign) int index;
+@property (nonatomic, assign) short preIndex;
+@property (nonatomic, assign) BOOL fromMenu;
 @property (strong, nonatomic) NSMutableArray *parseArray;
+@property (strong, nonatomic) NSMutableArray *menuArray;
+@property (strong, nonatomic) NSMutableArray *preParseArray;
+@property (strong, nonatomic) PFObject* dish;
 
 
 

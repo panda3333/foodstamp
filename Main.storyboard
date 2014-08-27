@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="O1U-OT-dqa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KJt-ME-Idw">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -982,7 +982,7 @@ Cg
             </objects>
             <point key="canvasLocation" x="903" y="2"/>
         </scene>
-        <!--Login View Controller - Login-->
+        <!--Login View Controller-->
         <scene sceneID="4v6-7J-90b">
             <objects>
                 <viewController storyboardIdentifier="FaceBookLogInViewController" id="O1U-OT-dqa" customClass="FBLoginViewController" sceneMemberID="viewController">
@@ -1021,7 +1021,7 @@ Cg
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="U1g-o0-WbF"/>
+                    <navigationItem key="navigationItem" id="U1g-o0-WbF"/>
                     <connections>
                         <outlet property="activityLogin" destination="eJa-Em-GKV" id="PZM-TB-7xD"/>
                         <outlet property="btnLogin" destination="U1o-nf-yb1" id="4kB-vi-fay"/>

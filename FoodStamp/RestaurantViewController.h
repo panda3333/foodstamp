@@ -31,7 +31,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
 
 @property (strong, nonatomic) PFObject* dish;
-
 @property (nonatomic, assign) int index;
 @property (strong, nonatomic) NSMutableArray *parseArray;
 

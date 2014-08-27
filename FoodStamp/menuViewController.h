@@ -21,6 +21,9 @@
 
 @property (strong,nonatomic) PFObject *dish;
 @property (strong, nonatomic) NSMutableArray *parseArray;
+@property (strong, nonatomic) NSMutableArray *menuArray;
+@property (nonatomic, assign) int index;
+@property (nonatomic, assign) short preIndex;
 @property (strong, nonatomic) NSMutableArray *preParseArray;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
 

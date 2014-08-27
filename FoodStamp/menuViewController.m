@@ -9,6 +9,7 @@
 #import "menuViewController.h"
 #import "menuCollectionViewCell.h"
 #import "RestaurantViewController.h"
+#import "PlatilloViewController.h"
 #import <Parse/Parse.h>
 
 
@@ -21,7 +22,7 @@
 @end
 
 @implementation menuViewController
-@synthesize platillosCollectionView,parseArray,preParseArray,restaurantNameLabel;
+@synthesize platillosCollectionView,parseArray,preParseArray,restaurantNameLabel,menuArray;
 
 - (void)viewDidLoad
 {
@@ -29,10 +30,12 @@
     // Do any additional setup after loading the view.
     //[self getRestaurant];
     
-    if(self.parseArray.count == 0){
-        
-    [self dishesQuery];
+    if(self.menuArray.count == 0){
+        [self dishesQuery];
     }
+    /*if(self.parseArray.count == 0){
+        [self dishesQuery];
+    }*/
 
 }
 
@@ -55,7 +58,8 @@
             equalTo:[PFObject objectWithoutDataWithClassName:@"Restaurant" objectId:[restaurant objectId]]];
     [ query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
     if(!error){
-        parseArray = [[NSMutableArray alloc] initWithArray:results];
+        menuArray = [[NSMutableArray alloc] initWithArray:results];
+        //parseArray = [[NSMutableArray alloc] initWithArray:results];
         NSLog(@"resultados: %@",results);
         [platillosCollectionView reloadData];
           }
@@ -71,9 +75,9 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-
- return [parseArray count];
-    
+    return [menuArray count];
+    //return [parseArray count];
+    NSLog(@"oarse array coun in Restaurante--->%lu",(unsigned long)menuArray.count);
     NSLog(@"oarse array coun in Restaurante--->%lu",(unsigned long)parseArray.count);
 }
 
@@ -84,7 +88,8 @@
 
     menuCollectionViewCell *cell = ( menuCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath]; 
     
-    PFObject *imageObject = [parseArray objectAtIndex:indexPath.row];
+    PFObject *imageObject = [menuArray objectAtIndex:indexPath.row];
+    //PFObject *imageObject = [parseArray objectAtIndex:indexPath.row];
     PFFile *imageFile = [imageObject objectForKey:@"Photo"];
     
 
@@ -111,15 +116,36 @@
             cell.platilloImage.image=[UIImage imageWithData:data];
             
             [cell.loadingSpiner stopAnimating];
-            cell.loadingSpiner.hidden  =YES;
-           
-            
+            cell.loadingSpiner.hidden  = YES;
         }
         
     }];
     
     return cell;
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    //NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
+    
+    PlatilloViewController *dishViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];
+    dishViewController.menuArray = self.menuArray;
+    dishViewController.preParseArray = self.parseArray; // Save previous state of Array
+    dishViewController.parseArray = self.menuArray;     // Substitute array to correctly gather data
+    dishViewController.preIndex = self.index;           // Save previous state of Index from original Array
+    dishViewController.index =  indexPath.row;          // Substitute index to correctly gather data
+    dishViewController.dish = self.dish;
+    dishViewController.fromMenu = true;
+    
+    
+    //NSString *className = NSStringFromClass([[self.platillosImagesArray objectAtIndex:indexPath.row] class]);
+    //NSLog(@"%@",className);
+    
+    [self presentViewController:dishViewController animated:YES completion:nil];
+}
+    
+    
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 5; // This is the minimum inter item spacing, can be more
@@ -128,6 +154,14 @@
 
     RestaurantViewController *RestaurantInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
     RestaurantInstance.dish = self.dish;
+    if (self.preParseArray.count == 0) { // if user has gone to menuView, use preParseArray and preIndex, otherwise use normal parseArray and index
+        RestaurantInstance.parseArray = self.parseArray;
+        RestaurantInstance.index = self.index;
+    }else{
+        RestaurantInstance.parseArray = self.preParseArray;
+        RestaurantInstance.index = self.preIndex;
+    }
+    //RestaurantInstance.index = self.index;
     [self presentViewController:RestaurantInstance animated:YES completion:nil];
 }
 @end

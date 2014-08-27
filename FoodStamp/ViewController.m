@@ -2,10 +2,10 @@
 //  ViewController.m
 //  FoodStamp
 //
-//  Created by Red Prado on 3/28/14.
-//  Copyright (c) 2014 Red Prado. All rights reserved.
+//  Created by Foodstamp on 3/28/14.
+//  Copyright (c) 2014 Foodstamp. All rights reserved.
 //---------
-// Pase Account data:
+// Parse Account data:
 //      user: encisoenrique@foodstamp.mx
 //      pass: foodstampwinners
 
@@ -175,7 +175,7 @@
             parseArray = [[NSMutableArray alloc] initWithArray:results];
                                         //[self.platillosImagesArray writeToFile:cacheDirectory atomically:YES];
             parseArray  = [self randomizeArray:parseArray];
-                                        [platillosCollectionView reloadData];
+            [platillosCollectionView reloadData];
             //NSLog(@"the array is: %@ ",platillosImagesArray);
           }
         
@@ -272,6 +272,7 @@
     
     dishViewController.parseArray = self.parseArray;
     dishViewController.index =  indexPath.row;
+    dishViewController.fromMenu = false;
     
     
     //NSString *className = NSStringFromClass([[self.platillosImagesArray objectAtIndex:indexPath.row] class]);
@@ -343,6 +344,8 @@
 }
 
 
+
+
 - (IBAction)dessertsButton:(id)sender {
     [self filterDishesby:@"Postre"];
 }
@@ -361,10 +364,44 @@
 }
 
 - (IBAction)aboutButton:(id)sender {
-    infoViewController *aboutInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"aboutView"];
-    aboutInstance.parseArray = self.parseArray;
+    NSString *userId = [PFUser currentUser].objectId;
     
-    [self presentViewController:aboutInstance animated:YES completion:nil];
+    PFQuery *YumQuery = [PFQuery queryWithClassName:@"YummiesRels"];
+    
+    // Follow relationship
+    [YumQuery whereKey:@"UserID" equalTo:userId];
+    [YumQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error){
+            NSMutableArray *array = [[NSMutableArray alloc] init];
+            
+            for (PFObject *userFavDish in objects) {
+                NSString *dishUserFavDish = [userFavDish objectForKey:@"YummiedDish"];
+                [array addObject:dishUserFavDish];
+            }
+            
+            [self getFavDishes:array];
+            
+        } else {
+            NSLog(@"Chin!!");
+        }
+    }];
+}
+
+
+
+- (void) getFavDishes: (NSMutableArray *)array{
+    PFQuery *DishQuery = [PFQuery queryWithClassName:@"Dishes"];
+    [DishQuery whereKey:@"objectId" containedIn:array];
+    
+    [DishQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            parseArray = [[NSMutableArray alloc] initWithArray:objects];
+            parseArray  = [self randomizeArray:parseArray];
+            [platillosCollectionView reloadData];
+        } else {
+            NSLog(@"Chin pidiendo platillos");
+        }
+    }];
 }
 
 -(void) goToInfo {

@@ -13,6 +13,7 @@
 #import "SocialCell.h"
 #import "DirecCell.h"
 #import "ViewController.h"
+#import "menuViewController.h"
 #import "Parse/Parse.h"
 #import <Social/Social.h>
 #import "MBProgressHUD.h"
@@ -28,7 +29,7 @@
     NSString *restaurantPhone;
 }
 
-@synthesize platilloTableView,platilloTableController,userIconImage, index , parseArray,restaurantNameLabel;
+@synthesize platilloTableView,platilloTableController,userIconImage, index, parseArray, preParseArray, menuArray, restaurantNameLabel;
 
 
 - (void)viewDidLoad
@@ -342,21 +343,32 @@
 
 -(void) restButtonClicked{
     RestaurantViewController *RestaurantInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
-    //RestaurantInstance.parseArray = self.parseArray;
-    //RestaurantInstance.index =  self.index;
+    RestaurantInstance.parseArray = self.parseArray;
+    RestaurantInstance.index =  self.index;
     
     RestaurantInstance.dish = [self.parseArray objectAtIndex: self.index];
     [self presentViewController:RestaurantInstance animated:YES completion:nil];
 }
-- (IBAction)backActionButton:(id)sender {
-   // NSLog(@"ET phone Home ");
-    
-    PlatilloViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
-    homeinstance.parseArray = self.parseArray;
-    homeinstance.index = self.index;
 
-    [self presentViewController:homeinstance animated:YES completion:nil];
+- (IBAction)backActionButton:(id)sender {
+   
+    // NSLog(@"ET phone Home ");
     
+    if (self.fromMenu) {
+        menuViewController *menuinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuView"];
+        menuinstance.menuArray = self.menuArray;
+        menuinstance.parseArray = self.parseArray;
+        menuinstance.preParseArray = self.preParseArray; // Just save previous state of original array
+        menuinstance.preIndex = self.preIndex;           // Just save previous state of original index
+        menuinstance.index = self.index;
+        menuinstance.dish = self.dish;
+        [self presentViewController:menuinstance animated:YES completion:nil];
+    } else {
+        ViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
+        homeinstance.parseArray = self.parseArray;
+        homeinstance.index = self.index;
+        [self presentViewController:homeinstance animated:YES completion:nil];
+    }
 }
 
 - (IBAction)shareButton:(id)sender {
@@ -434,23 +446,7 @@
                 [dish saveInBackground];
                 
                 // Update the Yummie counter with new count
-                static NSString *cellIdentifier = @"fotoPlatilloCell";
-                FotoPlatilloCell *cell = [platilloTableView dequeueReusableCellWithIdentifier: cellIdentifier];
-                if(cell == nil){
-                    cell = [[FotoPlatilloCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-                }
-                
-                NSNumber *countYummies = [dish objectForKey:@"Yummies"];
-                NSString *yummies = countYummies.stringValue;
-                
-                if (yummies == nil) {
-                    yummies = @"0";
-                }
-                
-                NSString *nameYummies = @"Yummies";
-                NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
-                cell.yummieLabel.text = joinYummies;
-                
+                [self updateYummiesCount:[dish objectForKey:@"Yummies"]];
                 
             } else { // This means UNYUMMIE!! we want to DELETE to YummiesRels and yummie--
                 NSLog(@"Relation found so... Unyummie!");
@@ -475,6 +471,7 @@
                 [dish saveInBackground];
                 
                 // Update the Yummie counter with new count
+                [self updateYummiesCount:[dish objectForKey:@"Yummies"]];
                 
                 
             }
@@ -483,7 +480,20 @@
             
         }
     }];
-    
+}
+
+- (void)updateYummiesCount: (NSNumber *) num {
+    NSIndexPath * indexCell = [NSIndexPath indexPathForItem:0 inSection:0];
+    FotoPlatilloCell *cell = (FotoPlatilloCell *)[platilloTableView cellForRowAtIndexPath:indexCell];
+
+    NSString *yummies = num.stringValue;
+    if (yummies == nil) {
+        yummies = @"0";
+    }
+    NSString *nameYummies = @"Yummies";
+    NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
+    NSLog(@"Contador Yummies %@", joinYummies);
+    cell.yummieLabel.text = joinYummies;
 }
 
 - (void)waitForTwoSeconds {

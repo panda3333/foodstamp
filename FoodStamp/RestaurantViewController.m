@@ -11,6 +11,7 @@
 #import "RestInfoCell.h"
 #import "infoTableViewCell.h"
 #import "LocationViewController.h"
+#import "PlatilloViewController.h"
 #import "menuViewController.h"
 
 #import <Social/Social.h>
@@ -408,7 +409,9 @@
 
     NSLog(@"To Menu");
     menuViewController *menuInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuView"];
+    menuInstance.parseArray = self.parseArray;
     menuInstance.dish = self.dish;
+    menuInstance.index = self.index;
     
     [self presentViewController:menuInstance animated:YES completion:nil];
 
@@ -463,15 +466,14 @@
 
 - (IBAction)backButton:(id)sender {
     
-
-ViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
-     homeinstance.dish = [self.parseArray objectAtIndex: self.index];
-    homeinstance.parseArray = self.parseArray;
-    homeinstance.index = self.index;
-    [self presentViewController:homeinstance animated:YES completion:nil];
-    
+    PlatilloViewController *dishInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];
+    dishInstance.dish = [self.parseArray objectAtIndex: self.index];
+    dishInstance.parseArray = self.parseArray;
+    dishInstance.index = self.index;
+    [self presentViewController:dishInstance animated:YES completion:nil];
     
 }
+
 -(void) callRestaurant{
     NSString *phoneNumber = [@"telprompt://" stringByAppendingString:restaurantPhone];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
