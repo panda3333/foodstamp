@@ -600,6 +600,13 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fgd-V8-6CM">
+                                                            <rect key="frame" x="11" y="0.0" width="93" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.3140345982142857" green="0.3140345982142857" blue="0.3140345982142857" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
                                                 </view>
@@ -608,6 +615,7 @@
                                         </view>
                                         <size key="customSize" width="152" height="145"/>
                                         <connections>
+                                            <outlet property="labelYummies" destination="Fgd-V8-6CM" id="WSw-el-V3I"/>
                                             <outlet property="loadingSpiner" destination="uWq-PC-QvK" id="KOu-nW-vBp"/>
                                             <outlet property="platilloImage" destination="Gk9-62-zot" id="MR2-JT-Vv9"/>
                                             <outlet property="platilloNameLabel" destination="OQY-Lg-JVe" id="s7H-pT-iX2"/>

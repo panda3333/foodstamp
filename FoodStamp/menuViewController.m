@@ -95,6 +95,18 @@
 
     NSString *platilloName = [imageObject objectForKey:@"Name"];
     NSNumber *platilloPrice = [imageObject objectForKey:@"Price"];
+    NSNumber *countYummies = [imageObject objectForKey:@"Yummies"];
+    
+    NSString *yummies = countYummies.stringValue;
+    
+    if (yummies == nil) {
+        yummies = @"0";
+    }
+    
+    
+    NSString *nameYummies = @"Favoritos";
+    
+    NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
     
     [cell.loadingSpiner stopAnimating];
     cell.loadingSpiner.hidden  =YES;
@@ -113,6 +125,7 @@
             cell.priceLabel.attributedText = string;
            
             cell.platilloNameLabel.text = platilloName;
+            cell.labelYummies.text = joinYummies;
             cell.platilloImage.image=[UIImage imageWithData:data];
             
             [cell.loadingSpiner stopAnimating];

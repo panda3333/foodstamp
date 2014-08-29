@@ -244,6 +244,14 @@
         [cellThree.contentView addSubview:cellThree.shareLabel];
         [cellThree.contentView addSubview:cellThree.likeLabel];
         
+        if (self.fromMenu) {
+            [cellThree.toRestaurant setEnabled:NO];
+            //add images pressed :)
+            //[cellThree.toRestaurant setImage:[UIImage imageNamed:@"done.png"] forState:UIControlStateNormal];
+        } else {
+            [cellThree.toRestaurant setEnabled:YES];
+            cellThree.toRestaurant.hidden = NO;
+        }
         
         return cellThree;
         
