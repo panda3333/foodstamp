@@ -315,7 +315,7 @@
         
         [cellFour.contentView addSubview:cellFour.logoImage];
         
-        UITapGestureRecognizer *toRestaurantTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logoPressed)];
+        UITapGestureRecognizer *toRestaurantTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(restButtonClicked)];
         toRestaurantTouch.numberOfTapsRequired = 1;
         cellFour.logoImage.userInteractionEnabled = YES;
         [cellFour.logoImage addGestureRecognizer:toRestaurantTouch];
@@ -328,14 +328,6 @@
         return cellFour;
     }
     return nil;
-    
-}
-
--(void)logoPressed{
-    RestaurantViewController *RestaurantInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
-    
-    RestaurantInstance.dish = [self.parseArray objectAtIndex: self.index];
-    [self presentViewController:RestaurantInstance animated:YES completion:nil];
     
 }
 
@@ -467,7 +459,7 @@
                 self.hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Checkmark.png"]];
                 
                 self.hud.mode = MBProgressHUDModeCustomView;
-                self.hud.labelText = @"Not so yummie anymore :( !! ";
+                self.hud.labelText = @"no Yummie !! ";
                 
                 [self.hud showWhileExecuting:@selector(waitForTwoSeconds)
                                     onTarget:self withObject:nil animated:YES];
@@ -498,7 +490,7 @@
     if (yummies == nil) {
         yummies = @"0";
     }
-    NSString *nameYummies = @"Yummies";
+    NSString *nameYummies = @"Favoritos";
     NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
     NSLog(@"Contador Yummies %@", joinYummies);
     cell.yummieLabel.text = joinYummies;

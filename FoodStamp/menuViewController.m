@@ -30,6 +30,11 @@
     // Do any additional setup after loading the view.
     //[self getRestaurant];
     
+    if (self.dish != NULL){
+    restaurant = self.dish[@"Restaurant"];
+    NSString *restaurantHeaderName = [restaurant objectForKey:@"Name"];
+    restaurantNameLabel.text = restaurantHeaderName;
+    }
     if(self.menuArray.count == 0){
         [self dishesQuery];
     }
@@ -46,10 +51,7 @@
 }
 -(void)dishesQuery{
     
-    restaurant = self.dish[@"Restaurant"];
-    NSString *restaurantHeaderName = [restaurant objectForKey:@"Name"];
-    restaurantNameLabel.text = restaurantHeaderName;
-
+  
     PFQuery *query = [PFQuery queryWithClassName:@"Dishes"];
 
    // NSLog(@"El id -------->%@",[restaurant objectId]);
