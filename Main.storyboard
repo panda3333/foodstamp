@@ -694,7 +694,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wA4-dP-aCL">
-                                <rect key="frame" x="16" y="93" width="289" height="374"/>
+                                <rect key="frame" x="16" y="88" width="289" height="387"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -1033,7 +1033,7 @@ Cg
                     <connections>
                         <outlet property="activityLogin" destination="eJa-Em-GKV" id="PZM-TB-7xD"/>
                         <outlet property="btnLogin" destination="U1o-nf-yb1" id="4kB-vi-fay"/>
-                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="LoginSuccessful" id="sPV-FK-q8v"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="LoginSuccessful" animates="NO" id="sPV-FK-q8v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJ6-GJ-t5J" userLabel="First Responder" sceneMemberID="firstResponder"/>

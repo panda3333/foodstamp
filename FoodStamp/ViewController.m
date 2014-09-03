@@ -29,9 +29,13 @@
 	// Do any additional setup after loading the view, typically from a nib.
    
     //swipeRecognizers
-    UISwipeGestureRecognizer *swipeLeftRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(optionsButton:)];
-    [swipeLeftRight setDirection:(UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft )];
-    [self.view addGestureRecognizer:swipeLeftRight];
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(optionsButton:)];
+    [swipeRight setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.view addGestureRecognizer:swipeRight];
+    
+    UISwipeGestureRecognizer *swipeLeftClose = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(closeBar)];
+    [swipeLeftClose setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+    [self.view addGestureRecognizer:swipeLeftClose];
     
     UITapGestureRecognizer *userImageTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToInfo)];
         [userIconHomeImage addGestureRecognizer:userImageTouch];
@@ -292,23 +296,28 @@
 
     if(optionsView.frame.origin.x >= 0){
         
-        [self animateMainViewToLeft];
-    
+            
         
-    }else{
+    }else if (optionsView.frame.origin.x <=0){
         
         [self animateMainViewToRight];
     
     }
     
 }
+-(void) closeBar {
+   [self animateMainViewToLeft];
+    
+}
 
 - (void) animateMainViewToLeft{
+    
     //Animate mainView
     [UIView animateWithDuration:0.5 animations:^(void){
         optionsView.frame = CGRectMake(-100, 64, optionsView.frame.size.width, optionsView.frame.size.height);
     }];
     //[_homeIcon setImage:[UIImage imageNamed:@"Pokeball.png"]];
+    
     
 }
 
