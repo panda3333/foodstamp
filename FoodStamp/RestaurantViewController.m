@@ -422,7 +422,7 @@
     NSLog(@"To Map");
     LocationViewController *mapInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationView"];
     mapInstance.dish = self.dish;
-    
+     mapInstance.parseArray = self.parseArray;
     [self presentViewController:mapInstance animated:YES completion:nil];
 }
 -(void)rateAction :(id)sender

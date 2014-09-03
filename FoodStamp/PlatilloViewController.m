@@ -10,6 +10,7 @@
 #import "FotoPlatilloCell.h"
 #import "DescripcionRestTableViewCell.h"
 #import "RestaurantViewController.h"
+#import "LocationViewController.h"
 #import "SocialCell.h"
 #import "DirecCell.h"
 #import "ViewController.h"
@@ -305,6 +306,11 @@
         [cellFour.telLabel addGestureRecognizer:telLabelTouch];
         
         [cellFour.contentView addSubview:cellFour.direcIconImage];
+        UITapGestureRecognizer *direcImageTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToMap:)];
+        direcImageTouch.numberOfTapsRequired = 1;
+        cellFour.direcIconImage.userInteractionEnabled =YES;
+        [cellFour.direcIconImage addGestureRecognizer:direcImageTouch];
+        
         [cellFour.contentView addSubview:cellFour.horaIconImage];
         [cellFour.contentView addSubview:cellFour.pagoIconImage];
         [cellFour.contentView addSubview:cellFour.telIconImage];
@@ -498,5 +504,13 @@
 
 - (void)waitForTwoSeconds {
     sleep(2);
+}
+
+-(void)goToMap :(id)sender
+{
+    NSLog(@"To Map");
+    LocationViewController *mapInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationView"];
+    mapInstance.dish = self.dish;
+    [self presentViewController:mapInstance animated:YES completion:nil];
 }
 @end

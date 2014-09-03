@@ -113,8 +113,11 @@
 
 - (IBAction)backButton:(id)sender {
     
+    
     NSLog(@"ET phone Home ");
+    
     RestaurantViewController *preViewInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
+    preViewInstance.parseArray = self.parseArray;
         preViewInstance.dish = self.dish;
     [self presentViewController:preViewInstance animated:YES completion:nil];
     

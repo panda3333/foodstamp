@@ -27,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *locationTableView;
 
 @property (strong, nonatomic) PFObject* dish;
+@property (strong, nonatomic) NSMutableArray *parseArray;
 
 
 @end
