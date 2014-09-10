@@ -23,6 +23,7 @@
 @interface PlatilloViewController ()
 
 @property (nonatomic, strong) MBProgressHUD *hud;
+@property (nonatomic, strong) MBProgressHUD *mainHud;
 
 @end
 
@@ -46,6 +47,10 @@
     userIconImage.layer.cornerRadius= userIconImage.frame.size.height/2;
     userIconImage.layer.borderWidth=0; //hancho del borde.
     userIconImage.clipsToBounds =YES;
+    
+    self.mainHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.mainHud.labelText = NSLocalizedString(@"Loading", nil);
+    self.mainHud.dimBackground = YES;
     
     //NSLog(@"LOS datos-------------->%@",self.parseArray);
     
@@ -314,6 +319,8 @@
                 [logoImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
                     if(!error){
                         cellFour.logoImage.image = [UIImage imageWithData:data];
+                        NSLog(@"Ocultando el mainHUD");
+                        [self.mainHud hide:YES];
                     }
                 }];
             }
@@ -343,22 +350,21 @@
         
         [cellFour.contentView addSubview:cellFour.logoImage];
         
-        UITapGestureRecognizer *toRestaurantTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(restButtonClicked)];
-        toRestaurantTouch.numberOfTapsRequired = 1;
-        cellFour.logoImage.userInteractionEnabled = YES;
-        [cellFour.logoImage addGestureRecognizer:toRestaurantTouch];
+        if (!self.fromMenu) {
+            UITapGestureRecognizer *toRestaurantTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(restButtonClicked)];
+            toRestaurantTouch.numberOfTapsRequired = 1;
+            cellFour.logoImage.userInteractionEnabled = YES;
+            [cellFour.logoImage addGestureRecognizer:toRestaurantTouch];
+        }
+
         
         [cellFour.contentView addSubview:cellFour.directionTextView];
        
         
         cellFour.horarioLabel.text = [dish objectForKey:@"Schedule"];
-        
-
-        
         return cellFour;
     }
     return nil;
-    
 }
 
 -(void) callRestaurant{
