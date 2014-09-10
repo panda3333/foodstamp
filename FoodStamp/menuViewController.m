@@ -145,10 +145,15 @@
     //NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
     
     PlatilloViewController *dishViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];
+
+    dishViewController.preParseArray = self.preParseArray;
+    if (self.firstTimeInMenu) {
+        dishViewController.preParseArray = self.parseArray; // Save previous state of Array
+        dishViewController.preIndex = self.index;           // Save previous state of Index from original Array
+        self.firstTimeInMenu = false;
+    }
     dishViewController.menuArray = self.menuArray;
-    dishViewController.preParseArray = self.parseArray; // Save previous state of Array
     dishViewController.parseArray = self.menuArray;     // Substitute array to correctly gather data
-    dishViewController.preIndex = self.index;           // Save previous state of Index from original Array
     dishViewController.index =  indexPath.row;          // Substitute index to correctly gather data
     dishViewController.dish = self.dish;
     dishViewController.fromMenu = true;
@@ -176,6 +181,7 @@
         RestaurantInstance.parseArray = self.preParseArray;
         RestaurantInstance.index = self.preIndex;
     }
+    self.firstTimeInMenu = true;
     //RestaurantInstance.index = self.index;
     [self presentViewController:RestaurantInstance animated:YES completion:nil];
 }

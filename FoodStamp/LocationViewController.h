@@ -21,6 +21,10 @@
 - (IBAction)backButton:(id)sender;
 //MapView
 @property (strong, nonatomic) IBOutlet MKMapView *minMapView;
+
+@property (strong, nonatomic) MKMapView *routeMap;
+@property (strong, nonatomic) MKMapItem *destination;
+
 @property (strong, nonatomic) IBOutlet UIImageView *rateImageView;
 
 //Table View

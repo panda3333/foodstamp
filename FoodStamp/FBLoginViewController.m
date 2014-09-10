@@ -28,11 +28,11 @@
 - (void)viewWillAppear:(BOOL)animated{
    
     [super viewWillAppear:animated];
-   
-   if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
-       [self performSegueWithIdentifier:@"LoginSuccessful" sender:self];
-      return;
-   }
+    self.navigationController.navigationBar.hidden = YES;
+    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+        [self performSegueWithIdentifier:@"LoginSuccessful" sender:self];
+        return;
+    }
 }
 
 - (void) viewDidLoad

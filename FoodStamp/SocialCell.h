@@ -14,8 +14,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *wishLabel;
 @property (strong, nonatomic) IBOutlet UILabel *likeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *shareLabel;
-
-
+//Buttons
+@property (strong, nonatomic) IBOutlet UIButton *favButton;
 @property (strong, nonatomic) IBOutlet UIButton *toRestaurant;
 
 //Actions For Buttons

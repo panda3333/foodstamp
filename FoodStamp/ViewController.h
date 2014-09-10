@@ -31,7 +31,6 @@
 
 //Botones de opciones
 - (IBAction)randomButton:(id)sender;
-- (IBAction)favoritesButton:(id)sender;
 - (IBAction)dessertsButton:(id)sender;
 
 - (IBAction)breakfastButton:(id)sender;

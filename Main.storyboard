@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KJt-ME-Idw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jSj-Lu-23W">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -24,8 +24,8 @@
                                 <rect key="frame" x="272" y="25" width="36" height="36"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kue-F0-9qE">
-                                <rect key="frame" x="10" y="29" width="27" height="27"/>
-                                <state key="normal" title="Button" image="manu_tabbar80.png">
+                                <rect key="frame" x="20" y="25" width="36" height="36"/>
+                                <state key="normal" image="boton-slider-01.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -228,7 +228,7 @@
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="odM-es-HMA"/>
             </objects>
-            <point key="canvasLocation" x="140" y="-674"/>
+            <point key="canvasLocation" x="666" y="-674"/>
         </scene>
         <!--Platillo View Controller - Platillo-->
         <scene sceneID="XYL-uM-mN3">
@@ -381,27 +381,16 @@
                                                             <color key="textColor" red="0.97254901959999995" green="0.57647058819999997" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmw-J3-VQN">
-                                                            <rect key="frame" x="45" y="12" width="38" height="38"/>
-                                                            <state key="normal" title="Button" image="boton_restaurant.png" backgroundImage="boton_restaurant.png">
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7RK-3D-00h">
-                                                            <rect key="frame" x="45" y="12" width="38" height="38"/>
-                                                            <state key="normal" title="Button" image="boton_restaurant.png">
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                        </button>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                                 </accessibility>
                                                 <connections>
+                                                    <outlet property="favButton" destination="65g-lO-Zud" id="EE4-iQ-m4C"/>
                                                     <outlet property="likeLabel" destination="ZTp-gf-5nl" id="87T-Xf-Sr0"/>
                                                     <outlet property="shareLabel" destination="oJm-Ab-oAZ" id="OeY-hz-lCe"/>
-                                                    <outlet property="toRestaurant" destination="7RK-3D-00h" id="cpy-fg-vLF"/>
+                                                    <outlet property="toRestaurant" destination="FVt-iG-2zV" id="y4n-Ia-Toe"/>
                                                     <outlet property="wishLabel" destination="gMF-X8-kNq" id="748-6L-KW7"/>
                                                 </connections>
                                             </tableViewCell>
@@ -491,7 +480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dSd-Tx-0Mx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="505" y="2"/>
+            <point key="canvasLocation" x="356" y="-5"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="AOc-la-Gzh">
@@ -541,7 +530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEs-4m-zoD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="2"/>
+            <point key="canvasLocation" x="1220" y="-5"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="uXj-yg-EBQ">
@@ -647,7 +636,7 @@
                                 <rect key="frame" x="272" y="23" width="36" height="36"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.97254901960784312" green="0.50980392156862742" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.57647058819999997" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="platillosCollectionView" destination="SJ8-P6-rki" id="2Pq-lG-nf9"/>
@@ -656,7 +645,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBr-aN-9Uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="488" y="-674"/>
+            <point key="canvasLocation" x="1055" y="-674"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="dgE-pk-g9W">
@@ -794,7 +783,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HKr-Kb-8th" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="914" y="-697"/>
+            <point key="canvasLocation" x="1452" y="-674"/>
         </scene>
         <!--Restaurant View Controller-->
         <scene sceneID="EEw-Vp-9LL">
@@ -988,7 +977,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akO-cu-poP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="843" y="2"/>
+            <point key="canvasLocation" x="845" y="-5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="4v6-7J-90b">
@@ -1038,25 +1027,25 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJ6-GJ-t5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-420" y="2"/>
+            <point key="canvasLocation" x="192" y="-674"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="6Ow-Rm-sWF">
+        <scene sceneID="t78-Wl-uui">
             <objects>
-                <navigationController id="KJt-ME-Idw" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jSj-Lu-23W" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3fI-iB-8eg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2hx-Ci-8cu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="O1U-OT-dqa" kind="relationship" relationship="rootViewController" id="hcF-u0-31o"/>
+                        <segue destination="O1U-OT-dqa" kind="relationship" relationship="rootViewController" id="rCE-wx-9sr"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OUK-Vy-9V9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frL-33-PTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-870" y="2"/>
+            <point key="canvasLocation" x="-334" y="-674"/>
         </scene>
     </scenes>
     <resources>
@@ -1066,6 +1055,7 @@ Cg
         <image name="FoodStamp_logo.png" width="1032" height="242"/>
         <image name="background_logged2x.png" width="640" height="1136"/>
         <image name="boton-favorito-01.png" width="90" height="90"/>
+        <image name="boton-slider-01.png" width="63" height="62"/>
         <image name="boton_back-02.png" width="302" height="273"/>
         <image name="boton_facebook-on.png" width="91" height="91"/>
         <image name="boton_facebook.png" width="91" height="91"/>
@@ -1077,7 +1067,6 @@ Cg
         <image name="icono_tarjeta.png" width="31" height="20"/>
         <image name="icono_tel.png" width="21" height="31"/>
         <image name="img_Tchoza.png" width="988" height="659"/>
-        <image name="manu_tabbar80.png" width="80" height="80"/>
         <image name="mapa-01.png" width="34" height="55"/>
         <image name="slider_icon-1.png" width="167" height="167"/>
         <image name="slider_icon-4.png" width="167" height="167"/>

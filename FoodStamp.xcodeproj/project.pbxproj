@@ -72,6 +72,9 @@
 		971FFC59192D82F40028FD0C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC58192D82F40028FD0C /* MBProgressHUD.m */; };
 		971FFC5C192D83000028FD0C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC5B192D83000028FD0C /* Reachability.m */; };
 		971FFC5F192D83860028FD0C /* Comms.m in Sources */ = {isa = PBXBuildFile; fileRef = 971FFC5E192D83860028FD0C /* Comms.m */; };
+		9752A5B119B967B400DCA8F0 /* boton-favoritoON-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 9752A5B019B967B400DCA8F0 /* boton-favoritoON-02.png */; };
+		9752A5B319B967E900DCA8F0 /* boton-slider-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 9752A5B219B967E900DCA8F0 /* boton-slider-01.png */; };
+		9752A5B719B982D700DCA8F0 /* boton-restaurantON.png in Resources */ = {isa = PBXBuildFile; fileRef = 9752A5B619B982D700DCA8F0 /* boton-restaurantON.png */; };
 		97D57D91195E52A30057784F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D57D90195E52A30057784F /* FacebookSDK.framework */; };
 		BB2E92C3199C60B10046041A /* appicon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2E92C0199C60B10046041A /* appicon-29.png */; };
 		BB2E92C4199C60B10046041A /* appicon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = BB2E92C1199C60B10046041A /* appicon-40.png */; };
@@ -230,6 +233,9 @@
 		971FFC5B192D83000028FD0C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		971FFC5D192D83860028FD0C /* Comms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comms.h; sourceTree = "<group>"; };
 		971FFC5E192D83860028FD0C /* Comms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comms.m; sourceTree = "<group>"; };
+		9752A5B019B967B400DCA8F0 /* boton-favoritoON-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton-favoritoON-02.png"; sourceTree = "<group>"; };
+		9752A5B219B967E900DCA8F0 /* boton-slider-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton-slider-01.png"; sourceTree = "<group>"; };
+		9752A5B619B982D700DCA8F0 /* boton-restaurantON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boton-restaurantON.png"; sourceTree = "<group>"; };
 		97D57D90195E52A30057784F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		BB2E92C0199C60B10046041A /* appicon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon-29.png"; sourceTree = "<group>"; };
 		BB2E92C1199C60B10046041A /* appicon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "appicon-40.png"; sourceTree = "<group>"; };
@@ -508,6 +514,9 @@
 		52A5105218E6437100C36709 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9752A5B219B967E900DCA8F0 /* boton-slider-01.png */,
+				9752A5B619B982D700DCA8F0 /* boton-restaurantON.png */,
+				9752A5B019B967B400DCA8F0 /* boton-favoritoON-02.png */,
 				BBB072021993E288002DEB15 /* POR AGREGAR */,
 				971FFC49192D80500028FD0C /* Resources */,
 				5268693C18EFB3D900CD3876 /* FoodStamp_logo-01.png */,
@@ -939,12 +948,14 @@
 				BBB072351993E288002DEB15 /* boton_probado.png in Resources */,
 				5268694E18EFB44200CD3876 /* boton_megusta.png in Resources */,
 				BB2E92C4199C60B10046041A /* appicon-40.png in Resources */,
+				9752A5B119B967B400DCA8F0 /* boton-favoritoON-02.png in Resources */,
 				BBB072301993E288002DEB15 /* slider_icon_-03.png in Resources */,
 				BBB0722A1993E288002DEB15 /* slider_icon-3.png in Resources */,
 				BB6B8B021926FA34001FB612 /* boton_menu-on.png in Resources */,
 				BB72D453199DA34F007F207A /* 5-InfoBackground.png in Resources */,
 				BBE0ADEB199C694100E924A5 /* boton_restaurant-01.png in Resources */,
 				BBB072381993E288002DEB15 /* boton_menu.png in Resources */,
+				9752A5B319B967E900DCA8F0 /* boton-slider-01.png in Resources */,
 				BB72D452199DA34F007F207A /* *InfoScreen.png in Resources */,
 				BB6B8ADE1926EF25001FB612 /* 1Descubre_icon-07.png in Resources */,
 				BB6B8ADF1926EF25001FB612 /* 1Descubre_icon-08.png in Resources */,
@@ -986,6 +997,7 @@
 				5268692E18EFB28100CD3876 /* DSC_55252.png in Resources */,
 				BBB072361993E288002DEB15 /* boton_guardar-02.png in Resources */,
 				5268691F18EFB10A00CD3876 /* icono_tarjeta.png in Resources */,
+				9752A5B719B982D700DCA8F0 /* boton-restaurantON.png in Resources */,
 				5268692C18EFB28100CD3876 /* DSC_54282.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -229,30 +229,52 @@
         //NSLog(@"deque'ing cellidentifier2");
         SocialCell *cellThree = (SocialCell*) [tableView dequeueReusableCellWithIdentifier: cellIdentifier2];
         
-        UIButton *Button= cellThree.toRestaurant;
-        Button.tag = -16;
-        [Button addTarget:self action:@selector(restButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-
+        [cellThree.toRestaurant addTarget:self action:@selector(restButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         
         if (cellThree == nil) {
-           
             //NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier2 owner:nil options:nil];
             //cellThree = (SocialCell*)[nib objectAtIndex:0];
             cellThree = [[SocialCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier2 ];
         }
+        
         //NSLog(@"cell 3 Rturned");
         [cellThree.contentView addSubview:cellThree.wishLabel];
         [cellThree.contentView addSubview:cellThree.shareLabel];
         [cellThree.contentView addSubview:cellThree.likeLabel];
         
         if (self.fromMenu) {
-            [cellThree.toRestaurant setEnabled:NO];
             //add images pressed :)
-            //[cellThree.toRestaurant setImage:[UIImage imageNamed:@"done.png"] forState:UIControlStateNormal];
+            //[cellThree.toRestaurant setImage:nil forState:UIControlStateDisabled];
+            [cellThree.toRestaurant setImage:[UIImage imageNamed:@"boton-restaurantON.png"] forState:UIControlStateNormal];
+            [cellThree.toRestaurant setEnabled:NO];
         } else {
             [cellThree.toRestaurant setEnabled:YES];
             cellThree.toRestaurant.hidden = NO;
         }
+        
+        PFObject *dish = [self.parseArray objectAtIndex:self.index];
+        NSString *dishId = dish.objectId;
+        NSString *userId = [PFUser currentUser].objectId;
+        
+        //Query if the current dish exists for this user in the YummieRels, Yummie or Unyummie the dish according to the result
+        
+        // Create a query to the YummiesRels table
+        PFQuery *YumQuery = [PFQuery queryWithClassName:@"YummiesRels"];
+        
+        // Follow relationship
+        [YumQuery whereKey:@"UserID" equalTo:userId];
+        [YumQuery whereKey:@"YummiedDish" equalTo:dishId];
+        
+        [YumQuery countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+            if (!error) {
+                if (count != 0) {
+                    [cellThree.favButton setImage:nil forState:UIControlStateNormal];
+                    [cellThree.favButton setImage:[UIImage imageNamed:@"boton-favoritoON-02.png"] forState:UIControlStateNormal];
+                } else {
+                    [cellThree.favButton setImage:[UIImage imageNamed:@"boton-favorito-01.png"] forState:UIControlStateNormal];
+                }
+            }
+        }];
         
         return cellThree;
         
@@ -330,6 +352,8 @@
        
         
         cellFour.horarioLabel.text = [dish objectForKey:@"Schedule"];
+        
+
         
         return cellFour;
     }
@@ -453,6 +477,7 @@
                 
                 // Update the Yummie counter with new count
                 [self updateYummiesCount:[dish objectForKey:@"Yummies"]];
+                [sender setImage:[UIImage imageNamed:@"boton-favoritoON-02.png"] forState:UIControlStateNormal];
                 
             } else { // This means UNYUMMIE!! we want to DELETE to YummiesRels and yummie--
                 NSLog(@"Relation found so... Unyummie!");
@@ -478,14 +503,14 @@
                 
                 // Update the Yummie counter with new count
                 [self updateYummiesCount:[dish objectForKey:@"Yummies"]];
-                
-                
+                [sender setImage:[UIImage imageNamed:@"boton-favorito-01.png"] forState:UIControlStateNormal];
             }
         }else{
             NSLog(@"Error...");
             
         }
     }];
+    
 }
 
 - (void)updateYummiesCount: (NSNumber *) num {
@@ -508,9 +533,9 @@
 
 -(void)goToMap :(id)sender
 {
-    NSLog(@"To Map");
-    LocationViewController *mapInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationView"];
-    mapInstance.dish = self.dish;
-    [self presentViewController:mapInstance animated:YES completion:nil];
+//    NSLog(@"To Map");
+//    LocationViewController *mapInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationView"];
+//    mapInstance.dish = self.dish;
+//    [self presentViewController:mapInstance animated:YES completion:nil];
 }
 @end

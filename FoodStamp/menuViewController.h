@@ -26,6 +26,7 @@
 @property (nonatomic, assign) short preIndex;
 @property (strong, nonatomic) NSMutableArray *preParseArray;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
+@property (nonatomic, assign) BOOL firstTimeInMenu;
 
 - (IBAction)backRestButton:(id)sender;
 

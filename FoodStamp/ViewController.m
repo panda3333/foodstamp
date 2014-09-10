@@ -11,6 +11,7 @@
 
 #import "ViewController.h"
 #import "PlatilloViewController.h"
+#import "FBLoginViewController.h"
 #import "infoViewController.h"
 #include <stdlib.h>
 #include <time.h>
@@ -23,9 +24,21 @@
 
 @synthesize platillosCollectionView,userIconHomeImage, optionsView, parseArray;
 
+-(void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+//    [super viewDidLoad];
+//    if ([PFUser currentUser] && [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]) {
+//        return;
+//    } else {
+//        FBLoginViewController *loginViewController = [[FBLoginViewController alloc] init];
+//        [self presentViewController:loginViewController animated:NO completion:nil];
+//    }
+    
+}
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
    
     //swipeRecognizers
@@ -135,6 +148,7 @@
 }
 
 
+
 #pragma mark - NSURLConnectionDataDelegate
 
 /* Callback delegate methods used for downloading the user's profile picture */
@@ -164,6 +178,7 @@
 - (void)queryParseMethod{
     
     PFQuery *query = [PFQuery queryWithClassName:@"Dishes"];
+    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     
     //PFObject *sourceObject = [query getObjectWithId:@"l4KoI7x11p"];
     //PFRelation *relation = [sourceObject relationforKey:@"Dishes"];
@@ -177,7 +192,7 @@
         if (!error){
         
             parseArray = [[NSMutableArray alloc] initWithArray:results];
-                                        //[self.platillosImagesArray writeToFile:cacheDirectory atomically:YES];
+            //[self.platillosImagesArray writeToFile:cacheDirectory atomically:YES];
             parseArray  = [self randomizeArray:parseArray];
             [platillosCollectionView reloadData];
             //NSLog(@"the array is: %@ ",platillosImagesArray);
@@ -295,13 +310,11 @@
     //posición inicial: -48x, 322 y , 95 width 492 height.
 
     if(optionsView.frame.origin.x >= 0){
-        
-            
-        
-    }else if (optionsView.frame.origin.x <=0){
+        [self animateMainViewToLeft];
+    } else if (optionsView.frame.origin.x <=0){
         
         [self animateMainViewToRight];
-    
+        
     }
     
 }

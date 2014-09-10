@@ -412,6 +412,7 @@
     menuInstance.parseArray = self.parseArray;
     menuInstance.dish = self.dish;
     menuInstance.index = self.index;
+    menuInstance.firstTimeInMenu = true;
     
     [self presentViewController:menuInstance animated:YES completion:nil];
 
@@ -419,12 +420,66 @@
 }
 -(void)goToMap :(id)sender
 {
-    NSLog(@"To Map");
-    LocationViewController *mapInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationView"];
-    mapInstance.dish = self.dish;
-     mapInstance.parseArray = self.parseArray;
-    [self presentViewController:mapInstance animated:YES completion:nil];
+    PFObject *restaurant = self.dish[@"Restaurant"];
+    NSLog(@"EL restaurante--------------->%@",restaurant);
+    PFGeoPoint *restaurantLocation = [restaurant objectForKey:@"GeoLocation"];
+    
+    
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(restaurantLocation.latitude, restaurantLocation.longitude) addressDictionary:nil];
+    _destination = [[MKMapItem alloc] initWithPlacemark:placemark];
+    [_destination setName:[restaurant objectForKey:@"Name"]];
+    [_destination openInMapsWithLaunchOptions:nil];
+    
+    //mostrar locación de usuario en el mapa solo funciona en dispositivos no simulador.
+    _minMapView.showsUserLocation = YES;
+    
+    MKUserLocation *userLocation = _minMapView.userLocation;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate,
+                                                                   20000, 20000);
+    
+    [_minMapView setRegion:region animated:NO];
+    
+    //_minMapView.delegate = self;
+    
+    [self getDirections];
 }
+
+- (void)getDirections
+{
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    
+    request.source = [MKMapItem mapItemForCurrentLocation];
+    request.destination = _destination;
+    request.requestsAlternateRoutes = NO;
+    
+    MKDirections *directions =
+    [[MKDirections alloc] initWithRequest:request];
+    
+    [directions calculateDirectionsWithCompletionHandler:
+     ^(MKDirectionsResponse *response, NSError *error) {
+         if (error) {
+             // Handle error
+         } else {
+             [self showRoute:response];
+         }
+     }];
+}
+
+-(void)showRoute:(MKDirectionsResponse *)response
+{
+    for (MKRoute *route in response.routes)
+    {
+        [_routeMap
+         addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+        
+        for (MKRouteStep *step in route.steps)
+        {
+            NSLog(@"%@", step.instructions);
+        }
+    }
+}
+
+
 -(void)rateAction :(id)sender
 {
     NSLog(@"Rating!!");

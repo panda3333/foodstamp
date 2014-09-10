@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "infoTableViewCell.h"
+#import <MapKit/MapKit.h>
 #import <Parse/Parse.h>
 
 @interface RestaurantViewController : UIViewController <UIScrollViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
@@ -29,6 +30,10 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *mapIconImage;
 @property (strong, nonatomic) IBOutlet UILabel *distanceLabel;
+
+@property (strong, nonatomic) MKMapView *minMapView;
+@property (strong, nonatomic) MKMapView *routeMap;
+@property (strong, nonatomic) MKMapItem *destination;
 
 @property (strong, nonatomic) PFObject* dish;
 @property (nonatomic, assign) int index;
