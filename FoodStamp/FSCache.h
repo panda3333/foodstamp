@@ -3,7 +3,7 @@
 //  FoodStamp
 //
 //  Created by Jesus Cruz Perez on 18/04/14.
-//  Copyright (c) 2014 Red Prado. All rights reserved.
+//  Copyright (c) 2014 FoodStamp. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

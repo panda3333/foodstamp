@@ -3,11 +3,8 @@
 //  FoodStamp
 //
 //  Created by Foodstamp on 3/28/14.
-//  Copyright (c) 2014 Foodstamp. All rights reserved.
-//---------
-// Parse Account data:
-//      user: encisoenrique@foodstamp.mx
-//      pass: foodstampwinners
+//  Copyright (c) 2014 FoodStamp. All rights reserved.
+//
 
 #import "ViewController.h"
 #import "PlatilloViewController.h"

@@ -3,7 +3,7 @@
 //  FoodStamp
 //
 //  Created by Red Prado on 4/3/14.
-//  Copyright (c) 2014 Red Prado. All rights reserved.
+//  Copyright (c) 2014 Foodstamp. All rights reserved.
 //
 
 #import "LocationViewController.h"
@@ -38,7 +38,7 @@
     [_destination setName:[restaurant objectForKey:@"Name"]];
     [_destination openInMapsWithLaunchOptions:nil];
     
-    //mostrar locación de usuario en el mapa solo funciona en dispositivos no simulador.
+    //show user location at the map only works in devices and not in the simulator.
     minMapView.showsUserLocation = YES;
     
     MKUserLocation *userLocation = minMapView.userLocation;
@@ -48,7 +48,7 @@
     [minMapView setRegion:region animated:NO];
     
     userLocationImage.layer.cornerRadius= userLocationImage.frame.size.height/2;
-    userLocationImage.layer.borderWidth=0; //hancho del borde.
+    userLocationImage.layer.borderWidth=0; //border width
     userLocationImage.clipsToBounds =YES;
     
     minMapView.delegate = self;
@@ -111,29 +111,26 @@
      NSLog(@"EL restaurante--------------->%@",restaurant);
     PFGeoPoint *restaurantLocation = [restaurant objectForKey:@"GeoLocation"];
     
-    
-
-    //Imagen de Usuario Redonda
-
-    // 1 Fijar coordenadas estas deberán ser llamadas por un Query hacia parse recibidas, almacenadas en una variable Double y reemplazadas en latitutde y longitud.
+    // Round User Image
+    // 1 Fix coordinates. These will be called by a Query to Parse, then received and stored in a Double variable and then subsitituted by latitude and longitude
     
     zoomLocation.latitude = restaurantLocation.latitude;
     zoomLocation.longitude = restaurantLocation.longitude;
-    // coordenas de mi casa    20.610650, -103.454611
+    // e.g. some house coordinates    20.610650, -103.454611
     
-    // 2 Fijar la distancia que se verá en el mápa (Zoom)
+    // 2 Fix distance to be seen on the map (Zoom)
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METROS_POR_MILLA, 0.5*METROS_POR_MILLA);
     
-    // 3 Ajusta region y animar zoom
+    // 3 Adjust region and animate zoom
     [minMapView setRegion:viewRegion animated:YES];
     
-    // 4 Poner pin
+    // 4 Put pin
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
     [annotation setCoordinate:zoomLocation];
     [annotation setTitle:@"RestaurantLocation"];
     [minMapView addAnnotation:annotation];
     
-//    //Inicilizar ubicación actual
+//  Initiate current location
 //    locationManager = [[CLLocationManager alloc] init];
 //   locationManager.delegate = self;
 //   locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -173,17 +170,12 @@
 
 - (IBAction)backButton:(id)sender {
     
-    
     NSLog(@"ET phone Home ");
     
     RestaurantViewController *preViewInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
     preViewInstance.parseArray = self.parseArray;
         preViewInstance.dish = self.dish;
     [self presentViewController:preViewInstance animated:YES completion:nil];
-    
-
-
-    
 
 }
 @end

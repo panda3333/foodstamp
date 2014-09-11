@@ -2,8 +2,8 @@
 //  menuCollectionViewCell.h
 //  FoodStamp
 //
-//  Created by Tracer on 6/12/14.
-//  Copyright (c) 2014 Red Prado. All rights reserved.
+//  Created by Red Pradp on 6/12/14.
+//  Copyright (c) 2014 Foodstamp. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

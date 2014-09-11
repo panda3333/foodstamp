@@ -3,7 +3,7 @@
 //  FoodStamp
 //
 //  Created by Red Prado on 4/2/14.
-//  Copyright (c) 2014 Red Prado. All rights reserved.
+//  Copyright (c) 2014 FoodStamp. All rights reserved.
 //
 
 #import "RestaurantViewController.h"
@@ -13,9 +13,7 @@
 #import "LocationViewController.h"
 #import "PlatilloViewController.h"
 #import "menuViewController.h"
-
 #import <Social/Social.h>
-
 #import "ViewController.h"
 
 @interface RestaurantViewController ()
@@ -311,7 +309,7 @@
 
         
         [cellTwo.contentView addSubview:cellTwo.decideLabel];
-            cellTwo.decideLabel.text = @"Menú";
+            cellTwo.decideLabel.text = @"Menu";
         [cellTwo.contentView addSubview:cellTwo.exploraLabel];
     //    [cellTwo.contentView addSubview:cellTwo.calificaLabel];
         [cellTwo.contentView addSubview:cellTwo.shareLabel];
@@ -382,20 +380,16 @@
             if(!error){
                 cellThree.horarioLabel.text = [restaurant objectForKey:@"Schedule"];
                 cellThree.paymentLabel.text =[restaurant objectForKey:@"Payment"];
-                cellThree.directionTextView.text =[restaurant objectForKey:@"Adress"] ;
+                cellThree.directionTextView.text =[restaurant objectForKey:@"Address"] ;
                 cellThree.directionTextView.textColor = [UIColor colorWithRed:(76/255.0) green:(76/255.0) blue:(76/255.0) alpha:1] ;
-                cellThree.phoneLabel.text =[restaurant objectForKey:@"Web"] ;
                 restaurantPhone = [restaurant objectForKey:@"Phone"];
-                
-          
+                cellThree.phoneLabel.text=[restaurant objectForKey:@"Phone"];
             }
         }];
         
         UITapGestureRecognizer *phoneLabelTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callRestaurant)];
         [cellThree.contentView addSubview:cellThree.phoneLabel];
-            [cellThree.phoneLabel addGestureRecognizer:phoneLabelTouch];
-        
-         //[cellThree.contentView addSubview:cellThree.infoLogoImage];
+        [cellThree.phoneLabel addGestureRecognizer:phoneLabelTouch];
         
         
         return cellThree;
@@ -404,8 +398,7 @@
     
 }
 
--(void)goToMenu :(id)sender
-{
+-(void)goToMenu :(id)sender{
 
     NSLog(@"To Menu");
     menuViewController *menuInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuView"];
@@ -418,6 +411,7 @@
 
     
 }
+
 -(void)goToMap :(id)sender
 {
     PFObject *restaurant = self.dish[@"Restaurant"];
@@ -444,8 +438,7 @@
     [self getDirections];
 }
 
-- (void)getDirections
-{
+- (void)getDirections{
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
     
     request.source = [MKMapItem mapItemForCurrentLocation];
@@ -465,8 +458,7 @@
      }];
 }
 
--(void)showRoute:(MKDirectionsResponse *)response
-{
+-(void)showRoute:(MKDirectionsResponse *)response{
     for (MKRoute *route in response.routes)
     {
         [_routeMap
@@ -479,13 +471,11 @@
     }
 }
 
-
--(void)rateAction :(id)sender
-{
+-(void)rateAction :(id)sender{
     NSLog(@"Rating!!");
 }
--(void)shareAction :(id)sender
-{
+
+-(void)shareAction :(id)sender{
     NSLog(@"sharing");
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];

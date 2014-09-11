@@ -3,7 +3,7 @@
 //  FoodStamp
 //
 //  Created by Red Prado on 3/28/14.
-//  Copyright (c) 2014 Red Prado. All rights reserved.
+//  Copyright (c) 2014 FoodStamp. All rights reserved.
 //
 
 #import "AppDelegate.h"

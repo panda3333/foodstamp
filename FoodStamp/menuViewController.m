@@ -2,8 +2,8 @@
 //  menuViewController.m
 //  FoodStamp
 //
-//  Created by Tracer on 6/12/14.
-//  Copyright (c) 2014 Red Prado. All rights reserved.
+//  Created by Red Prado on 6/12/14.
+//  Copyright (c) 2014 FoodStamp. All rights reserved.
 //
 
 #import "menuViewController.h"
@@ -28,7 +28,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //[self getRestaurant];
     
     if (self.dish != NULL){
     restaurant = self.dish[@"Restaurant"];
@@ -38,31 +37,21 @@
     if(self.menuArray.count == 0){
         [self dishesQuery];
     }
-    /*if(self.parseArray.count == 0){
-        [self dishesQuery];
-    }*/
-
 }
 
 - (void)getRestaurant{
     restaurant = self.dish[@"Restaurant"];
-    
-   // NSLog(@"Los platillos----------> %@",restaurant);
+   // NSLog(@"The dishes ----------> %@",restaurant);
 }
 -(void)dishesQuery{
-    
-  
     PFQuery *query = [PFQuery queryWithClassName:@"Dishes"];
-
-   // NSLog(@"El id -------->%@",[restaurant objectId]);
-
+   // NSLog(@"The id -------->%@",[restaurant objectId]);
     [query whereKey:@"Restaurant"
             equalTo:[PFObject objectWithoutDataWithClassName:@"Restaurant" objectId:[restaurant objectId]]];
     [ query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
     if(!error){
         menuArray = [[NSMutableArray alloc] initWithArray:results];
-        //parseArray = [[NSMutableArray alloc] initWithArray:results];
-        NSLog(@"resultados: %@",results);
+        NSLog(@"results: %@",results);
         [platillosCollectionView reloadData];
           }
     }];
@@ -72,15 +61,13 @@
 #pragma mark - UICollectionView Methods
 
 -(NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [menuArray count];
-    //return [parseArray count];
-    NSLog(@"oarse array coun in Restaurante--->%lu",(unsigned long)menuArray.count);
-    NSLog(@"oarse array coun in Restaurante--->%lu",(unsigned long)parseArray.count);
+    NSLog(@"menuArray count in Restaurant--->%lu",(unsigned long)menuArray.count);
+    NSLog(@"parseArray count in Restaurant--->%lu",(unsigned long)parseArray.count);
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -91,23 +78,18 @@
     menuCollectionViewCell *cell = ( menuCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath]; 
     
     PFObject *imageObject = [menuArray objectAtIndex:indexPath.row];
-    //PFObject *imageObject = [parseArray objectAtIndex:indexPath.row];
     PFFile *imageFile = [imageObject objectForKey:@"Photo"];
-    
 
     NSString *platilloName = [imageObject objectForKey:@"Name"];
     NSNumber *platilloPrice = [imageObject objectForKey:@"Price"];
     NSNumber *countYummies = [imageObject objectForKey:@"Yummies"];
-    
     NSString *yummies = countYummies.stringValue;
     
     if (yummies == nil) {
         yummies = @"0";
     }
     
-    
     NSString *nameYummies = @"Favoritos";
-    
     NSString *joinYummies = [NSString stringWithFormat:@"%@ %@",yummies, nameYummies];
     
     [cell.loadingSpiner stopAnimating];
@@ -117,12 +99,9 @@
         if(!error){
             NSString *precioFinal = platilloPrice.stringValue;
             NSString *precioLogo = @"$";
-
             NSString *joinString=[NSString stringWithFormat:@"%@ %@",precioLogo,precioFinal];
-            
 
             NSMutableAttributedString * string = [[NSMutableAttributedString alloc] initWithString:joinString];
-            
             [string addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0,1)];
             cell.priceLabel.attributedText = string;
            
@@ -133,9 +112,7 @@
             [cell.loadingSpiner stopAnimating];
             cell.loadingSpiner.hidden  = YES;
         }
-        
     }];
-    
     return cell;
 }
 
@@ -157,21 +134,15 @@
     dishViewController.index =  indexPath.row;          // Substitute index to correctly gather data
     dishViewController.dish = self.dish;
     dishViewController.fromMenu = true;
-    
-    
-    //NSString *className = NSStringFromClass([[self.platillosImagesArray objectAtIndex:indexPath.row] class]);
-    //NSLog(@"%@",className);
-    
+
     [self presentViewController:dishViewController animated:YES completion:nil];
 }
-    
-    
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return 5; // This is the minimum inter item spacing, can be more
 }
-- (IBAction)backRestButton:(id)sender {
 
+- (IBAction)backRestButton:(id)sender {
     RestaurantViewController *RestaurantInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
     RestaurantInstance.dish = self.dish;
     if (self.preParseArray.count == 0) { // if user has gone to menuView, use preParseArray and preIndex, otherwise use normal parseArray and index
@@ -181,8 +152,7 @@
         RestaurantInstance.parseArray = self.preParseArray;
         RestaurantInstance.index = self.preIndex;
     }
-    self.firstTimeInMenu = true;
-    //RestaurantInstance.index = self.index;
+    self.firstTimeInMenu = true; // Reset to true since it'll be the first time again
     [self presentViewController:RestaurantInstance animated:YES completion:nil];
 }
 @end

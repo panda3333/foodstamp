@@ -3,7 +3,7 @@
 //  FoodStamp
 //
 //  Created by Red Prado on 3/28/14.
-//  Copyright (c) 2014 Red Prado. All rights reserved.
+//  Copyright (c) 2014 FoodStamp. All rights reserved.
 //
 
 #import "PlatilloViewController.h"
@@ -45,7 +45,7 @@
      Para hacer este código funcional en versiones anteriores hay que importar este framework.
      */
     userIconImage.layer.cornerRadius= userIconImage.frame.size.height/2;
-    userIconImage.layer.borderWidth=0; //hancho del borde.
+    userIconImage.layer.borderWidth=0; //ancho del borde.
     userIconImage.clipsToBounds =YES;
     
     self.mainHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -309,20 +309,28 @@
 
                 cellFour.horarioLabel.text = [restaurant objectForKey:@"Schedule"];
                 cellFour.pagoLabel.text =[restaurant objectForKey:@"Payment"];
-                cellFour.directionTextView.text =[restaurant objectForKey:@"Adress"] ;
+                cellFour.directionTextView.text =[restaurant objectForKey:@"Address"] ;
                 cellFour.directionTextView.textColor = [UIColor colorWithRed:(76/255.0) green:(76/255.0) blue:(76/255.0) alpha:1] ;
                 restaurantPhone =[restaurant objectForKey:@"Phone"];
                 cellFour.telLabel.text=[restaurant objectForKey:@"Phone"];
                 
                 PFFile *logoImage = [restaurant  objectForKey:@"Logo"];
+                if (logoImage==nil) {               // if there is no Restaurant logo, hide mainHud
+                    NSLog(@"data image is null");
+                    NSLog(@"Hiding mainHUD");
+                    [self.mainHud hide:YES];
+                }else{
+                    [logoImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
+                        if(!error){
+                            NSLog(@"entered !error mainHUD");
+                            cellFour.logoImage.image = [UIImage imageWithData:data];
+                            NSLog(@"Hiding mainHUD");
+                            [self.mainHud hide:YES];
+                        }
+                    }];
+                }
+
                 
-                [logoImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
-                    if(!error){
-                        cellFour.logoImage.image = [UIImage imageWithData:data];
-                        NSLog(@"Ocultando el mainHUD");
-                        [self.mainHud hide:YES];
-                    }
-                }];
             }
         }];
         

@@ -7,7 +7,7 @@
 //
 
 @protocol CommsDelegate <NSObject>
-//Comentario de prueba asjhkalsdfk
+//Test comment... blah blah blah awesome happens blah blah
 @optional
    - (void) commsDidLogin:(BOOL)loggedIn;
 @end
