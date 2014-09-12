@@ -2,9 +2,24 @@
 //  Cache.m
 //  FoodStamp
 //
-//  Created by Jesus Cruz Perez on 18/04/14.
-//  Copyright (c) 2014 FoodStamp. All rights reserved.
+//  Copyright (c) 2014  FoodStamp and/or its affiliates.
+//	All rights reserved.
 //
+//  Created by Jesus Cruz Perez on 18/04/14.
+//
+//	Purpose:
+//	This file is for Cache functions.
+//
+//  Modifications:
+//
+//  File    Patching Date in
+//  Version Bug      Production   Author           Modification
+//  ======= ======== ============ ================ ===================================
+//  1.0     00000000 DD-MMM-YYYY  Author's Name    - created
+//
+//  ==================================================================================
+//
+
 
 #import "FSCache.h"
 @implementation FSCache

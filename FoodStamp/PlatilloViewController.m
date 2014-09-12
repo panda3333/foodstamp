@@ -2,8 +2,23 @@
 //  PlatilloViewController.m
 //  FoodStamp
 //
-//  Created by Red Prado on 3/28/14.
-//  Copyright (c) 2014 FoodStamp. All rights reserved.
+//  Copyright (c) 2014  FoodStamp and/or its affiliates.
+//	All rights reserved.
+//
+//  Created on 3/28/14.
+//  Authors: Red Prado, Jesus Cruz Perez and Jose Daniel Leal Avila.
+//
+//	Purpose:
+//	This file is for the Dish Screen.
+//
+//  Modifications:
+//
+//  File    Patching Date in
+//  Version Bug      Production   Author           Modification
+//  ======= ======== ============ ================ ===================================
+//  1.0     00000000 DD-MMM-YYYY  Author's Name    - created
+//
+//  ==================================================================================
 //
 
 #import "PlatilloViewController.h"
@@ -18,7 +33,6 @@
 #import "Parse/Parse.h"
 #import <Social/Social.h>
 #import "MBProgressHUD.h"
-
 
 @interface PlatilloViewController ()
 
@@ -41,11 +55,11 @@
     // Do any additional setup after loading the view.
     
     /*
-     Hacer avatar Redondo: Tomar en cuenta que iOS7 importa de manera automatica <QuartzCore/QuartzCore.h>
-     Para hacer este código funcional en versiones anteriores hay que importar este framework.
+     Make round avatar: Note that iOS7 automatically imports <QuartzCore/QuartzCore.h>
+     So to make this code functional in previous versions this framework needs to be imported.
      */
     userIconImage.layer.cornerRadius= userIconImage.frame.size.height/2;
-    userIconImage.layer.borderWidth=0; //ancho del borde.
+    userIconImage.layer.borderWidth=0; // border width.
     userIconImage.clipsToBounds =YES;
     
     self.mainHud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -54,18 +68,9 @@
     
     //NSLog(@"LOS datos-------------->%@",self.parseArray);
     
-//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-//    testObject[@"foo"] = @"bar";
-//    [testObject saveInBackground];
-//    
-    
     //NSDictionary *platilloActual = [[NSDictionary alloc] initWithObjectsAndKeys:self.dish, nil];
     //NSLog(@"%@",platilloActual);
-    
-    
 }
-
-
 
 # pragma TableViewMethods
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView{
@@ -79,12 +84,13 @@
 - (NSString *)cellIdentifierForIndexPath:(NSIndexPath *)indexPath
 {
   /*  o
-
-   Obtener y definir los cellIdentifiers de manera "Global" énfasis en las comillas.
-   De esta forma podemos llamarlos an HeightForRowAtIndexPath y así obtendremos la altura de cada celda
-   individualmente. Si esto no se obtiene HeightForRowAtIndexPath solo tomará la altura de la primer celda y todas las celdas restantes tendrán la misma altura. 
+   Obtain and define the cellIdentifiers in a "Global" manner (emphasis on the quotation marks).
+   This way, it is possible to call them in HeightForRowAtIndexPath and hence obtain the height of each cell
+   individually. If this is not obtained, HeightForRowAtIndexPath would only take the height of the first cell
+   and all remaining cells would have the same height
    ////////////
-   Esto NO permite agustar dinámicamente el tamaño de la celda de acuerdo al texto recibido desde web es por eso que se recomienda no cambiar el layout dinamicamente pues puede provocar errores en el diseño.
+   This DOES NOT allow dynamicallt adjusting the size of the cell in relation to the received text from web, thus
+   it is recommended to NOT change the layout dynamically or else it might provoke design flaws.
    */
     NSString *cellIdentifier = nil;
     
@@ -104,8 +110,6 @@
                         break;
   
     }
-
-    
     return cellIdentifier;
 
 }
@@ -113,15 +117,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     /*
-     En este método se relizan 3 pasos:
-        - Se incia por obtener el identificador especifico de cada celda. Almacenandolo en un NSString, esto se logra delegando la obtención del identificador al método cellIdentifierForIndexPath.
-        - Después se genera un diccionarió para almacenar los distintos tamaños de cada celda. Esto es posible ya heightForRowAtIndexPath obtiene la altura desde la celda que existe en el storyboard.
-            Por lo mismo la altura deseda para cada celda debe estár correctamente ajustada desde el storyboard y en el Size Inspector.
-        - Se comprueba que el dicionario esté vacio para inicializarlo y alocar el mismo.
-        - La variable cachedHeight es el número correspondiente a la altura según el identificador.
-        - Una ves obtenida la altura respectiva a la celda se asigna a la celda creada y la cual se mostrará en la aplicación.
-     
+     This method does 3 steps:
+     1. It starts by obtaining the specific identifier of each cell, saving it in a NSString. This is done by
+        delegating the attainment the identifier to the method cellIdentifierForIndexPath.
+     2. A dictionary is generated to store the different sizes of each cell. This is possible since heightForRowAtIndexPath
+        gets the height from the cell that exists in the StoryBoard. For this same reason, the desired height for each
+        cell must be correctly adjusted from the StoryBoard and in the Size Inspector.
+     3. It is proved that the dictionary is null to then initialize it and allocate it.
+     Once the height is obtained, it is then assigned to the created cell which is then shown in the app.
      */
+    
     NSString *cellIdentifier = [self cellIdentifierForIndexPath:indexPath];
     static NSMutableDictionary *heightCache;
     if (!heightCache)
@@ -135,8 +140,6 @@
     heightCache[cellIdentifier] = @(height);
     return height;
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
           //  NSLog(@"indexPath: %ld",(long)indexPath.section);
@@ -171,7 +174,6 @@
         [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
             if(!error){
                 NSLog(@"----------------:%@",restaurant);
-                
                 cell.distanceLabel.text = [restaurant objectForKey:@"Name"];
             }
         }];
@@ -194,7 +196,6 @@
         NSMutableAttributedString * string = [[NSMutableAttributedString alloc] initWithString:joinString];
         [string addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange(0,2)];
         
-        
         cell.priceLabel.attributedText= string;
         cell.yummieLabel.text = joinYummies;
         
@@ -214,12 +215,10 @@
         //NSLog(@"creating 2nd cell NIB");
         
         if (cellTwo == nil) {
-            
-            //NSLog(@"entró a segundo nil");
-           // NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier1 owner:nil options:nil];
-            //cellTwo  = (DescripcionRestTableViewCell*)[nib objectAtIndex:0];
+            // NSLog(@"entró a segundo nil");
+            // NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier1 owner:nil options:nil];
+            // cellTwo  = (DescripcionRestTableViewCell*)[nib objectAtIndex:0];
             cellTwo = [[DescripcionRestTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier1];
-            
         }
         
         [cellTwo.contentView addSubview:cellTwo.descripcionTextView];
@@ -261,7 +260,7 @@
         NSString *dishId = dish.objectId;
         NSString *userId = [PFUser currentUser].objectId;
         
-        //Query if the current dish exists for this user in the YummieRels, Yummie or Unyummie the dish according to the result
+        // Query if the current dish exists for this user in the YummieRels, Yummie or Unyummie the dish according to the result
         
         // Create a query to the YummiesRels table
         PFQuery *YumQuery = [PFQuery queryWithClassName:@"YummiesRels"];
@@ -282,30 +281,23 @@
         }];
         
         return cellThree;
-        
-
     }else if (indexPath.section == 3){
         
             static NSString* cellIdentifier3 = @"descripcionCell";
         
             DirecCell *cellFour = (DirecCell*) [tableView dequeueReusableCellWithIdentifier:cellIdentifier3];
         
-
-        
             if (cellFour == nil) {
-
-//                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier3 owner:nil options:nil];
-                
+                //NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier3 owner:nil options:nil];
                 //cellFour = (DirecCell*)[nib objectAtIndex:0];
                 cellFour = [[DirecCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier3 ];
-
         }
         //Get thumbnail file
         PFObject *restaurant = dish[@"Restaurant"];
 
         [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error){
             if(!error){
-                        NSLog(@"----------------:%@",restaurant);
+                NSLog(@"----------------:%@",restaurant);
 
                 cellFour.horarioLabel.text = [restaurant objectForKey:@"Schedule"];
                 cellFour.pagoLabel.text =[restaurant objectForKey:@"Payment"];
@@ -322,15 +314,12 @@
                 }else{
                     [logoImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
                         if(!error){
-                            NSLog(@"entered !error mainHUD");
                             cellFour.logoImage.image = [UIImage imageWithData:data];
                             NSLog(@"Hiding mainHUD");
                             [self.mainHud hide:YES];
                         }
                     }];
                 }
-
-                
             }
         }];
         
@@ -364,12 +353,9 @@
             cellFour.logoImage.userInteractionEnabled = YES;
             [cellFour.logoImage addGestureRecognizer:toRestaurantTouch];
         }
-
         
         [cellFour.contentView addSubview:cellFour.directionTextView];
-       
-        
-        cellFour.horarioLabel.text = [dish objectForKey:@"Schedule"];
+
         return cellFour;
     }
     return nil;
@@ -380,10 +366,10 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     NSLog(@"calling");
 }
+
 - (void)reloadData{
     
 }
-
 
 -(void) restButtonClicked{
     RestaurantViewController *RestaurantInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
@@ -395,7 +381,6 @@
 }
 
 - (IBAction)backActionButton:(id)sender {
-   
     // NSLog(@"ET phone Home ");
     
     if (self.fromMenu) {
@@ -430,17 +415,16 @@
         NSString *endingText = @"#RecomendacionFoodstamp";
         NSString *socialMessage = [NSString stringWithFormat:@"%@ %@ %@ %@",platilloName,initialText,restaurantName, endingText];
         [controller setInitialText:socialMessage];
-       // [controller addURL:[NSURL URLWithString:@"http://www.foodstamp.mx/landing/"]];
+        // [controller addURL:[NSURL URLWithString:@"http://www.foodstamp.mx/landing/"]];
        
-        //Si seteamos este podemos agregar la imagen del platillo al facebook del wey que lo va a compartir, esta chido creo.
-        //Obtener image y agregarla
+        // If this can be set, the image of the dish can be added to the facebook of the user who's going to share it, which might be cool
+        // Get image and add it
         
         [thumbnailFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
             if(!error){
                 UIImage *logoFinal;
                 logoFinal = [UIImage imageWithData:data];
                 [controller addImage:logoFinal];
-                
             }
         }];
         
@@ -467,7 +451,7 @@
         if (!error) { // if nothing went wrong
             if ([objects count] == 0) { // This means YUMMIE!! we want to INSERT to YummiesRels and yummie++
                 NSLog(@"Not found so... Yummie the dish!");
-                [dish incrementKey:@"Yummies" byAmount:[NSNumber numberWithInt:1]]; //yummie++
+                [dish incrementKey:@"Yummies" byAmount:[NSNumber numberWithInt:1]]; // yummie++
                 
                 self.hud = [[MBProgressHUD alloc] initWithView:self.view];
                 [self.view addSubview:self.hud];
@@ -475,12 +459,12 @@
                 self.hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Checkmark.png"]];
                 
                 self.hud.mode = MBProgressHUDModeCustomView;
-                self.hud.labelText = @"Yummie!! ";
+                self.hud.labelText = @"¡Yummie! ";
                 
                 [self.hud showWhileExecuting:@selector(waitForTwoSeconds)
                                     onTarget:self withObject:nil animated:YES];
                 
-                //INSERT new relation
+                // INSERT new relation
                 PFObject *newYumRel = [PFObject objectWithClassName:@"YummiesRels"]; // Create Yummie
                 newYumRel[@"YummiedDish"] = dishId;                                  // Set the content
                 newYumRel[@"UserID"] = userId;                                       // Create relationship
@@ -495,8 +479,7 @@
                 
             } else { // This means UNYUMMIE!! we want to DELETE to YummiesRels and yummie--
                 NSLog(@"Relation found so... Unyummie!");
-                // Yummie-- current dish
-                [dish incrementKey:@"Yummies" byAmount:[NSNumber numberWithInt:-1]];
+                [dish incrementKey:@"Yummies" byAmount:[NSNumber numberWithInt:-1]]; // yummie--
                 
                 self.hud = [[MBProgressHUD alloc] initWithView:self.view];
                 [self.view addSubview:self.hud];
@@ -504,7 +487,7 @@
                 self.hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Checkmark.png"]];
                 
                 self.hud.mode = MBProgressHUDModeCustomView;
-                self.hud.labelText = @"no Yummie !! ";
+                self.hud.labelText = @"¡No Yummie! :(";
                 
                 [self.hud showWhileExecuting:@selector(waitForTwoSeconds)
                                     onTarget:self withObject:nil animated:YES];

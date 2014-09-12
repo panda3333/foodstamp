@@ -2,8 +2,23 @@
 //  RestaurantViewController.m
 //  FoodStamp
 //
-//  Created by Red Prado on 4/2/14.
-//  Copyright (c) 2014 FoodStamp. All rights reserved.
+//  Copyright (c) 2014  FoodStamp and/or its affiliates.
+//	All rights reserved.
+//
+//  Created on 4/2/14.
+//  Authors: Red Prado, Jesus Cruz Perez and Jose Daniel Leal Avila.
+//
+//	Purpose:
+//	This file is for the Restaurant Screen.
+//
+//  Modifications:
+//
+//  File    Patching Date in
+//  Version Bug      Production   Author           Modification
+//  ======= ======== ============ ================ ===================================
+//  1.0     00000000 DD-MMM-YYYY  Author's Name    - created
+//
+//  ==================================================================================
 //
 
 #import "RestaurantViewController.h"
@@ -38,7 +53,7 @@
 - (void)loadPage:(NSInteger)page {
     
     if (page < 0 || page >= self.pageImages.count) {
-        // If it's outside the range of what you have to display, then do nothing
+        // If it's outside the range of what needs to be displayed, then do nothing
         return;
     }
     
@@ -73,7 +88,7 @@
 
 - (void)purgePage:(NSInteger)page {
     if (page < 0 || page >= self.pageImages.count) {
-        // If it's outside the range of what you have to display, then do nothing
+        // If it's outside the range of what needs to be displayed, then do nothing
         return;
     }
     
@@ -94,7 +109,7 @@
 
     self.pageControl.currentPage = page;
     
-    // Work out which pages you want to load
+    // Work out which pages shall be loaded
 
     NSInteger firstPage = page - 1;
     NSInteger lastPage = page + pageImages.count;
@@ -104,10 +119,8 @@
         [self purgePage:i];
     }
     
-	// Load pages in our range
+	// Load pages in the proposed range
     for (NSInteger i=firstPage; i<=lastPage; i++) {
-
-        
         [self loadPage:i];
     }
     
@@ -120,52 +133,37 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // Load the pages that are now on screen
     [self loadVisiblePages];
-    
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self queryParseMethod];
     [miniMenuCollectionView reloadData];
-    
-    
 }
 
-    
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:NO];
-    
 }
-    
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Dispose of any resources that could be recreated.
 }
 #pragma mark - Parse retrieve Methods
 
 -(void)queryParseMethod{
     //2
-    
     PFObject *restaurant = self.dish[@"Restaurant"];
     
     [restaurant fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        
         if(!error){
-        
             [self populateImages:restaurant];
-//     NSLog(@"-------------------->%@",restaurant);
+//          NSLog(@"-------------------->%@",restaurant);
             restaurantNameLabel.text = [restaurant objectForKey:@"Name"];
             description = [restaurant objectForKey:@"Description"];
             
-            
-        
         }
     }];
-
-    
 }
 
 - (void)populateImages: (PFObject *) restaurant{
@@ -173,11 +171,9 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Photo_Restaurant"];
     [query whereKey:@"Restaurant" equalTo:restaurant];
     
-    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if(!error){
             self.pageImages = [NSArray arrayWithArray:objects];
-
             self.pageControl.currentPage = 0;
             self.pageControl.numberOfPages = self.pageImages.count;
             
@@ -187,9 +183,7 @@
             for (NSInteger i = 0; i < self.pageImages.count; i++) {
                 [self.pageViews addObject:[NSNull null]];
             }
-            
             [self loadVisiblePages];
-            
             CGSize pagesScrollViewSize = self.scrollView.frame.size;
             self.scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * self.pageImages.count, pagesScrollViewSize.height);
         }
@@ -203,25 +197,23 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     return 1;
 }
 
-- (NSString *)cellIdentifierForIndexPath:(NSIndexPath *)indexPath
-{
+- (NSString *)cellIdentifierForIndexPath:(NSIndexPath *)indexPath{
     /*  o
-     
-     Obtener y definir los cellIdentifiers de manera "Global" énfasis en las comillas.
-     De esta forma podemos llamarlos an HeightForRowAtIndexPath y así obtendremos la altura de cada celda
-     individualmente. Si esto no se obtiene HeightForRowAtIndexPath solo tomará la altura de la primer celda y todas las celdas restantes tendrán la misma altura.
+     Obtain and define the cellIdentifiers in a "Global" manner (emphasis on the quotation marks).
+     This way, it is possible to call them in HeightForRowAtIndexPath and hence obtain the height of each cell
+     individually. If this is not obtained, HeightForRowAtIndexPath would only take the height of the first cell
+     and all remaining cells would have the same height
      ////////////
-     Esto NO permite agustar dinámicamente el tamaño de la celda de acuerdo al texto recibido desde web es por eso que se recomienda no cambiar el layout dinamicamente pues puede provocar errores en el diseño.
+     This DOES NOT allow dynamicallt adjusting the size of the cell in relation to the received text from web, thus
+     it is recommended to NOT change the layout dynamically or else it might provoke design flaws.
      */
     
     NSString *cellIdentifier = nil;
     
-    switch (indexPath.section)
-    {
+    switch (indexPath.section){
         case 0:
             cellIdentifier = @"descripcionRestCell";
             break;
@@ -231,27 +223,22 @@
         case 2:
             cellIdentifier = @"infoCell";
             break;
-    
-            
     }
-    
-    
     return cellIdentifier;
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     /*
-     En este método se relizan 3 pasos:
-     - Se incia por obtener el identificador especifico de cada celda. Almacenandolo en un NSString, esto se logra delegando la obtención del identificador al método cellIdentifierForIndexPath.
-     - Después se genera un diccionarió para almacenar los distintos tamaños de cada celda. Esto es posible ya heightForRowAtIndexPath obtiene la altura desde la celda que existe en el storyboard.
-     Por lo mismo la altura deseda para cada celda debe estár correctamente ajustada desde el storyboard y en el Size Inspector.
-     - Se comprueba que el dicionario esté vacio para inicializarlo y alocar el mismo.
-     - La variable cachedHeight es el número correspondiente a la altura según el identificador.
-     - Una ves obtenida la altura respectiva a la celda se asigna a la celda creada y la cual se mostrará en la aplicación.
-     
-     */
+     This method does 3 steps:
+     1. It starts by obtaining the specific identifier of each cell, saving it in a NSString. This is done by
+     delegating the attainment the identifier to the method cellIdentifierForIndexPath.
+     2. A dictionary is generated to store the different sizes of each cell. This is possible since heightForRowAtIndexPath
+     gets the height from the cell that exists in the StoryBoard. For this same reason, the desired height for each
+     cell must be correctly adjusted from the StoryBoard and in the Size Inspector.
+     3. It is proved that the dictionary is null to then initialize it and allocate it.
+     Once the height is obtained, it is then assigned to the created cell which is then shown in the app.
+    */
     NSString *cellIdentifier = [self cellIdentifierForIndexPath:indexPath];
     static NSMutableDictionary *heightCache;
     if (!heightCache)
@@ -267,15 +254,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     //NSLog(@"indexPath: %ld",(long)indexPath.section);
-    
     if (indexPath.section == 0 ){
-        
         static NSString *cellIdentifier = @"descripcionRestCell";
-        
-     RestInfoCell *cell = [restaurantTableView dequeueReusableCellWithIdentifier: cellIdentifier];
-     //   RestInfoCell *cell = (RestInfoCell*) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        RestInfoCell *cell = [restaurantTableView dequeueReusableCellWithIdentifier: cellIdentifier];
+//      RestInfoCell *cell = (RestInfoCell*) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
         if(cell == nil){
             cell = [[RestInfoCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
@@ -283,30 +266,16 @@
 
         [cell.contentView addSubview:cell.restInfoLabel];
         cell.restInfoLabel.text = description;
-        
-        
-
-        
         return cell;
-        
     }else if (indexPath.section == 1){
-        
-        
         static NSString* cellIdentifier1 = @"userInteractionCell";
-
         UserInteractionCell *cellTwo = (UserInteractionCell *)[restaurantTableView dequeueReusableCellWithIdentifier:cellIdentifier1];
         
-        
         if (cellTwo == nil) {
-            
-            
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:cellIdentifier1 owner:nil options:nil];
             cellTwo  = (UserInteractionCell*)[nib objectAtIndex:0];
             cellTwo = [[UserInteractionCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier1];
-         
-            
         }
-
         
         [cellTwo.contentView addSubview:cellTwo.decideLabel];
             cellTwo.decideLabel.text = @"Menu";
@@ -319,12 +288,12 @@
     //            UIButton *rateButton = [UIButton buttonWithType:UIButtonTypeCustom];
         UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
-        //set the position of the button
+        // Set the position of the button
         menuButton.frame = CGRectMake(cellTwo.frame.origin.x + 45, cellTwo.frame.origin.y + 12, 38, 38);
         mapaButton.frame = CGRectMake(cellTwo.frame.origin.x + 140, cellTwo.frame.origin.y + 12, 38, 38);
         //    rateButton.frame = CGRectMake(cellTwo.frame.origin.x + 171, cellTwo.frame.origin.y + 8, 38, 38);
         shareButton.frame = CGRectMake(cellTwo.frame.origin.x + 233, cellTwo.frame.origin.y + 12, 38, 38);
-        //Define Custom Image
+        // Define Custom Image
         UIImage *menuImage =[UIImage imageNamed: @"boton_menu.png"];
                 UIImage *menuOnImage =[UIImage imageNamed: @"boton_menu-on.png"];
         UIImage *mapImage =[UIImage imageNamed: @"boton_mapa.png"];
@@ -333,7 +302,7 @@
       //      UIImage *rateOnImage =[UIImage imageNamed: @"boton_califica-on.png"];
         UIImage *shareImage =[UIImage imageNamed: @"boton_facebook.png"];
         UIImage *shareOnImage =[UIImage imageNamed: @"boton_facebook-on.png"];
-        //set image for state
+        // Set image for state
         [menuButton setImage:menuImage forState:UIControlStateNormal];
                 [menuButton setImage:menuOnImage forState:UIControlStateSelected];
         [mapaButton setImage:mapImage forState:UIControlStateNormal];
@@ -349,9 +318,9 @@
        [shareButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
         
         menuButton.backgroundColor= [UIColor clearColor];
-            mapaButton.backgroundColor= [UIColor clearColor];
-    //            rateButton.backgroundColor= [UIColor clearColor];
-      //              shareButton.backgroundColor= [UIColor clearColor];
+        mapaButton.backgroundColor= [UIColor clearColor];
+//        rateButton.backgroundColor= [UIColor clearColor];
+//        shareButton.backgroundColor= [UIColor clearColor];
         
         [cellTwo.contentView addSubview:menuButton];
             [cellTwo.contentView addSubview:mapaButton];
@@ -367,7 +336,7 @@
         if (cellThree ==nil) {
             cellThree = [[infoTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier2];
         }
-        //get logo
+        // Get logo
          PFObject *restaurant = dish[@"Restaurant"];
         PFFile *logoImage = [restaurant  objectForKey:@"Logo"];
         
@@ -390,30 +359,22 @@
         UITapGestureRecognizer *phoneLabelTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callRestaurant)];
         [cellThree.contentView addSubview:cellThree.phoneLabel];
         [cellThree.phoneLabel addGestureRecognizer:phoneLabelTouch];
-        
-        
         return cellThree;
     }
     return nil;
-    
 }
 
 -(void)goToMenu :(id)sender{
-
     NSLog(@"To Menu");
     menuViewController *menuInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuView"];
     menuInstance.parseArray = self.parseArray;
     menuInstance.dish = self.dish;
     menuInstance.index = self.index;
     menuInstance.firstTimeInMenu = true;
-    
     [self presentViewController:menuInstance animated:YES completion:nil];
-
-    
 }
 
--(void)goToMap :(id)sender
-{
+-(void)goToMap :(id)sender {
     PFObject *restaurant = self.dish[@"Restaurant"];
     NSLog(@"EL restaurante--------------->%@",restaurant);
     PFGeoPoint *restaurantLocation = [restaurant objectForKey:@"GeoLocation"];
@@ -424,7 +385,7 @@
     [_destination setName:[restaurant objectForKey:@"Name"]];
     [_destination openInMapsWithLaunchOptions:nil];
     
-    //mostrar locación de usuario en el mapa solo funciona en dispositivos no simulador.
+    // Show user location in the map only works with a device, not with the simulator.
     _minMapView.showsUserLocation = YES;
     
     MKUserLocation *userLocation = _minMapView.userLocation;
@@ -432,9 +393,7 @@
                                                                    20000, 20000);
     
     [_minMapView setRegion:region animated:NO];
-    
     //_minMapView.delegate = self;
-    
     [self getDirections];
 }
 
@@ -480,9 +439,7 @@
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         PFObject *restaurant = dish[@"Restaurant"];
-                PFFile *logoImage = [restaurant  objectForKey:@"Logo"];
-
-        
+        PFFile *logoImage = [restaurant  objectForKey:@"Logo"];
         
         NSString *platilloName = [dish objectForKey:@"Name"];
         NSString *initialText = @"de ";
@@ -491,8 +448,9 @@
         NSString *socialMessage = [NSString stringWithFormat:@"%@ %@ %@ %@",platilloName,initialText,restaurantName, endingText];
         [controller setInitialText:socialMessage];
         // [controller addURL:[NSURL URLWithString:@"http://www.foodstamp.mx/landing/"]];
-        //Si seteamos este podemos agregar la imagen del platillo al facebook del wey que lo va a compartir, esta chido creo.
-        //Obtener image y agregarla
+        
+        // If this can be set, the image of the dish can be added to the facebook of the user who's going to share it, which might be cool
+        // Get image and add it
         [logoImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error){
             if(!error){
                 UIImage *logoFinal;
@@ -500,13 +458,9 @@
                         [controller addImage:logoFinal];
             }
         }];
-
-
-
         
         [self presentViewController:controller animated:YES completion:Nil];
     }
-
 }
 
 - (IBAction)backButton:(id)sender {

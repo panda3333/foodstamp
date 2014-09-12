@@ -1,10 +1,25 @@
 //
 //  FoodStampTests.m
-//  FoodStampTests
+//  FoodStamp
+//
+//  Copyright (c) 2014  FoodStamp and/or its affiliates.
+//	All rights reserved.
 //
 //  Created by Red Prado on 3/28/14.
-//  Copyright (c) 2014 FoodStamp. All rights reserved.
 //
+//	Purpose:
+//	This file is for testing purposes.
+//
+//  Modifications:
+//
+//  File    Patching Date in
+//  Version Bug      Production   Author           Modification
+//  ======= ======== ============ ================ ===================================
+//  1.0     00000000 DD-MMM-YYYY  Author's Name    - created
+//
+//  ==================================================================================
+//
+
 
 #import <XCTest/XCTest.h>
 

@@ -2,8 +2,23 @@
 //  LocationViewController.m
 //  FoodStamp
 //
-//  Created by Red Prado on 4/3/14.
-//  Copyright (c) 2014 Foodstamp. All rights reserved.
+//  Copyright (c) 2014  FoodStamp and/or its affiliates.
+//	All rights reserved.
+//
+//  Created on 4/3/14.
+//  Authors: Red Prado and Jesus Cruz Perez.
+//
+//	Purpose:
+//	This file is for the Location Screen.
+//
+//  Modifications:
+//
+//  File    Patching Date in
+//  Version Bug      Production   Author           Modification
+//  ======= ======== ============ ================ ===================================
+//  1.0     00000000 DD-MMM-YYYY  Author's Name    - created
+//
+//  ==================================================================================
 //
 
 #import "LocationViewController.h"
@@ -38,7 +53,7 @@
     [_destination setName:[restaurant objectForKey:@"Name"]];
     [_destination openInMapsWithLaunchOptions:nil];
     
-    //show user location at the map only works in devices and not in the simulator.
+    // Show user location at the map only works in devices and not in the simulator.
     minMapView.showsUserLocation = YES;
     
     MKUserLocation *userLocation = minMapView.userLocation;
@@ -58,10 +73,7 @@
     restHeaderNameLabel.text = [restaurant objectForKey:@"Name"];
 }
 
-
-
-- (void)getDirections
-{
+- (void)getDirections {
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
     
     request.source = [MKMapItem mapItemForCurrentLocation];
@@ -166,12 +178,8 @@
     [minMapView setShowsUserLocation:NO];
 }
 
-
-
 - (IBAction)backButton:(id)sender {
-    
     NSLog(@"ET phone Home ");
-    
     RestaurantViewController *preViewInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantView"];
     preViewInstance.parseArray = self.parseArray;
         preViewInstance.dish = self.dish;

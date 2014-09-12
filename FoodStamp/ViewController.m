@@ -2,8 +2,23 @@
 //  ViewController.m
 //  FoodStamp
 //
-//  Created by Foodstamp on 3/28/14.
-//  Copyright (c) 2014 FoodStamp. All rights reserved.
+//  Copyright (c) 2014  FoodStamp and/or its affiliates.
+//	All rights reserved.
+//
+//  Created on 3/28/14.
+//  Authors: Red Prado, Jesus Cruz Perez and Jose Daniel Leal Avila.
+//
+//	Purpose:
+//	This file is for the Home Screen.
+//
+//  Modifications:
+//
+//  File    Patching Date in
+//  Version Bug      Production   Author           Modification
+//  ======= ======== ============ ================ ===================================
+//  1.0     00000000 DD-MMM-YYYY  Author's Name    - created
+//
+//  ==================================================================================
 //
 
 #import "ViewController.h"
@@ -281,7 +296,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     // If you need to use the touched cell, you can retrieve it like so
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+//    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
 //  NSLog(@"touched cell %@ at indexPath %@", cell, indexPath);
     
     PlatilloViewController *dishViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PlatilloView"];

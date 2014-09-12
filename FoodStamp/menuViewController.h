@@ -2,8 +2,23 @@
 //  menuViewController.h
 //  FoodStamp
 //
-//  Created by Red Prado on 6/12/14.
-//  Copyright (c) 2014 FoodStamp. All rights reserved.
+//  Copyright (c) 2014  FoodStamp and/or its affiliates.
+//	All rights reserved.
+//
+//  Created on 6/12/14.
+//  Authors: Red Prado, Jesus Cruz Perez and Jose Daniel Leal Avila.
+//
+//	Purpose:
+//	This file is for the Menu Screen.
+//
+//  Modifications:
+//
+//  File    Patching Date in
+//  Version Bug      Production   Author           Modification
+//  ======= ======== ============ ================ ===================================
+//  1.0     00000000 DD-MMM-YYYY  Author's Name    - created
+//
+//  ==================================================================================
 //
 
 #import <UIKit/UIKit.h>
