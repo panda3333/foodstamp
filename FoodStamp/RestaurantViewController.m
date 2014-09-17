@@ -355,10 +355,17 @@
                 cellThree.phoneLabel.text=[restaurant objectForKey:@"Phone"];
             }
         }];
-        
+
         UITapGestureRecognizer *phoneLabelTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callRestaurant)];
+        phoneLabelTouch.numberOfTapsRequired = 1;
         [cellThree.contentView addSubview:cellThree.phoneLabel];
         [cellThree.phoneLabel addGestureRecognizer:phoneLabelTouch];
+        
+        UITapGestureRecognizer *telIconTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callRestaurant)];
+        phoneLabelTouch.numberOfTapsRequired =1;
+        [cellThree.contentView addSubview:cellThree.telIconImage];
+        [cellThree.contentView addGestureRecognizer:telIconTouch];
+        
         return cellThree;
     }
     return nil;
@@ -474,6 +481,7 @@
 }
 
 -(void) callRestaurant{
+
     NSString *phoneNumber = [@"telprompt://" stringByAppendingString:restaurantPhone];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     NSLog(@"calling");

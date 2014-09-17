@@ -29,5 +29,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *horarioLabel;
 @property (strong, nonatomic) IBOutlet UILabel *paymentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *telIconImage;
+
 
 @end

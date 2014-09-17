@@ -402,40 +402,40 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wah-hC-kRv">
-                                                            <rect key="frame" x="7" y="20" width="97" height="76"/>
+                                                            <rect key="frame" x="17" y="16" width="114" height="100"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mapa-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xyz-YQ-kzw">
-                                                            <rect key="frame" x="114" y="18" width="27" height="29"/>
+                                                            <rect key="frame" x="146" y="11" width="27" height="29"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_hora.png" translatesAutoresizingMaskIntoConstraints="NO" id="jn4-XB-V2y">
-                                                            <rect key="frame" x="115" y="54" width="23" height="24"/>
+                                                            <rect key="frame" x="149" y="49" width="23" height="24"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_tarjeta.png" translatesAutoresizingMaskIntoConstraints="NO" id="qVc-aO-h4P">
-                                                            <rect key="frame" x="115" y="86" width="24" height="19"/>
+                                                            <rect key="frame" x="149" y="82" width="24" height="19"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_tel.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q34-s6-XwO">
-                                                            <rect key="frame" x="117" y="112" width="18" height="18"/>
+                                                            <rect key="frame" x="152" y="109" width="18" height="18"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="---" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9q-CN-YoK">
-                                                            <rect key="frame" x="149" y="56" width="169" height="21"/>
+                                                            <rect key="frame" x="179" y="50" width="137" height="29"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sólo efectivo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRE-tz-tlD">
-                                                            <rect key="frame" x="151" y="85" width="138" height="21"/>
+                                                            <rect key="frame" x="179" y="80" width="137" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="De1-Gd-PZl">
-                                                            <rect key="frame" x="149" y="113" width="138" height="21"/>
+                                                            <rect key="frame" x="180" y="107" width="122" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pk6-nS-brz">
-                                                            <rect key="frame" x="149" y="14" width="169" height="37"/>
+                                                            <rect key="frame" x="176" y="11" width="131" height="40"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="textColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
@@ -873,7 +873,7 @@ Cg
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mapa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhE-Rc-GWB">
-                                                    <rect key="frame" x="134" y="50" width="49" height="21"/>
+                                                    <rect key="frame" x="136" y="51" width="49" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.96470588235294119" green="0.57647058823529407" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -937,10 +937,10 @@ Cg
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_tarjeta.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kf5-kE-Cfl">
                                                     <rect key="frame" x="149" y="82" width="24" height="19"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_tel.png" translatesAutoresizingMaskIntoConstraints="NO" id="u1U-Yl-G4U">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_tel.png" translatesAutoresizingMaskIntoConstraints="NO" id="u1U-Yl-G4U">
                                                     <rect key="frame" x="152" y="109" width="18" height="18"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Br-g5-haE">
+                                                <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Br-g5-haE">
                                                     <rect key="frame" x="180" y="107" width="122" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
@@ -956,6 +956,7 @@ Cg
                                             <outlet property="infoLogoImage" destination="vaA-tI-wZV" id="bdF-YH-b4J"/>
                                             <outlet property="paymentLabel" destination="tij-J5-QQN" id="cTe-fe-Ann"/>
                                             <outlet property="phoneLabel" destination="2Br-g5-haE" id="TXd-ET-cJf"/>
+                                            <outlet property="telIconImage" destination="u1U-Yl-G4U" id="eEb-o9-Nl9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
