@@ -328,7 +328,7 @@
         [cellTwo.contentView addSubview:shareButton];
         
         return cellTwo;
-    }if(indexPath.section ==2){
+    }else if(indexPath.section ==2){
         
         static NSString* cellIdentifier2 =@"infoCell";
         infoTableViewCell *cellThree = (infoTableViewCell *)[restaurantTableView dequeueReusableCellWithIdentifier:cellIdentifier2 ];
@@ -356,15 +356,42 @@
             }
         }];
 
-        UITapGestureRecognizer *phoneLabelTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callRestaurant)];
-        phoneLabelTouch.numberOfTapsRequired = 1;
-        [cellThree.contentView addSubview:cellThree.phoneLabel];
-        [cellThree.phoneLabel addGestureRecognizer:phoneLabelTouch];
+     
+        [cellThree.contentView addSubview:cellThree.directionIconImage];
+        UITapGestureRecognizer *directionIconImageTouch = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goToMap:)];
+        directionIconImageTouch.numberOfTapsRequired =1;
+        cellThree.directionIconImage.userInteractionEnabled =YES;
+        [cellThree.directionIconImage addGestureRecognizer:directionIconImageTouch];
+    
+        [cellThree.contentView addSubview:cellThree.directionTextView];
+        UITapGestureRecognizer *directionTextViewTouch = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(goToMap:)];
+        directionTextViewTouch.numberOfTapsRequired =1;
+        cellThree.directionTextView.userInteractionEnabled = YES;
+        [cellThree.directionTextView addGestureRecognizer:directionTextViewTouch];
         
-        UITapGestureRecognizer *telIconTouch = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callRestaurant)];
-        phoneLabelTouch.numberOfTapsRequired =1;
+        [cellThree.contentView addSubview:cellThree.horarioIconImage];
+        [cellThree.contentView addSubview:cellThree.horarioLabel];
+        [cellThree.contentView addSubview:cellThree.paymentIconImage];
+        [cellThree.contentView addSubview:cellThree.paymentLabel];
+        
         [cellThree.contentView addSubview:cellThree.telIconImage];
-        [cellThree.contentView addGestureRecognizer:telIconTouch];
+        UITapGestureRecognizer *telIconImageTouch = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(callRestaurant)];
+        telIconImageTouch.numberOfTapsRequired =1;
+        cellThree.telIconImage.userInteractionEnabled =YES ;
+        [cellThree.telIconImage addGestureRecognizer:telIconImageTouch];
+        
+        
+        [cellThree.contentView addSubview:cellThree.phoneLabel];
+        UITapGestureRecognizer *phoneLableTouch = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(callRestaurant)];
+        phoneLableTouch.numberOfTapsRequired =1;
+        cellThree.phoneLabel.userInteractionEnabled =YES;
+        [cellThree.phoneLabel addGestureRecognizer:phoneLableTouch];
+
+        
+        
+
+        
+
         
         return cellThree;
     }
@@ -396,8 +423,7 @@
     _minMapView.showsUserLocation = YES;
     
     MKUserLocation *userLocation = _minMapView.userLocation;
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate,
-                                                                   20000, 20000);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate,20000, 20000);
     
     [_minMapView setRegion:region animated:NO];
     //_minMapView.delegate = self;

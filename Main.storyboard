@@ -404,7 +404,7 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wah-hC-kRv">
                                                             <rect key="frame" x="17" y="16" width="114" height="100"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mapa-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xyz-YQ-kzw">
+                                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mapa-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xyz-YQ-kzw">
                                                             <rect key="frame" x="146" y="11" width="27" height="29"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_hora.png" translatesAutoresizingMaskIntoConstraints="NO" id="jn4-XB-V2y">
@@ -434,7 +434,7 @@
                                                             <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pk6-nS-brz">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pk6-nS-brz">
                                                             <rect key="frame" x="176" y="11" width="131" height="40"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="textColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
@@ -918,7 +918,7 @@ Cg
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icono_hora.png" translatesAutoresizingMaskIntoConstraints="NO" id="s40-Uh-nAy">
                                                     <rect key="frame" x="149" y="49" width="23" height="24"/>
                                                 </imageView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q27-ze-9gh">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q27-ze-9gh">
                                                     <rect key="frame" x="176" y="11" width="131" height="40"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
@@ -951,9 +951,12 @@ Cg
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="directionIconImage" destination="8t3-7v-dRo" id="9Ng-bp-MIV"/>
                                             <outlet property="directionTextView" destination="Q27-ze-9gh" id="gA6-7Y-hqn"/>
+                                            <outlet property="horarioIconImage" destination="s40-Uh-nAy" id="LtU-Ww-4Bq"/>
                                             <outlet property="horarioLabel" destination="Han-tp-I6n" id="g21-R4-Yei"/>
                                             <outlet property="infoLogoImage" destination="vaA-tI-wZV" id="bdF-YH-b4J"/>
+                                            <outlet property="paymentIconImage" destination="Kf5-kE-Cfl" id="2HG-gs-9VI"/>
                                             <outlet property="paymentLabel" destination="tij-J5-QQN" id="cTe-fe-Ann"/>
                                             <outlet property="phoneLabel" destination="2Br-g5-haE" id="TXd-ET-cJf"/>
                                             <outlet property="telIconImage" destination="u1U-Yl-G4U" id="eEb-o9-Nl9"/>

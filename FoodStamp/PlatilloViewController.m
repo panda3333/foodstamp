@@ -39,6 +39,7 @@
 @property (nonatomic, strong) MBProgressHUD *hud;
 @property (nonatomic, strong) MBProgressHUD *mainHud;
 
+
 @end
 
 @implementation PlatilloViewController{
@@ -337,6 +338,12 @@
         cellFour.direcIconImage.userInteractionEnabled =YES;
         [cellFour.direcIconImage addGestureRecognizer:direcImageTouch];
         
+        [cellFour.contentView addSubview:cellFour.directionTextView];
+        UITapGestureRecognizer *directionTextTouch =    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToMap:)];
+        directionTextTouch.numberOfTapsRequired =1;
+        cellFour.directionTextView.userInteractionEnabled =YES;
+        [cellFour.directionTextView addGestureRecognizer:directionTextTouch];
+        
         [cellFour.contentView addSubview:cellFour.horaIconImage];
         [cellFour.contentView addSubview:cellFour.pagoIconImage];
         [cellFour.contentView addSubview:cellFour.telIconImage];
@@ -530,9 +537,59 @@
 
 -(void)goToMap :(id)sender
 {
-//    NSLog(@"To Map");
-//    LocationViewController *mapInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"LocationView"];
-//    mapInstance.dish = self.dish;
-//    [self presentViewController:mapInstance animated:YES completion:nil];
+    PFObject *dish = [self.parseArray objectAtIndex:self.index];
+    NSLog(@"To Map");
+    PFObject *restaurant = dish[@"Restaurant"];
+    PFGeoPoint *restaurantLocation = [restaurant objectForKey:@"GeoLocation"];
+    NSLog(@"%@",restaurantLocation);
+    
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake(restaurantLocation.latitude, restaurantLocation.longitude) addressDictionary:nil];
+    _destination = [[MKMapItem alloc] initWithPlacemark:placemark];
+    [_destination setName:[restaurant objectForKey:@"Name"]];
+    [_destination openInMapsWithLaunchOptions:nil];
+  
+    // Show user location in the map only works with a device, not with the simulator.
+    _minMapView.showsUserLocation = YES;
+    
+    MKUserLocation *userLocation = _minMapView.userLocation;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.location.coordinate,20000, 20000);
+    
+    [_minMapView setRegion:region animated:NO];
+    //_minMapView.delegate = self;
+    [self getDirections];
+    
 }
+- (void)getDirections{
+    MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+    
+    request.source = [MKMapItem mapItemForCurrentLocation];
+    request.destination = _destination;
+    request.requestsAlternateRoutes = NO;
+    
+    MKDirections *directions =
+    [[MKDirections alloc] initWithRequest:request];
+    
+    [directions calculateDirectionsWithCompletionHandler:
+     ^(MKDirectionsResponse *response, NSError *error) {
+         if (error) {
+             // Handle error
+         } else {
+             [self showRoute:response];
+         }
+     }];
+}
+
+-(void)showRoute:(MKDirectionsResponse *)response{
+    for (MKRoute *route in response.routes)
+    {
+        [_routeMap
+         addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+        
+        for (MKRouteStep *step in route.steps)
+        {
+            NSLog(@"%@", step.instructions);
+        }
+    }
+}
+
 @end

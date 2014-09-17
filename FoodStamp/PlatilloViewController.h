@@ -24,6 +24,7 @@
 #import <UIKit/UIKit.h>
 #import "FotoPlatilloCell.h"
 #import "PlatilloTableViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface PlatilloViewController : UIViewController 
 {
@@ -42,6 +43,9 @@
 @property (strong, nonatomic) NSMutableArray *preParseArray;
 @property (strong, nonatomic) PFObject* dish;
 
+@property (strong, nonatomic) MKMapView *minMapView;
+@property (strong, nonatomic) MKMapView *routeMap;
+@property (strong, nonatomic) MKMapItem *destination;
 
 
 
