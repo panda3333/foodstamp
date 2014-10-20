@@ -236,7 +236,7 @@
     HomePlatilloCell *cell = (HomePlatilloCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     PFObject *imageObject = [parseArray objectAtIndex:indexPath.row];
-    PFFile *imageFile = [imageObject objectForKey:@"Photo"];
+    PFFile *imageFile = [imageObject objectForKey:@"thumbnail"];
     
     NSString *restaurantName = [imageObject objectForKey:@"restaurantName"];
     NSString *platilloName = [imageObject objectForKey:@"Name" ];
