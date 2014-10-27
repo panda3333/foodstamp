@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jSj-Lu-23W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="jSj-Lu-23W">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -1007,12 +1007,26 @@ Cg
                                     <action selector="loginPressed:" destination="O1U-OT-dqa" eventType="touchUpInside" id="1ip-ji-rX0"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eJa-Em-GKV">
-                                <rect key="frame" x="142" y="233" width="37" height="37"/>
-                            </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FoodStamp_logo-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="81z-vd-sjS">
                                 <rect key="frame" x="42" y="33" width="237" height="62"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eJa-Em-GKV">
+                                <rect key="frame" x="131" y="255" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="YMa-o5-SxG">
+                                <rect key="frame" x="140" y="400" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.97254901959999995" green="0.57647058819999997" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="O1U-OT-dqa" kind="push" id="Uvx-VD-Xrw"/>
+                                </connections>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="n70-kf-7tS">
+                                <rect key="frame" x="55" y="103" width="211" height="303"/>
+                                <connections>
+                                    <outlet property="delegate" destination="O1U-OT-dqa" id="GqV-07-1y7"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1020,6 +1034,8 @@ Cg
                     <connections>
                         <outlet property="activityLogin" destination="eJa-Em-GKV" id="PZM-TB-7xD"/>
                         <outlet property="btnLogin" destination="U1o-nf-yb1" id="4kB-vi-fay"/>
+                        <outlet property="pageControl" destination="YMa-o5-SxG" id="0Z0-xg-5ri"/>
+                        <outlet property="scrollView" destination="n70-kf-7tS" id="OVP-da-hNr"/>
                         <segue destination="vXZ-lx-hvc" kind="modal" identifier="LoginSuccessful" animates="NO" id="sPV-FK-q8v"/>
                     </connections>
                 </viewController>
@@ -1077,4 +1093,7 @@ Cg
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="rCE-wx-9sr"/>
+    </inferredMetricsTieBreakers>
 </document>

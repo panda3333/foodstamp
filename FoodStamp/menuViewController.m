@@ -90,7 +90,7 @@
     menuCollectionViewCell *cell = ( menuCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath]; 
     
     PFObject *imageObject = [menuArray objectAtIndex:indexPath.row];
-    PFFile *imageFile = [imageObject objectForKey:@"Photo"];
+    PFFile *imageFile = [imageObject objectForKey:@"thumbnail"];
 
     NSString *platilloName = [imageObject objectForKey:@"Name"];
     NSNumber *platilloPrice = [imageObject objectForKey:@"Price"];
