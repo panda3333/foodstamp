@@ -165,6 +165,8 @@
 }
 
 - (void) initializeScrollView{
+    
+    
     self.pageImages = [[NSArray alloc] initWithObjects:
                  [UIImage imageNamed:@"FApp_mockup1.png"],
                  [UIImage imageNamed:@"FApp_mockup2.png"],
@@ -186,7 +188,17 @@
     }
     [self.scrollView setShowsHorizontalScrollIndicator:NO];
     [self.scrollView setShowsVerticalScrollIndicator:NO];
+    
+
+    
+
+
+
+    
 }
+
+
+
 
 -(void) scrollViewWillAppear {
     
