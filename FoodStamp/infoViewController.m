@@ -31,7 +31,7 @@
 
 @implementation infoViewController
 
-@synthesize parseArray;
+@synthesize parseArray, index;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,10 +57,14 @@
 
 
 - (IBAction)backHome:(id)sender {
-    ViewController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
-    homeViewController.parseArray = self.parseArray;
-    [self presentViewController:homeViewController animated:YES completion:nil];
+    ViewController *homeinstance = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
+    homeinstance.parseArray = self.parseArray;
+    homeinstance.index = self.index;
+    [self presentViewController:homeinstance animated:YES completion:nil];
+
 }
+
+
 
 - (IBAction)logOut:(id)sender {
     

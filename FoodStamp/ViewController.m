@@ -442,7 +442,8 @@
     
     NSLog(@"to log in !!! and beyoooond!!");
     infoViewController *aboutInstance = [self.storyboard instantiateViewControllerWithIdentifier:@"aboutView"];
-    //aboutInstance.parseArray = self.parseArray;
+    aboutInstance.index = self.index;
+    aboutInstance.parseArray = self.parseArray;
     
     [self presentViewController:aboutInstance animated:YES completion:nil];
 

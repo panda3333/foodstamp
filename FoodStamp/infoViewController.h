@@ -6,6 +6,7 @@
 //	All rights reserved.
 //
 //  Created by Red Prado on 6/14/14.
+//  Authors: Red Prado, Jesus Cruz Perez and Jose Daniel Leal Avila.
 //
 //	Purpose:
 //	This file is for the Information Disclaimer Screen View. Content may include code created and shared by Facebook, Inc.
@@ -26,6 +27,7 @@
 @interface infoViewController : UIViewController
 
 @property (strong,nonatomic) NSMutableArray *parseArray;
+@property (nonatomic, assign) int index;
 
 - (IBAction)backHome:(id)sender;
 - (IBAction)logOut:(id)sender;
