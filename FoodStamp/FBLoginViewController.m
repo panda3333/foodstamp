@@ -168,11 +168,11 @@
     
     
     self.pageImages = [[NSArray alloc] initWithObjects:
-                 [UIImage imageNamed:@"FApp_mockup1.png"],
-                 [UIImage imageNamed:@"FApp_mockup2.png"],
-                 [UIImage imageNamed:@"FApp_mockup3.png"],
-                [UIImage imageNamed:@"FApp_mockup4.png"],
-                [UIImage imageNamed:@"FApp_mockup5.png"],
+                 [UIImage imageNamed:@"App_Tutorial1.png"],
+                 [UIImage imageNamed:@"App_Tutorial2.png"],
+                 [UIImage imageNamed:@"App_Tutorial3.png"],
+                 [UIImage imageNamed:@"App_Tutorial4.png"],
+                 [UIImage imageNamed:@"App_Tutorial5.png"],
                  nil];
     NSInteger pageCount = self.pageImages.count;
 
