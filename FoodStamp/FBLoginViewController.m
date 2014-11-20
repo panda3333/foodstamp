@@ -189,12 +189,6 @@
     [self.scrollView setShowsHorizontalScrollIndicator:NO];
     [self.scrollView setShowsVerticalScrollIndicator:NO];
     
-
-    
-
-
-
-    
 }
 
 
